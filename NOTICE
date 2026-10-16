@@ -47,3 +47,20 @@ Additional adapted Ambition artwork source code (all regenerable Python):
 These painters have had their Ambition package imports and sheet-publishing
 plumbing adapted to work standalone, while preserving geometry, palettes,
 and source animation timing. The generated cache stays excluded from Git.
+
+Additional adapted original Ambition sources in this fidelity pass:
+  tools/ambition_art/snakes_on_planes.py
+    .../targets/characters/_snakes_on_planes_common.py
+    Original flying paper-plane and Cartesian-plane snake rig and clips.
+  tools/ambition_art/fire_orb.py
+    .../targets/props/entities.py::fire_orb, void_orb
+    The rotating Fire Bar ball and the Void Lizard's shot.
+  tools/ambition_art/coconut.py
+    .../targets/props/coconut.py
+    The source-generated Laden Swallow coconut projectile.
+
+Original game motion rules used as reference:
+  game/ambition_demo_mary_o/src/plant.rs
+  game/ambition_demo_mary_o/src/scenery.rs
+  game/ambition_demo_mary_o/assets/data/mary_o_rules.ron
+  game/ambition_demo_mary_o/tools/mary_o_level.py

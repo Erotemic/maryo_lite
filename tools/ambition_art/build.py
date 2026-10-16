@@ -16,6 +16,7 @@ from PIL import Image
 
 from . import cosmic_animation, cosmic_art, props, tiles, construction, spark, lift
 from . import ai_slop, solid_snake, snake_plant, void_star, void_lizard
+from . import snakes_on_planes, fire_orb, coconut
 
 SOURCES = Path(__file__).resolve().parent
 ROOT = SOURCES.parents[1]
@@ -133,8 +134,20 @@ def _build_enemies():
     for name, module in ENEMIES.items():
         folder = OUTPUT / 'enemies' / name
         rows = _frames(module.ROWS, module._render_frame, folder)
+        extra = {'anchor': snake_plant.ROOT} if name == 'snake_plant' else {}
         (folder / 'manifest.json').write_text(json.dumps({
-            'source': f'Ambition {name}', 'rows': rows,
+            'source': f'Ambition {name}', 'rows': rows, **extra,
+        }, indent=2) + '\n')
+    for kind, spec in (
+        ('npc_snakes_on_a_paper_plane', snakes_on_planes.PAPER_SPEC),
+        ('npc_snakes_on_a_cartesian_plane', snakes_on_planes.CARTESIAN_SPEC),
+    ):
+        folder = OUTPUT / 'enemies' / kind
+        rows = _frames(snakes_on_planes.ROWS,
+                       lambda row, i, n: snakes_on_planes.render_frame(spec, row, i, n),
+                       folder)
+        (folder / 'manifest.json').write_text(json.dumps({
+            'source': f'Ambition {spec.target_name}', 'rows': rows,
         }, indent=2) + '\n')
 
 
@@ -151,6 +164,9 @@ def _build_construction():
     for kind, module, frame_fn, frames, delay in (
         ('super_mary_o_spark', spark, spark._spark_frame, spark.FRAMES, 60),
         ('super_mary_o_lift', lift, lift._lift_frame, lift.FRAMES, 110),
+        ('fire_orb', fire_orb, fire_orb._render_frame, 8, 75),
+        ('void_orb', fire_orb, fire_orb.render_void_orb, 1, 150),
+        ('coconut', coconut, coconut._render_frame, 1, 200),
     ):
         folder = OUTPUT / 'construction' / kind
         rows = _frames([('idle', frames, delay)], frame_fn, folder)
@@ -186,6 +202,11 @@ def generate(force: bool = False) -> bool:
                 OUTPUT / 'enemies' / 'void_lizard' / 'walk' / '007.png',
                 OUTPUT / 'enemies' / 'solid_snake' / 'walk' / '007.png',
                 OUTPUT / 'enemies' / 'ai_slop' / 'walk' / '007.png',
+                OUTPUT / 'enemies' / 'npc_snakes_on_a_paper_plane' / 'fly' / '007.png',
+                OUTPUT / 'enemies' / 'npc_snakes_on_a_cartesian_plane' / 'fly' / '007.png',
+                OUTPUT / 'construction' / 'fire_orb' / 'idle' / '007.png',
+                OUTPUT / 'construction' / 'void_orb' / 'idle' / '000.png',
+                OUTPUT / 'construction' / 'coconut' / 'idle' / '000.png',
                 OUTPUT / 'birds' / 'european_swallow.png',
                 OUTPUT / 'construction' / 'super_mary_o_lift' / 'idle' / '003.png',
                 OUTPUT / 'construction' / 'super_mary_o_flag' / 'idle' / '003.png']

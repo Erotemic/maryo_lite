@@ -17,8 +17,13 @@ state explicit rather than implying features are exact.
 | Original Cosmic painter (`_mary_o_v2_cosmic_art.py`, `mary_o_v2_cosmic.py`) | `tools/ambition_art/cosmic_art.py`, `cosmic_animation.py` | Real source-painted night-sky gown, long hair, wings, crown, ring; all fourteen source rows including the 36/18-frame transform/exit; **no shader required** |
 | Original tileset and pickups | `tools/ambition_art/tiles.py`, `props.py` | 17 original tiles, animated coins and powerups |
 | Original construction art | `tools/ambition_art/construction.py`, `lift.py`, `spark.py` | Pipe segments, flag and pole, lava, switch, gate, clockwork lift and projectiles |
+| Fire Bars | `motion.py`, `game._hazards_update`, source `fire_orb.py` | All 76 orbs follow authored clockwise/counterclockwise LDtk paths; collision and sprites move together |
+| Moving ferries and lift chains | `motion.ping_pong`, `motion.wrapping_lift` | All 39 moving platforms use authored sweep/loop and speed, including ride/contact behavior |
+| Snake Plant emergence | `motion.wanted_plant_out`, `art_assets.draw_plant` | Original 330-tick rise/hide cycle, pot mouth anchor and pipe occlusion |
+| Flying snake art | `tools/ambition_art/snakes_on_planes.py` | Original source painters for paper and Cartesian planes, 17 placed enemies |
+| Fire / void orbs and coconuts | `tools/ambition_art/fire_orb.py`, `coconut.py` | Generated source art for moving hazards and enemy projectiles |
 | Parallax scenery | `graphics.Painter` | Procedural distance layers and original terrain sprites; still simplified |
-| World enemies | `tools/ambition_art/{ai_slop,solid_snake,snake_plant,void_star,void_lizard}.py` | Original source-painted animations for five types and swallow SVGs; simplified AI state machines |
+| World enemies | `tools/ambition_art/{ai_slop,solid_snake,snake_plant,void_star,void_lizard,snakes_on_planes}.py` | All eight placed character kinds source-painted or from swallow SVG; simplified AI state machines |
 | Camera and room history | `Painter.track()`, `Game.room_cache` | Bidirectional follow, left/right course travel and per-room state snapshots on revisit |
 | Castle end | `game._goal_tick()` | Switch, sequential broken planks, boss defeat, gate, rescue robot and timed dialogue |
 | Engine music/SFX | `tools/compose_audio.py` | Five new chiptune loops and mathematical SFX; not original score |
@@ -38,12 +43,15 @@ The runtime uses running, airborne, crouch, shooting, skidding, death and
 composite transformations. Climbing/swimming are pose-lab samples, not full
 world mechanics in this version.
 
+Read [the enumerated source-fidelity audit](FIDELITY_AUDIT.md) for exact
+LDtk entity coverage and known remaining differences.
+
 ## Remaining playtest work
 
 - The Pygame window, timing, keyboard feel, sprite alignment, and long rooms
   must be exercised by a person on an actual graphical installation.
-- Enemy behaviors and hazard trajectories are approximations; Rust test
-  outcomes do not imply parity with this Python implementation.
+- Enemy brains remain simplified. **Hazard paths and lift sweeps now use
+  authored values**, but this is not a Rust simulation parity claim.
 - Camera zones, every background and foreground source generator, and
   small sound details are not yet ported. Enemies use original sprites but
   their simplified motion/state machines do not necessarily match Rust.

@@ -12,6 +12,7 @@ import math
 import pygame
 
 from .content import ASSETS
+from .motion import plant_placement
 
 
 class SourceArt:
@@ -20,7 +21,9 @@ class SourceArt:
         self.cosmic = self._manifest('cosmic')
         self.enemies = {
             kind: self._manifest('enemies', kind)
-            for kind in ('ai_slop', 'solid_snake', 'snake_plant', 'void_star', 'void_lizard')
+            for kind in ('ai_slop', 'solid_snake', 'snake_plant', 'void_star', 'void_lizard',
+                         'npc_snakes_on_a_paper_plane',
+                         'npc_snakes_on_a_cartesian_plane')
         }
         self.props = {
             kind: self._manifest('props', kind)
@@ -124,10 +127,52 @@ class SourceArt:
         img = self._scaled(path, round(width),round(height), False, True)
         canvas.blit(img,(round(center_bottom[0]-width/2),round(center_bottom[1]-height)))
 
+    def draw_fire_orb(self, canvas, center, seconds, *, diameter=30):
+        # Source-painted FireOrb asset; its animation and hitbox share the
+        # position sampled by game._hazards_update at the same 60 Hz tick.
+        _image, _data, path = self.frame('construction', 'fire_orb', 'idle', seconds)
+        sprite = self._scaled(path, round(diameter), round(diameter), False, True)
+        canvas.blit(sprite, (round(center[0] - diameter/2), round(center[1] - diameter/2)))
+
+    def draw_enemy_projectile(self, canvas, kind, center, seconds):
+        """The authored Void Orb and Laden Swallow coconut, no star placeholder."""
+        diameter = {'void_orb': 24, 'coconut': 21}[kind]
+        _src, _meta, path = self.frame('construction', kind, 'idle', seconds)
+        sprite = self._scaled(path, diameter, diameter, False, True)
+        canvas.blit(sprite, (round(center[0]-diameter/2),
+                             round(center[1]-diameter/2)))
+
+    def draw_plant(self, canvas, enemy, feet, seconds):
+        if enemy.phase == 'hidden':
+            return
+        src, data, path = self.frame('enemies', 'snake_plant', 'idle', seconds)
+        bbox = data['bbox']
+        anchor = self.enemies['snake_plant']['anchor']
+        # `feet` are screen coordinates; convert the mouth to screen space
+        # with the same camera offset used for every other enemy.
+        mouth_y = ((feet[1] - (enemy.y + enemy.h)) + enemy.pot_y
+                   if enemy.pot_y is not None else feet[1])
+        left, top, w, h = plant_placement(src.get_width(), src.get_height(),
+                                          bbox[1], anchor[0], anchor[1],
+                                          feet[0], mouth_y,
+                                          enemy.exposure, enemy.h)
+        sprite = self._scaled(path, round(w), round(h), enemy.facing < 0, True)
+        # The same pipe mouth bounds both sprite emergence and hitbox logic.
+        # The painter draws the pipe in a later foreground pass, while this
+        # clip prevents the root from leaking through adjacent world tiles.
+        if enemy.pot_y is not None:
+            old = canvas.get_clip()
+            canvas.set_clip(old.clip(pygame.Rect(0, 0, canvas.get_width(),
+                                                  max(0, round(mouth_y)))))
+            canvas.blit(sprite, (round(left), round(top)))
+            canvas.set_clip(old)
+        else:
+            canvas.blit(sprite, (round(left), round(top)))
+
     def draw_enemy(self, canvas, enemy, feet, seconds):
         kind = enemy.kind
         if kind == 'laden_swallow':
-            filename = str(self.root / 'birds' / 'european_swallow.png')
+            filename = str(self.root / 'birds' / 'african_swallow.png')
             src = self._image(filename)
             bbox = src.get_bounding_rect()
             scale = (enemy.h * 1.25) / max(1, bbox.h)
@@ -139,28 +184,37 @@ class SourceArt:
             return True
         if kind not in self.enemies:
             return False
-        if kind == 'snake_plant' and enemy.phase == 'hidden':
-            return True  # Retained source sprite must respect the AI hide state.
-        clip = 'walk'
         if kind == 'snake_plant':
-            clip = 'idle'
-        elif kind == 'solid_snake':
+            self.draw_plant(canvas, enemy, feet, seconds)
+            return True
+        clip = 'walk'
+        if kind == 'solid_snake':
             clip = ('boxed_idle' if enemy.phase == 'shell' else
-                    'retreat' if enemy.phase == 'rolling' else 'walk')
+                    'boxed_idle' if enemy.phase == 'rolling' else 'walk')
         elif kind == 'void_lizard':
             clip = 'fire' if enemy.age % .95 < .23 else 'walk'
+        elif kind.startswith('npc_snakes_on_a_'):
+            clip = 'fly'
         src, data, path = self.frame('enemies', kind, clip, seconds)
         # A single union bbox is stored for each row, so the art cannot
         # wobble from arbitrary frame cropping. Source sprites use large
         # transparent canvases around the collision bodies.
         bbox = data['bbox'] or (0, 0, *src.get_size())
         bh = max(1, bbox[3] - bbox[1])
-        scale = (enemy.h * (1.1 if kind != 'void_lizard' else 1.35)) / bh
+        if kind.startswith('npc_snakes_on_a_'):
+            # The authored planes have broad wings and shallow hitboxes.
+            # Their rendered union artwork should span the collision width.
+            scale = enemy.w * 1.25 / max(1, bbox[2] - bbox[0])
+        else:
+            scale = (enemy.h * (1.1 if kind != 'void_lizard' else 1.35)) / bh
         w,h=src.get_size()
         image=self._scaled(path,round(w*scale),round(h*scale),enemy.facing<0,True)
         cx = (bbox[0]+bbox[2])*.5
         if enemy.facing<0: cx = w-cx
         # Ground line is the artist's full-frame bottom for snake/plant/star;
         # some idle frames include shadow beyond the collision box.
-        canvas.blit(image,(round(feet[0]-cx*scale), round(feet[1]-bbox[3]*scale)))
+        # Flying planes are center anchored, while walkers sit on their feet.
+        y = (feet[1] - enemy.h*.5 - (bbox[1]+bbox[3])*.5*scale
+             if kind.startswith('npc_snakes_on_a_') else feet[1]-bbox[3]*scale)
+        canvas.blit(image,(round(feet[0]-cx*scale), round(y)))
         return True

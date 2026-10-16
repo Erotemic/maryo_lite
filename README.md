@@ -128,6 +128,7 @@ JSON carefully. To edit keyframes, see `assets/rigs/*.json`.
 | `src/mary_o_lite/physics.py` | Classic horizontal acceleration and jump law |
 | `src/mary_o_lite/content.py` | LDtk parsing; converts original map into simple room objects |
 | `src/mary_o_lite/poses.py` | Per-bone frame interpolation; has no Pygame dependency |
+| `src/mary_o_lite/motion.py` | Source-authored Fire Bar orbits, lifts, and plant timing without Pygame |
 | `src/mary_o_lite/graphics.py` | Pygame camera and scene composition, reversible scrolling, pose lab |
 | `src/mary_o_lite/art_assets.py` | Render-time lookup and timing for the generated Ambition art |
 | `tools/ambition_art/` | **Tracked original/adapted Ambition Python painters** for cosmic, enemies, 17 tiles, props, and construction |
@@ -136,6 +137,7 @@ JSON carefully. To edit keyframes, see `assets/rigs/*.json`.
 | `assets/worlds/` | **Tracked** LDtk world definition |
 | `tools/build_assets.py` | Extracts SVG parts and rebuilds/resumes all Ambition source-painted sprites |
 | `tools/compose_audio.py` | Generates five original chiptune loops and synthesized effects |
+| `tools/preview_fidelity.py` | Pillow contact sheets for plant/pipe alignment and Fire Bar orbits |
 | `assets/generated/` | **Untracked, Git-ignored** PNG/WAV cache, recreated automatically |
 | `lessons/` | Predict → Investigate → Modify → Explain guided exercises |
 
@@ -164,8 +166,15 @@ The repository source archive also intentionally omits the generated files.
 This is a **teaching-oriented port**, not a bitwise reproduction of Ambition's
 Rust engine. It uses the original Mary-O world collision grid, source-painted
 cosmic form and both cosmic transition sequences, original tiles, construction
-pieces, animated pickups and creatures, and original SVG-part poses for the
+pieces, animated pickups and creatures, 76 authored moving Fire Bar orbs,
+39 moving lifts, and original SVG-part poses for the
 other forms. Art output can be reproduced without Ambition installed.
+
+The Fire Bars rotate along their LDtk paths and hit where they appear;
+Snake Plants grow from behind the pipe mouth instead of being stretched over
+it. Original artwork for the two flying snake varieties, swallow coconuts
+and Void Lizard projectiles is also generated from source. All moving lifts
+and ferries follow the level-authored paths, not generic oscillation.
 
 Remaining differences: the enemy state machines and some mechanics are
 simplified, the scenery parallax is still procedurally composed, the music and
@@ -176,8 +185,11 @@ and persistent revisits deliberately differ from Ambition's forward-only
 classic course camera.
 
 The Pygame window still needs a local graphical playtest for character
-alignment, animated lift collisions and overall movement feel. See
-[port notes](docs/PORT_NOTES.md) and [the teacher guide](docs/TEACHER_GUIDE.md).
+alignment, animated lift collisions and overall movement feel. See [the source-fidelity audit](docs/FIDELITY_AUDIT.md),
+[port notes](docs/PORT_NOTES.md), and
+[the teacher guide](docs/TEACHER_GUIDE.md). You can inspect the source art
+without Pygame using `python tools/preview_fidelity.py`, which creates two
+ignored contact sheets in `assets/generated/`.
 
 ## Attribution and license
 

@@ -12,6 +12,8 @@ import math
 from .content import COURSE_ORDER, Level, Thing, levels
 from .geometry import Box, clamp, toward
 from .physics import CLASSIC, COSMIC, gravity_step, horizontal, jump_velocity
+from .motion import (ping_pong, wrapping_lift, parse_polyline, loop_position,
+                     wanted_plant_out, next_plant_out)
 
 STEP = 1 / 60
 SMALL_H = 32
@@ -80,6 +82,13 @@ class Enemy:
     anchor_y: float = 0
     timer: float = 0
     grounded: bool = False
+    pot_y: float | None = None
+    pot_x: float = 0.0
+    exposure: float = 1.0
+    pot_left: float = 0.0
+    pot_right: float = 0.0
+    pot_bottom: float = 0.0
+    plant_offset: int = 0
 
     @property
     def box(self): return Box(self.x, self.y, self.w, self.h)
@@ -110,6 +119,7 @@ class Spark:
     enemy: bool = False
     life: float = 1.5
     bounces: int = 2
+    visual: str = ''  # Name of the source sprite family, not an untracked PNG.
 
     @property
     def box(self): return Box(self.x - 9, self.y - 9, 18, 18)
@@ -153,6 +163,7 @@ class RoomSnapshot:
     switch_pressed: bool
     bridge_retracted: int
     clock: float
+    hazard_elapsed: float
 
 
 class Game:
@@ -185,6 +196,7 @@ class Game:
         self.oneway: list[Thing] = []
         self.moving: list[Moving] = []
         self.hazards: list[Thing] = []
+        self.hazard_elapsed = 0.0
         self.events: list[Event] = []
         self.flag_state = ''
         self.flag_timer = 0.0
@@ -206,6 +218,7 @@ class Game:
             set(self.spent), set(self.broken), copy.deepcopy(self.enemies),
             copy.deepcopy(self.items), copy.deepcopy(self.moving),
             self.switch_pressed, self.bridge_retracted, self.clock,
+            self.hazard_elapsed,
         )
 
     def previous_room(self) -> str | None:
@@ -302,7 +315,10 @@ class Game:
         self.solids = self.room.all('Solid')
         self.oneway = [e for e in self.room.all('OneWayPlatform') if not str(e.fields.get('name', '')).startswith('goal_pole')]
         self.moving = [Moving(e, e.x, e.y, e.x, e.y) for e in self.room.all('MovingPlatform')]
-        self.hazards = self.room.all('DamageVolume')
+        # Mutable copies: the LDtk level is immutable source content, while
+        # Fire Bar orb positions advance in this room each 60 Hz tick.
+        self.hazards = copy.deepcopy(self.room.all('DamageVolume'))
+        self.hazard_elapsed = 0.0
         self.flag_state = ''
         self.flag_timer = 0
         self.switch_pressed = False
@@ -326,6 +342,21 @@ class Game:
             enemy.facing = 1 if e.fields.get('facing') == 'Right' else -1
             enemy.vx = enemy.facing * (32 if kind == 'ai_slop' else 46)
             if kind == 'void_lizard': enemy.vx = enemy.facing * 44
+            if kind == 'snake_plant':
+                pots = [pot for pot in self.pipes if pot.fields.get('mouth') == 'Up'
+                        and pot.x <= e.cx <= pot.right]
+                if pots:
+                    pot = min(pots, key=lambda q: abs(q.y - e.bottom))
+                    enemy.pot_y = pot.y
+                    enemy.pot_x = pot.cx
+                    enemy.pot_left = pot.x
+                    enemy.pot_right = pot.right
+                    enemy.pot_bottom = pot.bottom
+                    enemy.plant_offset = max(0, int(pot.x / 16)) * 53
+                    enemy.exposure = 0.0
+                    enemy.phase = 'hidden'
+                    enemy.x = pot.cx - enemy.w / 2
+                    enemy.y = pot.y
             self.enemies.append(enemy)
         for e in self.room.all('PickupSpawn'):
             if str(e.fields.get('kind', '')).startswith('currency:'):
@@ -340,6 +371,8 @@ class Game:
             self.switch_pressed = snapshot.switch_pressed
             self.bridge_retracted = snapshot.bridge_retracted
             self.clock = snapshot.clock
+            self.hazard_elapsed = snapshot.hazard_elapsed
+        self._hazards_update(0.0)
         if entry == 'right':
             self._arrival_from_right()
         elif entry == 'left':
@@ -627,18 +660,26 @@ class Game:
             if not e.alive or abs(e.x-p.x)>950: continue
             e.age+=dt
             if e.kind == 'snake_plant':
-                # A plant returns into its pot and stays there when Mary-O is near.
-                cycle=e.age % 5.5
-                exposure = max(0.0,min(1.0,(cycle-.8)/.6,(4.8-cycle)/.6))
-                if abs(e.x-p.x)<65 and exposure < .3: exposure=0
-                e.y=e.anchor_y-32*exposure
-                e.phase='hidden' if exposure<.15 else 'emerged'
+                if e.pot_y is not None:
+                    # Rust Mary-O: the pot controls position, not gravity or
+                    # a bounce. Stagger the cycle by the pot's tile column.
+                    tick = int(e.age * 60) + e.plant_offset
+                    wanted = wanted_plant_out(tick)
+                    shy = (p.x + p.w > e.pot_left - 40
+                           and p.x < e.pot_right + 40
+                           and p.y + p.h <= e.pot_bottom)
+                    e.exposure = next_plant_out(e.exposure, wanted, shy)
+                    e.x = e.pot_x - e.w / 2
+                    e.y = e.pot_y - e.h * e.exposure
+                    e.phase = 'hidden' if e.exposure < 0.12 else 'emerged'
+                else:
+                    e.phase = 'emerged'
                 continue
             if e.kind in ('laden_swallow','npc_snakes_on_a_paper_plane','npc_snakes_on_a_cartesian_plane'):
                 e.x+=math.sin(e.age*1.8)*dt*42
                 e.y=e.anchor_y+math.sin(e.age*3)*14
                 if e.kind=='laden_swallow' and int(e.age*1.1)!=int((e.age-dt)*1.1):
-                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h,0,80,True,3.5,0))
+                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h,0,80,True,3.5,0,'coconut'))
                 continue
             if e.kind == 'solid_snake' and e.phase == 'shell':
                 e.vx=0
@@ -654,7 +695,7 @@ class Game:
                 if e.grounded and int(e.age*1.5)!=int((e.age-dt)*1.5):
                     e.vy=-400
                 if int(e.age/.95)!=int((e.age-dt)/.95):
-                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h*.35,e.facing*180,-115,True,3,0))
+                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h*.35,e.facing*180,-115,True,3,0,'void_orb'))
             if e.kind == 'ai_slop': e.vx=e.facing*32
             if e.kind == 'solid_snake' and e.phase=='walk': e.vx=e.facing*46
             if e.kind == 'void_star': e.vx=e.facing*85
@@ -722,22 +763,47 @@ class Game:
 
     def _moving_tick(self, dt):
         for m in self.moving:
-            m.age+=dt
-            m.old_x, m.old_y=m.x,m.y
-            f=m.thing.fields
-            speed=1.0
-            # These are authored lifts. Their path shape is selected by level;
-            # an oscillating platform is enough without an ECS movement graph.
-            travel=96
-            axis = 'y' if f.get('path_mode') in ('Vertical','vertical') or 'lift' in str(f.get('name','')).lower() else 'x'
-            t=math.sin(m.age*speed)
-            m.x=m.start_x+(travel*t if axis=='x' else 0)
-            m.y=m.start_y+(travel*t if axis=='y' else 0)
-            p=self.player
-            if p.vy >= -10 and abs(p.y+p.h-m.old_y)<5 and p.x+p.w>m.old_x and p.x<m.old_x+m.thing.w:
-                p.x+=m.x-m.old_x
-                p.y+=m.y-m.old_y
-                p.grounded=True
+            m.age += dt
+            m.old_x, m.old_y = m.x, m.y
+            f = m.thing.fields
+            speed = float(f.get('speed') or 0)
+            if f.get('sweep_dx') is not None:
+                # Authored ferries run to the end of their span, reverse, and
+                # return at a constant speed, rather than easing sinusoidally.
+                dx = float(f['sweep_dx'])
+                m.x = m.start_x + ping_pong(dx, speed, m.age)
+                m.y = m.start_y
+            elif f.get('loop_dy') is not None:
+                # Staggered lift chains loop through the actual room-height
+                # shaft. Crossing the wrap boundary is a teleport for the
+                # platform, not a 700 px impulse to its passenger.
+                m.x = m.start_x
+                m.y = wrapping_lift(m.start_y, float(f['loop_dy']),
+                                    float(f.get('loop_min_y', -32)), speed, m.age)
+            else:
+                m.x, m.y = m.start_x, m.start_y
+            p = self.player
+            dy = m.y - m.old_y
+            wrapping = (f.get('loop_dy') is not None
+                        and abs(dy) > abs(float(f['loop_dy'])) * .5)
+            if (not wrapping and p.vy >= -10 and
+                    abs(p.y + p.h - m.old_y) < 5 and
+                    p.x + p.w > m.old_x and p.x < m.old_x + m.thing.w):
+                p.x += m.x - m.old_x
+                p.y += dy
+                p.grounded = True
+
+    def _hazards_update(self, dt: float):
+        """Move fire orbs on their real LDtk polygonal circular paths."""
+        self.hazard_elapsed += dt
+        for orb in self.hazards:
+            spec = orb.fields.get('path_points')
+            if spec:
+                center = loop_position(parse_polyline(spec),
+                                       float(orb.fields['path_speed']),
+                                       self.hazard_elapsed)
+                orb.x = center[0] - orb.w / 2
+                orb.y = center[1] - orb.h / 2
 
     def _player_enemy_contacts(self, previous_bottom: float):
         p=self.player
@@ -746,7 +812,7 @@ class Game:
             if p.cosmic or p.quasar>0:
                 self._enemy_kill(e)
                 continue
-            if e.kind != 'void_star' and p.vy>=0 and previous_bottom <= e.y+13:
+            if e.kind not in ('void_star', 'snake_plant') and p.vy>=0 and previous_bottom <= e.y+13:
                 if e.kind=='void_lizard':
                     e.hp-=1
                     if e.hp<=0:self._enemy_kill(e)
@@ -771,8 +837,7 @@ class Game:
     def _hazard_tick(self):
         p=self.player
         for e in self.hazards:
-            # The authored fire bar is a sequence of orbs. Rotate about their
-            # nearest pivot in presentation while keeping the source hit areas.
+            # Hitboxes and source-rendered Fire Orbs share the same path sample.
             if p.box.overlaps(Box(e.x,e.y,e.w,e.h)):
                 self._hurt(e.x)
                 break
@@ -949,6 +1014,7 @@ class Game:
         self._spark_tick(dt)
         self._items_tick(dt)
         self._player_enemy_contacts(previous_bottom)
+        self._hazards_update(dt)
         self._hazard_tick()
         self._goal_tick(0)
         if self.room.name == 'mary_o_1_1' and p.y<-35:

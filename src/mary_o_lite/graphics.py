@@ -248,6 +248,12 @@ class Painter:
         for b in game.blocks:
             if b.identifier in game.broken:continue
             self.draw_block(b, b.identifier in game.spent, game.elapsed)
+        # Snake Plants live BEHIND the pipe mouth. Their animated root and
+        # hitbox are placed at the mouth in the simulation, then the copper
+        # rim masks the part of the stalk still inside the tube.
+        for enemy in game.enemies:
+            if enemy.alive and enemy.kind == 'snake_plant':
+                self.draw_enemy(enemy, game.elapsed)
         for p in game.pipes:self.draw_pipe(p)
         for m in game.moving:self.draw_platform(m.box.x,m.box.y,m.box.w,m.box.h,
                                                 moving=True,t=game.elapsed)
@@ -289,25 +295,27 @@ class Painter:
             return
         if spent: name='block_spent'
         elif kind=='Brick': name='brick_plain' if int(b.x/16)%2 else 'brick_cracked'
-        elif kind=='Power':name='coin_block'
+        elif kind=='Power':name='block_solid'
         else:name='block_solid'
         self.source.tile(self.view,name,(sx,sy),(b.w,b.h),dark=False)
 
     def draw_pipe(self,p):
-        sx,sy=self.project(p.x,p.y)
+        sx, sy = self.project(p.x, p.y)
         if sx+p.w<0 or sx>self.w or sy+p.h<0 or sy>self.h:return
-        # Repeat original construction pieces, whose fixed-width edges make
-        # seams line up without stretching a complete source sprite.
-        stride=max(8,round(p.w/2))
-        down=p.fields.get('mouth','Up')=='Down'
-        y=0
-        while y<p.h:
-            cap=(y+stride>=p.h) if down else y==0
-            yy=min(stride,p.h-y)
-            name='super_mary_o_pipe_top' if cap else 'super_mary_o_pipe_body'
-            self.source.draw_construction(self.view,name,'idle',0,(sx,sy+y),
-                                          (p.w,yy),flip_y=down and cap)
-            y+=stride
+        # Rust's source `scenery_for_authored_room` lays repeatable tiles FROM
+        # the mouth inward, exactly 16 world pixels per row. The old Pygame
+        # painter made each row p.w/2 tall (48 px for a plant's pot), which
+        # stretched the lip and obscured most of the rising Snake Plant.
+        tile = TILE
+        down = p.fields.get('mouth','Up') == 'Down'
+        laid = 0
+        while laid < p.h:
+            height = min(tile, p.h-laid)
+            y = sy + (p.h-laid-height if down else laid)
+            key = 'super_mary_o_pipe_top' if laid == 0 else 'super_mary_o_pipe_body'
+            self.source.draw_construction(self.view,key,'idle',0,
+                              (sx,y),(p.w,height),flip_y=down and laid==0)
+            laid += height
 
     def draw_platform(self,x,y,w,h,moving=False,t=0):
         sx,sy=self.project(x,y)
@@ -340,11 +348,8 @@ class Painter:
                     self.source.draw_construction(self.view,key,'idle',t,
                         (sx+dx,sy+dy),(min(16,h.w-dx),min(16,h.h-dy)))
         else:
-            r=max(5,min(11,h.w*.6))
-            color=(255,109,72)
-            pygame.draw.circle(self.view,(79,32,61),(round(sx+h.w/2),round(sy+h.h/2)),round(r)+2)
-            pygame.draw.circle(self.view,color,(round(sx+h.w/2),round(sy+h.h/2)),round(r))
-            pygame.draw.circle(self.view,(255,218,130),(round(sx+h.w/2-2),round(sy+h.h/2-2)),3)
+            self.source.draw_fire_orb(self.view,(sx+h.w/2,sy+h.h/2),t,
+                                      diameter=max(24, round(h.w*1.6)))
 
     def draw_switch(self,x,y,w,h,pressed,t):
         self.source.draw_construction(self.view,'super_mary_o_switch',
@@ -375,7 +380,7 @@ class Painter:
         cx=x+e.w/2
         if self.source.draw_enemy(self.view,e,(cx,y+e.h),e.age):
             return
-        # One-off paper-plane NPCs do not have a matching source painter.
+        # Fallback only for experimental enemy types without source sprites.
         pygame.draw.ellipse(self.view,(220,207,187),(x+2,y+7,e.w-3,e.h-9))
         pygame.draw.polygon(self.view,(153,185,189),[(x+e.w/2,y+4),(x-8,y-7),(x+e.w*.38,y+e.h*.5)])
         pygame.draw.polygon(self.view,(103,134,158),[(x+e.w/2,y+4),(x+e.w+8,y-7),(x+e.w*.55,y+e.h*.5)])
@@ -386,6 +391,8 @@ class Painter:
         if not s.enemy:
             self.source.draw_construction(self.view,'super_mary_o_spark','idle',t,
                                           (x-16,y-16),(32,32))
+        elif s.visual in ('void_orb', 'coconut'):
+            self.source.draw_enemy_projectile(self.view,s.visual,(x,y),t)
         else:
             pygame.draw.polygon(self.view,(242,239,240),star_points(x,y,11,5,6,t*5))
             pygame.draw.circle(self.view,(211,210,220),(round(x),round(y)),4)
@@ -496,7 +503,7 @@ class Painter:
         self.draw_course(game)
         for item in game.items:self.draw_item(item,game.elapsed)
         for e in game.enemies:
-            if e.alive:self.draw_enemy(e,game.elapsed)
+            if e.alive and e.kind != 'snake_plant':self.draw_enemy(e,game.elapsed)
         for s in game.sparks:self.draw_spark(s,game.elapsed)
         self.draw_player(game)
         self.draw_effects()
