@@ -6,6 +6,7 @@ height, abilities and art; it does not swap to another physics implementation.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import copy
 import math
 
 from .content import COURSE_ORDER, Level, Thing, levels
@@ -137,6 +138,23 @@ class Event:
     value: int = 0
 
 
+@dataclass
+class RoomSnapshot:
+    """Progress in a room, saved while its actors are not being simulated.
+
+    Only local objects belong here. Lives, score, form and collected coins are
+    global game state and therefore do not roll back when travelling left.
+    """
+    spent: set[str]
+    broken: set[str]
+    enemies: list[Enemy]
+    items: list[Item]
+    moving: list[Moving]
+    switch_pressed: bool
+    bridge_retracted: int
+    clock: float
+
+
 class Game:
     """A fixed-step, independently testable platformer."""
 
@@ -145,6 +163,10 @@ class Game:
         if room not in self.rooms:
             raise ValueError(f'Unknown room {room!r}; choose from {list(self.rooms)}')
         self.player = Player()
+        self.room_cache: dict[str, RoomSnapshot] = {}
+        self._room_initialized = False
+        self.returning_left = False
+        self.cleared: set[str] = set()
         self.score = 0
         self.coins = 0
         self.lives = 3
@@ -176,7 +198,83 @@ class Game:
         self.pipe_origin: Thing | None = None
         self.load_room(room)
 
-    def load_room(self, name: str, *, preserve_form=True):
+    def _save_room(self):
+        """Remember the room's mutable objects before a course transition."""
+        if not self._room_initialized:
+            return
+        self.room_cache[self.room.name] = RoomSnapshot(
+            set(self.spent), set(self.broken), copy.deepcopy(self.enemies),
+            copy.deepcopy(self.items), copy.deepcopy(self.moving),
+            self.switch_pressed, self.bridge_retracted, self.clock,
+        )
+
+    def previous_room(self) -> str | None:
+        """Linear course progression has no wraparound at World 1-1."""
+        if self.room.name not in COURSE_ORDER:
+            return None
+        index = COURSE_ORDER.index(self.room.name)
+        return COURSE_ORDER[index - 1] if index > 0 else None
+
+    def go_previous(self) -> bool:
+        """Classroom shortcut and left-edge exit use the same transition."""
+        name = self.previous_room()
+        if name is None:
+            return False
+        self.load_room(name, entry='right')
+        return True
+
+    def go_next(self) -> bool:
+        """Move forward, retaining history so later rooms can be revisited."""
+        name = self.room.next_room
+        if name not in self.rooms:
+            return False
+        self.load_room(name, entry='left')
+        return True
+
+    def _arrival_from_right(self):
+        """Find a safe ground near the far exit, without hardcoded room coords.
+
+        Castle exits have gaps, so search leftward for an exposed tile top.
+        The selector also avoids blocks, pipes, and hazard volumes.
+        """
+        p = self.player
+        room = self.room
+        for cx in range(max(0, room.grid_width - 5),
+                        max(-1, room.grid_width - 90), -1):
+            x = cx * 16 + 4
+            for row in range(room.grid_height - 1, 2, -1):
+                if room.terrain(cx, row) != 1 or room.terrain(cx, row - 1) != 0:
+                    continue
+                y = row * 16 - p.h
+                candidate = Box(x, y, p.w, p.h)
+                # Avoid hazards on the platform and entities obstructing spawn.
+                if y < 30 or any(candidate.overlaps(Box(h.x,h.y,h.w,h.h)) for h in self.hazards):
+                    continue
+                if self.solid_at(candidate):
+                    continue
+                p.x, p.y = x, y
+                p.grounded = True
+                p.direction = -1
+                return
+        # A fallback for unusual room geometry; never silently warp outside it.
+        spawn = room.spawn()
+        p.x = max(0, room.width - 320)
+        p.y = spawn.y + spawn.h - p.h
+        p.grounded = False
+        p.direction = -1
+
+    def load_room(self, name: str, *, preserve_form=True, entry='spawn', reset=False):
+        """Load a course, optionally revisiting its saved mutable state.
+
+        `entry='right'` is used when coming *back* from the next course.
+        `reset=True` restarts the current room without clearing other rooms.
+        """
+        if name not in self.rooms:
+            raise ValueError(f'Unknown room {name!r}')
+        self._save_room()
+        if reset:
+            self.room_cache.pop(name, None)
+            self.cleared.discard(name)
         self.room = self.rooms[name]
         p = self.player
         spawn = self.room.spawn()
@@ -216,6 +314,7 @@ class Game:
         self.pipe_destination = None
         self.pipe_destination_room = ''
         self.clock = 400
+        self.returning_left = entry == 'right'
         for e in self.room.all('EnemySpawn'):
             kind = e.fields.get('character_id', 'ai_slop')
             if kind not in {'ai_slop', 'solid_snake', 'snake_plant', 'laden_swallow',
@@ -231,7 +330,23 @@ class Game:
         for e in self.room.all('PickupSpawn'):
             if str(e.fields.get('kind', '')).startswith('currency:'):
                 self.items.append(Item('coin', e.x, e.y, e.w, e.h))
+        snapshot = self.room_cache.get(name)
+        if snapshot is not None:
+            self.spent = set(snapshot.spent)
+            self.broken = set(snapshot.broken)
+            self.enemies = copy.deepcopy(snapshot.enemies)
+            self.items = copy.deepcopy(snapshot.items)
+            self.moving = copy.deepcopy(snapshot.moving)
+            self.switch_pressed = snapshot.switch_pressed
+            self.bridge_retracted = snapshot.bridge_retracted
+            self.clock = snapshot.clock
+        if entry == 'right':
+            self._arrival_from_right()
+        elif entry == 'left':
+            # A revisited room may be entered from the previously visited exit.
+            p.x = max(16, p.x)
         self.events = [Event('room', p.x, p.y)]
+        self._room_initialized = True
 
     def _colliders(self, box: Box):
         for t in self.room.nearby_tiles(box.x, box.y, box.w, box.h):
@@ -676,6 +791,7 @@ class Game:
                 p.x+=90*dt
                 if self.flag_timer>1.1:self.flag_state='tally';self.flag_timer=0
             elif self.flag_state=='tally' and self.flag_timer>2:
+                self.cleared.add(self.room.name)
                 self.load_room(self.room.next_room)
             elif self.flag_state=='castle':
                 self.castle_timer += dt
@@ -698,9 +814,21 @@ class Game:
                         p.y = toward(p.y, robot.bottom-p.h, 120*dt)
                         p.direction = 1
                 if self.castle_timer > 11.8:
+                    self.cleared.add(self.room.name)
                     self.load_room(self.room.next_room)
             return True
-        if self.room.name == 'mary_o_warp':return False
+        if self.room.name == 'mary_o_warp' or self.room.name in self.cleared:return False
+        if self.returning_left:
+            # A player entering from the *right* must be able to cross the
+            # old finish line without retriggering it. Once they are to the
+            # left of that line, it can be earned normally in either direction.
+            gates = [q.x for q in self.room.all('OneWayPlatform')
+                     if q.fields.get('name') == 'goal_pole']
+            gates += [q.x for q in self.solids
+                      if q.fields.get('name') == 'goal_switch']
+            if gates and p.x + p.w >= min(gates) - 32:
+                return False
+            self.returning_left = False
         if self.room.biome=='void_castle':
             sw=next((s for s in self.solids if s.fields.get('name')=='goal_switch'),None)
             # The switch is a solid platform, so a grounded actor normally
@@ -736,14 +864,14 @@ class Game:
         self.events=[]
         p=self.player
         if cmd.restart:
-            self.load_room(self.room.name)
+            self.load_room(self.room.name, reset=True)
             return
         if p.dead_time>0:
             p.dead_time-=dt
             p.vy+=CLASSIC.gravity*dt
             p.y+=p.vy*dt
             if p.dead_time<=0:
-                self.load_room(self.room.name,preserve_form=False)
+                self.load_room(self.room.name,preserve_form=False,reset=True)
             return
         if self.pipe_state:
             self._pipe_step(dt)
@@ -790,6 +918,28 @@ class Game:
         p.vy=gravity_step(p.vy,cmd.held_jump,tuning,dt)
         self._move(p,dt)
         if p.grounded:p.air_jumps=0
+        # The original renderer locked the camera forward. Lite intentionally
+        # permits both scrolling left in long rooms and exiting through their
+        # left boundary, returning to the preceding course.
+        # LDtk's course bounds usually contain solid end walls, so a literal
+        # x==0 / x==width trigger is unreachable in some rooms. Treat the left
+        # starting lane and the cleared course's right goal area as exits.
+        # This lets a player walk backwards, not just use F6.
+        spawn = self.room.spawn()
+        left_exit = max(64, spawn.x + 8)
+        if cmd.move < 0 and p.x <= left_exit and self.previous_room() is not None:
+            self.go_previous()
+            return
+        # Cleared courses may be traversed again without redoing a cinematic.
+        goals = [q.x for q in self.room.all('OneWayPlatform')
+                 if q.fields.get('name') == 'goal_pole']
+        goals += [q.x for q in self.solids
+                  if q.fields.get('name') == 'goal_switch']
+        right_exit = max(self.room.width - 320, max(goals, default=0) + 90)
+        if (cmd.move > 0 and self.room.name in self.cleared
+                and p.x >= right_exit):
+            self.go_next()
+            return
         if cmd.fire and p.form in ('fire','cosmic') and p.shot_timer<=0:
             p.shot_timer=.4
             p.shoot_time=.18
@@ -820,4 +970,6 @@ class Game:
                     velocity=(round(self.player.vx,2),round(self.player.vy,2)),
                     lives=self.lives,score=self.score,coins=self.coins,
                     enemies=sum(e.alive for e in self.enemies),
+                    cleared=sorted(self.cleared),
+                    visited=sorted(self.room_cache),
                     tick=self.tick_count)

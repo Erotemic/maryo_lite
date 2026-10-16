@@ -142,6 +142,14 @@ def generate_art(force=False):
             marker.write_text(json.dumps({'stamp':signature,'source':str(robot.relative_to(ROOT))})+'\n')
             count+=1
     print(f'Generated {count} Mary-O SVG part images (cached).')
+    # Original Ambition source painters: 89 Cosmic frames plus reusable tiles,
+    # animated pickups, enemies, and source SVG birds. Never check in PNGs.
+    sys.path.insert(0,str(ROOT/'tools'))
+    from ambition_art.build import generate as generate_source_art
+    rebuilt=generate_source_art(force=force)
+    print('Generated Ambition-painted Mary-O art.' if rebuilt else
+          'Ambition-painted Mary-O art already cached.')
+
 
 
 def generate_audio(force=False):

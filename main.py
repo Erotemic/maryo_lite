@@ -21,7 +21,9 @@ REQUIRES = ("pygame", "PIL", "cairosvg")
 def run(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if not ("--headless" in argv or "--help" in argv or "-h" in argv or "--list-levels" in argv):
-        missing = [name for name in REQUIRES if importlib.util.find_spec(name) is None]
+        # Source-only rasterization does not require the graphical runtime.
+        required = ("PIL", "cairosvg") if "--build-assets" in argv else REQUIRES
+        missing = [name for name in required if importlib.util.find_spec(name) is None]
         if missing:
             env = ROOT / ".venv"
             python = env / ("Scripts/python.exe" if os.name == "nt" else "bin/python")

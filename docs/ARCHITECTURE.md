@@ -27,8 +27,16 @@ to examine the rules without displaying images.
   `Thing` objects. No Rust runtime, prefab backend, or procedural validation
   framework is necessary to open these rooms.
 
-`Game.load_room()` retains lives and coins across rooms, repopulates authored
-enemies, resets spent blocks, and returns the player to the room spawn.
+`Game.load_room()` retains global lives, score, coins, and form. When exiting a
+course, it saves a `RoomSnapshot` of enemies, spent/broken blocks, pickups,
+platforms, and the clock. Revisiting restores the snapshot. Returning from the
+next room places Mary-O near the right goal area, with goal triggering
+suppressed until she has crossed it from right to left. Leftward exits use the
+reachable spawn lane because several source rooms have solid end walls.
+
+The camera follows horizontally **in both directions**. `go_previous()` and
+`go_next()` support classroom shortcuts and normal edge travel; they do not
+change the fixed-step simulation's timing or collision rules.
 
 ## Animations and transforms
 
@@ -52,12 +60,26 @@ individual PNG parts using CairoSVG/Pillow. It writes the matching adjusted
 pivot locations to a JSON manifest in `assets/generated/`. Nothing in this
 process needs Ambition installed, and its binary outputs are Git-ignored.
 
-There are three paper-doll body geometries: small, tall, and fire, each with
-side and front (death) views. Cosmic mode uses fire-body parts and separately
-drawn wings and star effects. The growth and power transformation sequences
-cross-fade the source rigs, while cosmic entry and exit use timed drawn
-ornaments without shaders. The pose lab exposes these transitions and the
-climb/swim clips (the latter do not yet have gameplay collision zones).
+There are three normal paper-doll body geometries: small, tall, and fire,
+each with side and front views. **Cosmic is the real, independent source-painted
+Ambition form**, using editable Python pose tables and an RGBA painter in
+`tools/ambition_art/`. It supplies the source night-sky gown, hair, wings,
+planetary ring and crown, rather than compositing effects onto the fire puppet.
+Its fourteen animated rows include 36 entry and 18 exit frames. Those are
+rasterized once to Git-ignored caches and selected with their authored timing.
+No shader or Rust compiler is required.
+
+Other copied/adapted source painters create 17 terrain/block tiles, five enemy
+families, animated pickups, copper pipes, castle goal pieces, the clockwork
+lift, lava and spark projectiles. `SourceArt` in `art_assets.py` loads their
+manifests and caches scaled surfaces. The Python animation tables, not
+pre-rendered PNGs, are the authoritative sources. A source hash invalidates
+the cache, and atomic writes let a canceled first build resume.
+
+The pose lab supports joint manipulation for SVG-part bodies. For Cosmic,
+edit the source painter or its animation tables and rebuild with
+`python tools/build_assets.py --force`; the inspector previews every clip,
+including transformations and climb/swim poses.
 
 ## Classroom changes that stay small
 

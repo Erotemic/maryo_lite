@@ -14,9 +14,12 @@ state explicit rather than implying features are exact.
 | Mary-O forms and powerups | `game.py` | Small/tall/fire/cosmic, block rewards, damage transitions, quasar |
 | Mary-O level 1-1 to 2-4 and warp | `content.py`, `game.py` | Original rooms, basic authored entities, exit sequence, pipe travel |
 | SVG part sprites | `tools/build_assets.py`, `graphics.Puppet` | Per-part rasterization, pivot-based transforms, mirroring and vertical scale |
-| Cosmic renderer and shaders | `graphics.draw_cosmic()` | Shader-free procedural wings, crown, halo and aura; approximate visuals |
-| Parallax and props | `graphics.Painter` | Simple Pygame parallax, biome palettes, coins, blocks, pipes, platforms |
-| World enemies | `game._enemy_tick()` | Slop, snakes, plant, swallow, star, planes, void lizard with simplified behaviors |
+| Original Cosmic painter (`_mary_o_v2_cosmic_art.py`, `mary_o_v2_cosmic.py`) | `tools/ambition_art/cosmic_art.py`, `cosmic_animation.py` | Real source-painted night-sky gown, long hair, wings, crown, ring; all fourteen source rows including the 36/18-frame transform/exit; **no shader required** |
+| Original tileset and pickups | `tools/ambition_art/tiles.py`, `props.py` | 17 original tiles, animated coins and powerups |
+| Original construction art | `tools/ambition_art/construction.py`, `lift.py`, `spark.py` | Pipe segments, flag and pole, lava, switch, gate, clockwork lift and projectiles |
+| Parallax scenery | `graphics.Painter` | Procedural distance layers and original terrain sprites; still simplified |
+| World enemies | `tools/ambition_art/{ai_slop,solid_snake,snake_plant,void_star,void_lizard}.py` | Original source-painted animations for five types and swallow SVGs; simplified AI state machines |
+| Camera and room history | `Painter.track()`, `Game.room_cache` | Bidirectional follow, left/right course travel and per-room state snapshots on revisit |
 | Castle end | `game._goal_tick()` | Switch, sequential broken planks, boss defeat, gate, rescue robot and timed dialogue |
 | Engine music/SFX | `tools/compose_audio.py` | Five new chiptune loops and mathematical SFX; not original score |
 | Cross-platform/rollback/shaders | None | Not part of this educational project |
@@ -28,6 +31,9 @@ Source clips differ by form. `small_side` includes `idle`, `walk`, `jump`,
 `crouch_walk`, and `crouch_jump`; `fire_side` has `shoot`. Each form has a
 front-facing `death` view. The editor previews the additional composite
 `grow`, `shrink`, `fire_transform`, `cosmic_transform`, `cosmic_leave` stages.
+Cosmic has its *own* `idle`, `death`, `walk`, `jump`, `fall`, `skid`, `crouch`,
+`crouch_walk`, `crouch_jump`, `climb`, `swim`, `shoot`, `transform` and `shrink`
+rows, painted from the actual Ambition sources rather than composed SVG joints.
 The runtime uses running, airborne, crouch, shooting, skidding, death and
 composite transformations. Climbing/swimming are pose-lab samples, not full
 world mechanics in this version.
@@ -38,10 +44,11 @@ world mechanics in this version.
   must be exercised by a person on an actual graphical installation.
 - Enemy behaviors and hazard trajectories are approximations; Rust test
   outcomes do not imply parity with this Python implementation.
-- Camera zones, special foreground sprites, small sound details, and every
-  source creature's generated artwork have not been ported.
-- Cosmic wings and transformation embellishments are drawn procedurally,
-  rather than exporting the original frame-by-frame cosmic sprite generator.
+- Camera zones, every background and foreground source generator, and
+  small sound details are not yet ported. Enemies use original sprites but
+  their simplified motion/state machines do not necessarily match Rust.
+- Reversible course backtracking intentionally changes the classic
+  forward-only camera contract.
 - The first course and castle goal paths have headless tests; no automated
   playthrough asserts an enemy-free finish through every platform sequence.
 

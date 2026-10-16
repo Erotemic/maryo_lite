@@ -106,7 +106,7 @@ def run_pygame(args):
     from .graphics import LOGICAL_SIZE, Painter
     pygame.init()
     screen=pygame.display.set_mode(parse_size(args.size),pygame.RESIZABLE)
-    pygame.display.set_caption('Mary-O Lite | Arrow keys + Z/X/D')
+    pygame.display.set_caption('Mary-O Lite | Arrow keys + Z/X/D | F6 back')
     from .content import ROOT
     sys.path.insert(0,str(ROOT/'tools'))
     from build_assets import ensure_assets
@@ -157,7 +157,9 @@ def run_pygame(args):
                     elif e.key==pygame.K_SPACE:painter.lab_play=not painter.lab_play
                     elif e.key==pygame.K_r:painter.lab_time=0
                 elif e.key==pygame.K_F5:
-                    game.load_room(game.room.next_room)
+                    game.go_next()
+                elif e.key==pygame.K_F6:
+                    game.go_previous()
         if not painter.pose_lab and not paused:
             accumulator+=dt
             while accumulator>=STEP:
