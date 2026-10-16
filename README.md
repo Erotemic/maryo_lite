@@ -28,8 +28,14 @@ chiptune music automatically into Git-ignored files. The next launch uses the
 cached environment and binary assets.
 
 The first asset build paints hundreds of sprite frames from the actual Ambition
-Python generators. It can be CPU-intensive; a partially interrupted build is
-resumable, and subsequent launches reuse the source-stamped cache.
+Python generators. The **terminal displays live progress** with completed/total
+counts, percent, which asset is being painted, elapsed time, and built versus
+reused files. A heartbeat reports the current frame if a painter takes several
+seconds. Generation runs **before the game window opens**, so it cannot make
+an open Pygame window appear frozen. It can be CPU-intensive; a partially
+interrupted build is resumable, and subsequent launches reuse the source-stamped
+cache. You can also watch the same progress without starting the game using
+`python main.py --build-assets` or `python tools/build_assets.py --art-only`.
 
 If your system needs the Cairo shared library, on Ubuntu use
 `sudo apt install libcairo2`. No Rust toolchain, LDtk app, or DAW is needed

@@ -103,14 +103,16 @@ def run_pygame(args):
     except ImportError:
         print('Install pygame-ce (or run python main.py to auto-install).',file=sys.stderr)
         return 1
-    from .graphics import LOGICAL_SIZE, Painter
-    pygame.init()
-    screen=pygame.display.set_mode(parse_size(args.size),pygame.RESIZABLE)
-    pygame.display.set_caption('Mary-O Lite | Arrow keys + Z/X/D | F6 back')
+    # Build *before* creating the SDL window. The terminal displays live
+    # progress and a slow asset painter cannot freeze an open game window.
     from .content import ROOT
     sys.path.insert(0,str(ROOT/'tools'))
     from build_assets import ensure_assets
     ensure_assets()
+    from .graphics import LOGICAL_SIZE, Painter
+    pygame.init()
+    screen=pygame.display.set_mode(parse_size(args.size),pygame.RESIZABLE)
+    pygame.display.set_caption('Mary-O Lite | Arrow keys + Z/X/D | F6 back')
     # Convert-alpha surfaces need a display, so the first Painter comes after set_mode.
     painter=Painter()
     painter.pose_lab=args.pose_lab

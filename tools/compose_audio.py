@@ -32,10 +32,17 @@ def tone(t,h,shape):
 
 def write(path,data):
     path.parent.mkdir(parents=True,exist_ok=True)
-    with wave.open(str(path),'wb') as w:
-        w.setnchannels(1);w.setsampwidth(2);w.setframerate(RATE)
-        samples=array('h',(int(max(-.98,min(.98,x))*32767) for x in data))
-        w.writeframes(samples.tobytes())
+    # A killed first-run asset build must not leave a truncated WAV that a
+    # subsequent launch mistakes for a finished cached file.
+    tmp = path.with_name(path.name + '.tmp')
+    try:
+        with wave.open(str(tmp),'wb') as w:
+            w.setnchannels(1);w.setsampwidth(2);w.setframerate(RATE)
+            samples=array('h',(int(max(-.98,min(.98,x))*32767) for x in data))
+            w.writeframes(samples.tobytes())
+        tmp.replace(path)
+    finally:
+        tmp.unlink(missing_ok=True)
 
 
 def add(mix,note,start,duration,volume,shape):
@@ -126,18 +133,33 @@ def effect(path,frequency,duration,shape,glide):
     write(path,out)
 
 
-def build_audio(directory: Path,force=False):
+def build_audio(directory: Path,force=False,progress=None):
     directory.mkdir(parents=True,exist_ok=True)
     generated=0
+    if progress is not None:
+        progress.stage('Chiptune music')
     for name,(bpm,lead,bass) in TRACKS.items():
         target=directory/(name+'.wav')
-        if force or not target.exists():
+        cached = not force and target.exists()
+        if progress is not None:
+            progress.working(name)
+        if not cached:
             song(target,bpm,lead,bass);generated+=1
+        if progress is not None:
+            progress.advance(cached=cached, item=name)
+    if progress is not None:
+        progress.stage('Sound effects')
     for name,params in SOUNDS.items():
         target=directory/(name+'.wav')
-        if force or not target.exists():
+        cached = not force and target.exists()
+        if progress is not None:
+            progress.working(name)
+        if not cached:
             effect(target,*params);generated+=1
-    print(f'Generated {generated} chiptune tracks/effects (cached).')
+        if progress is not None:
+            progress.advance(cached=cached, item=name)
+    if progress is None:
+        print(f'Generated {generated} chiptune tracks/effects (cached).')
 
 
 if __name__=='__main__':
