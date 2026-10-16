@@ -401,6 +401,7 @@ class Painter:
         p=game.player
         px,py=self.project(*p.foot)
         clip=game.display_animation()
+        anim_seconds = p.walk_anim_time if clip in ('walk', 'crouch_walk') else p.anim_time
         form=p.form
         if p.invulnerable>0 and int(game.elapsed*15)%2 and p.transition_time<=0:
             return
@@ -425,13 +426,13 @@ class Painter:
                 self.draw_transition(game,(px,py))
                 return
         if form=='cosmic':
-            self.source.draw_cosmic(self.view,(px,py),clip,p.anim_time,
+            self.source.draw_cosmic(self.view,(px,py),clip,anim_seconds,
                                     facing=p.direction)
         else:
             projection='front' if clip=='death' else 'side'
             puppet=self.puppets[form+'_'+projection]
             if clip not in puppet.rig['clips']:clip='jump' if clip=='fall' else 'idle'
-            puppet.draw(self.view,(px,py),clip,p.anim_time,facing=p.direction,debug=self.debug)
+            puppet.draw(self.view,(px,py),clip,anim_seconds,facing=p.direction,debug=self.debug)
         if self.debug:
             rect(self.view,(255,99,82),(p.x-self.camera_x,p.y-self.camera_y,p.w,p.h),width=1)
 
@@ -481,7 +482,7 @@ class Painter:
         self.letter(f'x{game.lives}',(897,12))
         if self.help:
             rect(self.view,(18,30,54),(8,self.h-38,self.w-16,30),radius=4)
-            self.letter('ARROWS move / aim   Z jump   X spark   D cosmic   SHIFT walk   F5 next   F6 previous   F2 poses',
+            self.letter('ARROWS move   Z jump   SHIFT run / spark   X spark   DOWN crouch   F5 next   F6 back   F2 poses',
                         (19,self.h-31),WHITE,small=True)
         if game.flag_state == 'castle' and 5.8 < game.castle_timer < 9.8:
             rect(self.view,(25,29,53),(self.w/2-260,self.h-155,520,63),radius=6)

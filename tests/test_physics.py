@@ -23,10 +23,24 @@ def test_reverse_does_not_teleport_to_opposite_speed():
     assert 0<horizontal(120,-1,True,False,CLASSIC,1/60)<120
 
 
-def test_walk_modifier_lowers_top_speed():
+def test_walk_by_default_and_run_when_modifier_held():
     v=0
-    for _ in range(180):v=horizontal(v,1,True,True,CLASSIC,1/60)
+    for _ in range(180):v=horizontal(v,1,True,False,CLASSIC,1/60)
     assert v==pytest.approx(CLASSIC.max_run*.6)
+    for _ in range(180):v=horizontal(v,1,True,True,CLASSIC,1/60)
+    assert v==pytest.approx(CLASSIC.max_run)
+
+
+def test_releasing_run_preserves_momentum_and_brakes_toward_walk():
+    v=horizontal(300,1,True,False,CLASSIC,1/60)
+    assert CLASSIC.max_run*.6<v<300
+
+
+def test_crouch_has_a_slow_target_but_retains_incoming_speed():
+    v=horizontal(300,1,True,True,CLASSIC,1/60,crouch=True)
+    assert 90<v<300
+    for _ in range(180):v=horizontal(v,1,True,True,CLASSIC,1/60,crouch=True)
+    assert v==pytest.approx(90.0)
 
 
 def test_cosmic_faster_with_air_jumps():

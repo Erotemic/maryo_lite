@@ -18,6 +18,8 @@ from .motion import (ping_pong, wrapping_lift, parse_polyline, loop_position,
 STEP = 1 / 60
 SMALL_H = 32
 TALL_H = 62
+# Small-form passages must also fit a tall / fire / cosmic form while crouched.
+CROUCH_H = SMALL_H
 BLOCK_SCORE = 50
 
 
@@ -29,7 +31,8 @@ class Command:
     fire: bool = False
     down: bool = False          # Held: crouch while standing; enter pipes.
     up: bool = False            # Held: leave downward-facing pipes.
-    walk: bool = False
+    run: bool = False          # Hold the modifier to run, walk by default.
+    run_pressed: bool = False  # In fire form the same press fires a spark.
     utility: bool = False
     restart: bool = False
 
@@ -53,9 +56,11 @@ class Player:
     transition: str = ''
     transition_time: float = 0
     anim_time: float = 0
+    walk_anim_time: float = 0  # Strides follow distance, not a fixed clock.
     shoot_time: float = 0
     dead_time: float = 0
     crouched: bool = False
+    jump_hold_cancelled: bool = False  # Re-pressing jump cannot re-enter weak ascent.
 
     @property
     def box(self): return Box(self.x, self.y, self.w, self.h)
@@ -297,7 +302,8 @@ class Game:
         p.grounded = False
         p.direction = 1
         p.air_jumps = 0
-        p.shoot_time = p.anim_time = 0
+        p.jump_hold_cancelled = False
+        p.shoot_time = p.anim_time = p.walk_anim_time = 0
         p.crouched = False
         if not preserve_form:
             p.form = p.saved_form = 'small'
@@ -393,7 +399,8 @@ class Game:
             if Box(e.x,e.y,e.w,e.h).overlaps(box):
                 yield e, False
         for e in self.blocks:
-            if e.identifier in self.broken or e.fields.get('kind') == 'Hidden':
+            if (e.identifier in self.broken or
+                    (e.fields.get('kind') == 'Hidden' and e.identifier not in self.spent)):
                 continue
             if Box(e.x,e.y,e.w,e.h).overlaps(box):
                 yield e, False
@@ -423,7 +430,15 @@ class Game:
                     obj.x = min(obj.x, wall.x - obj.w)
                 else:
                     obj.x = max(obj.x, wall.x + wall.w)
-                obj.vx = -obj.vx if bounce else 0
+                if bounce:
+                    obj.vx = -obj.vx
+                    # Next AI tick takes its direction from `facing`, so a
+                    # velocity-only bounce would drive it into the wall again.
+                    if hasattr(obj, 'facing'):
+                        obj.facing = 1 if obj.vx > 0 else -1
+                else:
+                    obj.vx = 0
+                break
         dy = obj.vy * dt
         if dy:
             old_bottom, old_top = obj.y + obj.h, obj.y
@@ -462,19 +477,28 @@ class Game:
             obj.grounded = any(under.overlaps(wall) and under.y <= wall.y + 2 for wall, _ in self._colliders(under))
         obj.x = clamp(obj.x, 0, max(0,self.room.width-obj.w))
 
-    def _stand_or_crouch(self, crouch: bool):
+    def _stand_or_crouch(self, down_held: bool):
+        """Change posture about the *feet*, never the top of the sprite.
+
+        Starting a crouch requires ground contact. Once crouched, holding
+        Down carries that posture across a ledge (as in Rust Mary-O). A low
+        ceiling prevents standing, even if Down has been released; Mary-O
+        may walk out of the tunnel and stand up on the next clear frame.
+        """
         p = self.player
-        full_height = SMALL_H if p.form == 'small' else TALL_H
-        if p.form == 'small': crouch = False
-        desired = 37 if crouch else full_height
+        can_crouch = p.form != 'small'
+        wants_crouch = can_crouch and down_held and (p.grounded or p.crouched)
+        full_height = SMALL_H if not can_crouch else TALL_H
+        desired = CROUCH_H if wants_crouch else full_height
         if desired > p.h:
             probe = Box(p.x, p.y + p.h - desired, p.w, desired)
             if self.solid_at(probe):
-                crouch = True
+                # Don't expand into terrain, solid blocks, or a pipe roof.
+                # Maintain small-form clearance until the whole head is free.
                 desired = p.h
         p.y += p.h - desired
         p.h = desired
-        p.crouched = crouch
+        p.crouched = can_crouch and p.h < full_height
 
     def _change_form(self, form: str, transition: str, length: float):
         p = self.player
@@ -484,9 +508,19 @@ class Game:
         if form == 'cosmic':
             p.saved_form = p.form
         p.form = form
-        p.h = SMALL_H if form == 'small' else TALL_H
+        wanted_h = SMALL_H if form == 'small' else TALL_H
+        # A wand or beacon collected under a low ceiling must not insert a
+        # 62px collider into a 32px opening. Grant the form but retain a
+        # crouched body until the standing headroom becomes available.
+        if wanted_h > previous_h:
+            probe = Box(p.x, p.y + previous_h - wanted_h, p.w, wanted_h)
+            if self.solid_at(probe):
+                wanted_h = previous_h
+        p.h = wanted_h
         p.y += previous_h - p.h
+        p.crouched = form != 'small' and p.h < TALL_H
         p.air_jumps = 0
+        p.jump_hold_cancelled = False
         p.transition = transition
         p.transition_time = length
         p.invulnerable = max(p.invulnerable, length + .3)
@@ -580,6 +614,7 @@ class Game:
         p.dead_time = 1.1
         p.vx = 0
         p.vy = -320
+        p.jump_hold_cancelled = True
         self.events.append(Event('die',p.x,p.y))
 
     def _pipe_trigger(self, cmd: Command):
@@ -761,6 +796,33 @@ class Game:
             if item.box.overlaps(self.player.box):self._collect(item)
         self.items=[i for i in self.items if i.live]
 
+    def _carry_on_platform(self, dx: float, dy: float):
+        """Move a grounded passenger by the platform delta, without phasing walls.
+
+        Platform movement is independent of player input velocity. Test only
+        solid walls/ceilings against the passenger; one-way decks are support,
+        not lateral barriers. World bounds are still authoritative.
+        """
+        p = self.player
+        if dx:
+            p.x = clamp(p.x + dx, 0, max(0, self.room.width - p.w))
+            for wall, one_way in self._colliders(p.box):
+                if one_way or not p.box.overlaps(wall):
+                    continue
+                p.x = min(p.x, wall.x - p.w) if dx > 0 else max(p.x, wall.x + wall.w)
+                p.vx = 0 if p.vx * dx > 0 else p.vx
+        if dy:
+            p.y += dy
+            for wall, one_way in self._colliders(p.box):
+                if one_way or not p.box.overlaps(wall):
+                    continue
+                p.y = max(p.y, wall.y + wall.h) if dy < 0 else min(p.y, wall.y - p.h)
+                # If the shaft is too low for a passenger, the deck must not
+                # carry that passenger through the ceiling.
+                p.grounded = False
+                return
+        p.grounded = True
+
     def _moving_tick(self, dt):
         for m in self.moving:
             m.age += dt
@@ -786,12 +848,13 @@ class Game:
             dy = m.y - m.old_y
             wrapping = (f.get('loop_dy') is not None
                         and abs(dy) > abs(float(f['loop_dy'])) * .5)
-            if (not wrapping and p.vy >= -10 and
-                    abs(p.y + p.h - m.old_y) < 5 and
+            # Only a passenger grounded on the *previous* deck may ride it.
+            # A falling body near the deck should land through the ordinary
+            # swept collision, not snap sideways toward its new position.
+            if (not wrapping and p.grounded and p.vy >= 0 and
+                    abs(p.y + p.h - m.old_y) <= 2 and
                     p.x + p.w > m.old_x and p.x < m.old_x + m.thing.w):
-                p.x += m.x - m.old_x
-                p.y += dy
-                p.grounded = True
+                self._carry_on_platform(m.x - m.old_x, dy)
 
     def _hazards_update(self, dt: float):
         """Move fire orbs on their real LDtk polygonal circular paths."""
@@ -970,19 +1033,37 @@ class Game:
         self._moving_tick(dt)
         if self._pipe_trigger(cmd):return
         tuning=COSMIC if p.cosmic else CLASSIC
-        self._stand_or_crouch(bool(cmd.down and p.grounded))
-        p.vx=horizontal(p.vx,0 if p.crouched else clamp(cmd.move,-1,1),p.grounded,cmd.walk,tuning,dt)
-        if cmd.move and not p.crouched:p.direction=1 if cmd.move>0 else -1
+        self._stand_or_crouch(cmd.down)
+        p.vx = horizontal(p.vx, clamp(cmd.move,-1,1), p.grounded, cmd.run,
+                          tuning, dt, crouch=p.crouched)
+        if cmd.move:
+            p.direction = 1 if cmd.move > 0 else -1
         if cmd.jump and (p.grounded or p.air_jumps<tuning.air_jumps):
             if not p.grounded:p.air_jumps+=1
             else:p.air_jumps=0
-            p.vy=jump_velocity(p.vx,tuning)
-            p.grounded=False
-            self.events.append(Event('jump',p.x,p.y))
-        previous_bottom=p.y+p.h
-        p.vy=gravity_step(p.vy,cmd.held_jump,tuning,dt)
-        self._move(p,dt)
-        if p.grounded:p.air_jumps=0
+            p.vy = jump_velocity(p.vx, tuning)
+            p.grounded = False
+            p.jump_hold_cancelled = False
+            self.events.append(Event('jump', p.x, p.y))
+        previous_bottom = p.y + p.h
+        stride_start_x = p.x
+        # Rust's phased jump remembers an early release: tapping Jump again
+        # in midair without a new jump grant does not restart weak gravity.
+        if p.vy < 0 and not cmd.held_jump:
+            p.jump_hold_cancelled = True
+        held_ascent = cmd.held_jump and not p.jump_hold_cancelled
+        p.vy = gravity_step(p.vy, held_ascent, tuning, dt)
+        self._move(p, dt)
+        if p.grounded and abs(p.x - stride_start_x) > 1e-6:
+            # The SVG walk clip is three 95ms frames at a full 300px/s run.
+            # Keeping roughly the same stride at slower speeds avoids the
+            # ice-skating look when Mary-O walks at the 60% throttle.
+            distance = 45.0 if p.crouched else 85.0
+            cycle = 0.330 if p.crouched else 0.285
+            p.walk_anim_time += abs(p.x - stride_start_x) / distance * cycle
+        if p.grounded:
+            p.air_jumps = 0
+            p.jump_hold_cancelled = False
         # The original renderer locked the camera forward. Lite intentionally
         # permits both scrolling left in long rooms and exiting through their
         # left boundary, returning to the preceding course.
@@ -1005,7 +1086,7 @@ class Game:
                 and p.x >= right_exit):
             self.go_next()
             return
-        if cmd.fire and p.form in ('fire','cosmic') and p.shot_timer<=0:
+        if (cmd.fire or cmd.run_pressed) and p.form in ('fire','cosmic') and p.shot_timer<=0:
             p.shot_timer=.4
             p.shoot_time=.18
             self.sparks.append(Spark(p.foot[0]+p.direction*18,p.y+min(p.h*.45,32),p.direction*300,-140))
@@ -1025,7 +1106,9 @@ class Game:
         if p.dead_time>0:return 'death'
         if p.transition_time>0:return p.transition
         if p.shoot_time>0:return 'shoot'
-        if p.crouched:return 'crouch_walk' if abs(p.vx)>35 else 'crouch'
+        if p.crouched:
+            if not p.grounded:return 'crouch_jump'
+            return 'crouch_walk' if abs(p.vx)>20 else 'crouch'
         if not p.grounded:return 'jump' if p.vy<0 else 'fall'
         if abs(p.vx)>85 and p.vx*p.direction<0:return 'skid'
         return 'walk' if abs(p.vx)>20 else 'idle'

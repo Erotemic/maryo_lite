@@ -49,12 +49,14 @@ def test_arrows_attack_and_cosmic_edges():
     assert not keys.command().fire and not keys.command().utility
 
 
-def test_wasd_layout_and_walk_modifier():
+def test_wasd_layout_and_run_modifier():
     pg=FakePG();keys=Keyboard(pg,'wasd')
     for key in ('K_a','K_SPACE','K_j','K_l','K_LSHIFT'):
         pg.pressed[getattr(pg,key)]=True
     cmd=keys.command()
-    assert cmd.move==-1 and cmd.jump and cmd.fire and cmd.utility and cmd.walk
+    assert cmd.move==-1 and cmd.jump and cmd.fire and cmd.utility
+    assert cmd.run and cmd.run_pressed
+    assert keys.command().run and not keys.command().run_pressed
 
 
 def test_input_adapter_clear_does_not_leave_edges_stuck():

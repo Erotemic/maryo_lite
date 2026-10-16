@@ -5,7 +5,7 @@ standalone Python repository. It uses the original Mary-O vector paper doll,
 authored poses, and LDtk level geometry, while replacing the Rust game engine
 with a small, understandable 60 Hz simulator and a Pygame renderer.
 
-Mary-O can run, accelerate, skid, and jump through the original Worlds 1 and 2.
+Mary-O walks by default, runs while Shift is held, accelerates, skids, and jumps through the original Worlds 1 and 2.
 Bonk power blocks to transform from **small** to **tall** to **fire**, shoot
 sparks in fire form, and toggle **cosmic** form for fast movement and repeated
 midair jumps. Ride moving platforms, discover warp pipes, stomp enemies,
@@ -47,11 +47,11 @@ to *play* the imported levels.
 |---|---|
 | Left / Right | Accelerate, turn, skid |
 | Z | Jump; release early for a shorter jump |
-| X | Shoot a spark when wearing the fire or cosmic form |
+| X | Shoot a spark when wearing the fire or cosmic form (or tap Shift) |
 | D | Toggle cosmic form; watch the entry / exit sequences |
 | Down | Crouch when tall; descend an upward-facing pipe |
 | Up | Enter an upward-facing exit from below |
-| Shift | Walk instead of run |
+| Shift (held) | **Run**; 300 px/s cap versus 180 px/s walking (higher jump bands) |
 | R | Restart current level |
 | F1 | Toggle the on-screen controls |
 | F2 | Open/close the rig and animation inspector |
@@ -69,7 +69,22 @@ finish area advances again without a replay. `R` resets only the current
 course; `F5`/`F6` allow jumping between neighboring courses for lessons.
 
 Alternatively, start with `python main.py --controls wasd`: A/D move,
-W/S pipe directions, **Space** jump, **J** shoot, **L** cosmic, Shift walk.
+W/S pipe directions, **Space** jump, **J** shoot, **L** cosmic, Shift run / spark.
+
+### Movement and collision fidelity
+
+The simulation retains the Rust Mary-O speed-band jumps, released/held gravity,
+ground reverse/braking, zero coyote time, and zero jump buffering. Shift is a
+**run modifier**, not a brake; in fire form its press edge also fires a spark.
+Moving through a 32-pixel-high passage is possible with the original small
+form **or a crouched tall/fire/cosmic form**. Mary-O stays crouched under a low
+ceiling after releasing Down and can stand only after clearing it. Crouching
+also carries over the edge of a platform when Down remains held. The slower
+crouch-walk speed is a simple Lite teaching rule rather than the full Rust body
+mode system. Walk animations track horizontal distance, not constant clock time.
+
+Read [the physics fidelity notes](docs/PHYSICS_FIDELITY.md) for tested values,
+known differences, and the compact headless fixture used to check clearances.
 
 ### Pose and animation lab
 

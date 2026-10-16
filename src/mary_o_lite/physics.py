@@ -1,8 +1,8 @@
 """Classic movement based on the authored Ambition Mary-O axis tuning.
 
-No coyote time and no jump buffer. A pressed jump works only if the character
-is grounded on that exact simulation tick. The speed-band law and phased
-rise gravity are shared by all non-cosmic forms.
+No coyote time and no jump buffer. A pressed jump works only if grounded
+(or cosmic air-jumps remain). The speed-band law and phased rise gravity
+use the same tunings across the original forms; default movement is a walk.
 """
 from __future__ import annotations
 
@@ -31,9 +31,26 @@ COSMIC = Tuning(max_run=620, run_accel=1400, air_accel=1400,
                 air_coast=700, jump_speed=520, max_fall=300, air_jumps=255)
 
 
-def horizontal(vx: float, direction: int, on_ground: bool, walk: bool,
-               tuning: Tuning, dt: float) -> float:
-    cap = tuning.max_run * (0.60 if walk else 1.0)
+# From Mary-O's Rust game rules: the unmodified stick walks at 60% throttle.
+# The modifier is RUN, not WALK. Slowing down doesn't erase existing momentum.
+WALK_THROTTLE = 0.60
+# Lite allows a slow crouch-walk through 32 px passages. Rust uses the shared
+# body-mode movement system, so this is deliberately a separate teaching knob.
+CROUCH_SPEED = 90.0
+
+
+def horizontal(vx: float, direction: int, on_ground: bool, run: bool,
+               tuning: Tuning, dt: float, *, crouch: bool = False) -> float:
+    """Approach a target speed without changing velocity instantaneously.
+
+    Run is a held modifier; letting go slows Mary-O toward WALK_THROTTLE
+    through normal acceleration. Crouching has an independent crawl cap but
+    preserves accumulated velocity, allowing a run-in slide under a gap.
+    """
+    direction = max(-1, min(1, direction))
+    cap = tuning.max_run * (1.0 if run else WALK_THROTTLE)
+    if crouch:
+        cap = min(cap, CROUCH_SPEED)
     if direction:
         reversing = vx * direction < 0
         accel = (tuning.ground_reverse if on_ground else tuning.air_reverse) if reversing else (

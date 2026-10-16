@@ -46,6 +46,16 @@ world mechanics in this version.
 Read [the enumerated source-fidelity audit](FIDELITY_AUDIT.md) for exact
 LDtk entity coverage and known remaining differences.
 
+## More faithful movement
+
+The walk/run input policy is now walk-by-default with Shift-to-run, matching
+Ambition's movement glue. Tall, fire, and cosmic forms crouch to the exact
+small-form collision height (32 px), keep that stance under low ceilings and
+across ledges, and can crawl through the same passages as small Mary-O.
+Jump-release state, footstep animation pacing, hidden-block collisions, enemy
+wall reversals, and moving-platform carry have additional regression tests.
+See [PHYSICS_FIDELITY.md](PHYSICS_FIDELITY.md).
+
 ## Remaining playtest work
 
 - The Pygame window, timing, keyboard feel, sprite alignment, and long rooms

@@ -19,8 +19,10 @@ to examine the rules without displaying images.
 
 ## Gameplay data
 
-- `physics.py`: immutable classic and cosmic velocity values. The jump launch
-  has four running-speed bands; releasing jump returns to full gravity.
+- `physics.py`: immutable classic and cosmic velocity values. Movement walks
+  by default, runs while Shift is held, and accelerates to (rather than
+  snapping to) a target speed. The jump launch has four running-speed bands;
+  releasing Jump ends the weak-ascent phase until the next jump.
 - `game.py`: `Player`, `Enemy`, `Item`, `Spark`, and a single `Game`. Solids are
   axis-aligned boxes; movement checks X then Y. Tiles marked 2 are one-way.
 - `content.py`: reads the source LDtk JSON file at launch into `Level` and
@@ -33,6 +35,12 @@ platforms, and the clock. Revisiting restores the snapshot. Returning from the
 next room places Mary-O near the right goal area, with goal triggering
 suppressed until she has crossed it from right to left. Leftward exits use the
 reachable spawn lane because several source rooms have solid end walls.
+
+The 24 x 32 small body and crouched grown body fit the same low passages.
+Stand-up is blocked while any solid overlaps the taller 24 x 62 standing
+box. A crouch may be carried into the air while Down remains held. The
+source-backed tuning and Lite-specific simplifications are detailed in
+[PHYSICS_FIDELITY.md](PHYSICS_FIDELITY.md).
 
 The camera follows horizontally **in both directions**. `go_previous()` and
 `go_next()` support classroom shortcuts and normal edge travel; they do not

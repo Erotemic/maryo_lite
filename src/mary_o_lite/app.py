@@ -77,13 +77,17 @@ class Keyboard:
             cosmic=pg.K_d
         buttons={'jump':jump,'fire':fire,'cosmic':cosmic,'up':up,'down':down,'restart':pg.K_r}
         held={name for name,key in buttons.items() if k[key]}
+        run=bool(k[pg.K_LSHIFT] or k[pg.K_RSHIFT])
+        if run:
+            held.add('run')
         edges=held-self.prev
         self.prev=held
         direction=int(bool(k[right]))-int(bool(k[left]))
         return Command(move=direction,jump='jump' in edges,held_jump='jump' in held,
                        fire='fire' in edges,utility='cosmic' in edges,
+                       run=run,run_pressed='run' in edges,
                        up='up' in held,down='down' in held,
-                       walk=bool(k[pg.K_LSHIFT] or k[pg.K_RSHIFT]),restart='restart' in edges)
+                       restart='restart' in edges)
 
     def clear(self):self.prev.clear()
 
@@ -112,7 +116,7 @@ def run_pygame(args):
     from .graphics import LOGICAL_SIZE, Painter
     pygame.init()
     screen=pygame.display.set_mode(parse_size(args.size),pygame.RESIZABLE)
-    pygame.display.set_caption('Mary-O Lite | Arrow keys + Z/X/D | F6 back')
+    pygame.display.set_caption('Mary-O Lite | Arrows move, Z jump, Shift run/spark | F6 back')
     # Convert-alpha surfaces need a display, so the first Painter comes after set_mode.
     painter=Painter()
     painter.pose_lab=args.pose_lab
@@ -125,7 +129,10 @@ def run_pygame(args):
     accumulator=0.0
     last_time=0.0
     while running:
-        dt=min(.05,clock.tick(60)/1000)
+        # Preserve real elapsed time across normal render spikes. The old
+        # 50ms cap silently ran the simulation in slow motion below 20 FPS.
+        # A 150ms ceiling still prevents unbounded catch-up after a breakpoint.
+        dt=min(.15,clock.tick(60)/1000)
         for e in pygame.event.get():
             if e.type==pygame.QUIT:
                 running=False
