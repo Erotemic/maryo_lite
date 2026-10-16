@@ -21,6 +21,8 @@ TALL_H = 62
 # Small-form passages must also fit a tall / fire / cosmic form while crouched.
 CROUCH_H = SMALL_H
 BLOCK_SCORE = 50
+# Source `assets/data/room_rules.ron`: the four-bar death interlude is 3.2s.
+DEATH_DWELL = 3.2
 
 
 @dataclass
@@ -28,11 +30,12 @@ class Command:
     move: int = 0
     jump: bool = False          # Key-down edge, not held state.
     held_jump: bool = False
-    fire: bool = False
+    fire: bool = False          # Programmatic action; keyboards use run_pressed.
     down: bool = False          # Held: crouch while standing; enter pipes.
     up: bool = False            # Held: leave downward-facing pipes.
-    run: bool = False          # Hold the modifier to run, walk by default.
-    run_pressed: bool = False  # In fire form the same press fires a spark.
+    run: bool = False          # Hold X (Arrows) / J (WASD), not Shift.
+    run_pressed: bool = False  # Its press edge also fires a spark when armed.
+    precision: bool = False    # Shift caps the movement axis at 50%.
     utility: bool = False
     restart: bool = False
 
@@ -94,6 +97,7 @@ class Enemy:
     pot_right: float = 0.0
     pot_bottom: float = 0.0
     plant_offset: int = 0
+    kick_grace: float = 0.0
 
     @property
     def box(self): return Box(self.x, self.y, self.w, self.h)
@@ -125,9 +129,13 @@ class Spark:
     life: float = 1.5
     bounces: int = 2
     visual: str = ''  # Name of the source sprite family, not an untracked PNG.
+    gravity: float = 900.0
 
     @property
-    def box(self): return Box(self.x - 9, self.y - 9, 18, 18)
+    def box(self):
+        half_extent = 12 if self.visual == 'void_orb' else 10 if not self.enemy else 9
+        return Box(self.x - half_extent, self.y - half_extent,
+                   half_extent * 2, half_extent * 2)
 
 
 @dataclass
@@ -186,6 +194,7 @@ class Game:
         self.score = 0
         self.coins = 0
         self.lives = 3
+        self.game_over = False
         self.clock = 400.0
         self.elapsed = 0.0
         self.tick_count = 0
@@ -235,6 +244,8 @@ class Game:
 
     def go_previous(self) -> bool:
         """Classroom shortcut and left-edge exit use the same transition."""
+        if self.game_over:
+            return False
         name = self.previous_room()
         if name is None:
             return False
@@ -243,11 +254,25 @@ class Game:
 
     def go_next(self) -> bool:
         """Move forward, retaining history so later rooms can be revisited."""
+        if self.game_over:
+            return False
         name = self.room.next_room
         if name not in self.rooms:
             return False
         self.load_room(name, entry='left')
         return True
+
+    def restart_session(self):
+        """Start a fresh run after exhausting all lives; R restarts a game over."""
+        self.room_cache.clear()
+        self.cleared.clear()
+        self.score = self.coins = 0
+        self.lives = 3
+        self.game_over = False
+        self.elapsed = 0
+        self.player = Player()
+        self._room_initialized = False
+        self.load_room('mary_o_1_1', preserve_form=False, reset=True)
 
     def _arrival_from_right(self):
         """Find a safe ground near the far exit, without hardcoded room coords.
@@ -418,64 +443,89 @@ class Game:
         return any(not one_way and box.overlaps(t) for t, one_way in self._colliders(box))
 
     def _move(self, obj, dt: float, *, bounce=False):
-        """Resolve horizontal then vertical contact, including one-way floors."""
+        """Swept axis movement: resolve the *first* face reached, not tile order.
+
+        This is intentionally a small AABB solver for students. Using each
+        axis's leading edge avoids corner teleports, repeated bonks, and
+        clipping across thin blocks at high speed. One-way decks block only
+        downward crossings from their top; hidden blocks only upward heads.
+        """
+        epsilon = 1e-6
         obj.grounded = False
+        start_x = obj.x
         dx = obj.vx * dt
         if dx:
-            obj.x += dx
-            for wall, one_way in self._colliders(obj.box):
-                if one_way or not obj.box.overlaps(wall):
+            sweep = Box(min(start_x, start_x + dx), obj.y,
+                        obj.w + abs(dx), obj.h)
+            hit = None
+            distance = abs(dx)
+            for wall, one_way in self._colliders(sweep):
+                if one_way or not (obj.y < wall.y + wall.h and obj.y + obj.h > wall.y):
                     continue
-                if dx > 0:
-                    obj.x = min(obj.x, wall.x - obj.w)
+                if dx > 0 and start_x + obj.w <= wall.x + epsilon:
+                    gap = wall.x - (start_x + obj.w)
+                elif dx < 0 and start_x >= wall.x + wall.w - epsilon:
+                    gap = start_x - (wall.x + wall.w)
                 else:
-                    obj.x = max(obj.x, wall.x + wall.w)
+                    continue
+                if -epsilon <= gap <= distance + epsilon and gap <= distance:
+                    distance, hit = max(0, gap), wall
+            obj.x = start_x + (distance if dx > 0 else -distance)
+            if hit is not None:
                 if bounce:
                     obj.vx = -obj.vx
-                    # Next AI tick takes its direction from `facing`, so a
-                    # velocity-only bounce would drive it into the wall again.
                     if hasattr(obj, 'facing'):
                         obj.facing = 1 if obj.vx > 0 else -1
                 else:
                     obj.vx = 0
-                break
+        clamped_x = clamp(obj.x, 0, max(0, self.room.width - obj.w))
+        if clamped_x != obj.x:
+            obj.x = clamped_x
+            if not bounce:
+                obj.vx = 0
+
+        start_y = obj.y
         dy = obj.vy * dt
         if dy:
-            old_bottom, old_top = obj.y + obj.h, obj.y
-            obj.y += dy
-            for wall, one_way in self._colliders(obj.box):
-                if not obj.box.overlaps(wall):
-                    continue
-                if dy > 0:
-                    if old_bottom > wall.y + 2 and one_way:
-                        continue
-                    obj.y = min(obj.y, wall.y - obj.h)
-                    obj.vy = 0
-                    obj.grounded = True
-                elif not one_way and old_top >= wall.y + wall.h - 2:
-                    obj.y = max(obj.y, wall.y + wall.h)
-                    obj.vy = 0
-                    if obj is self.player and isinstance(wall, Thing) and wall.kind == 'MaryOBlock':
-                        self.bonk(wall)
+            sweep = Box(obj.x, min(start_y, start_y + dy),
+                        obj.w, obj.h + abs(dy))
+            contacts = list(self._colliders(sweep))
             if dy < 0 and obj is self.player:
-                # Hidden blocks are invisible and non-solid until their first
-                # upward head contact. They then become spent visible blocks.
-                for hidden in self.blocks:
-                    if (hidden.fields.get('kind') != 'Hidden'
-                            or hidden.identifier in self.spent
-                            or hidden.identifier in self.broken):
-                        continue
-                    if (old_top >= hidden.bottom - 2
-                            and obj.box.overlaps(Box(hidden.x, hidden.y, hidden.w, hidden.h))):
-                        obj.y = max(obj.y, hidden.bottom)
-                        obj.vy = 0
-                        self.bonk(hidden)
-                        break
+                # Include undiscovered blocks in the *same* nearest-contact
+                # search. The first ceiling hit, not an arbitrary later block,
+                # is the only block which should activate this tick.
+                for block in self.blocks:
+                    if (block.fields.get('kind') == 'Hidden'
+                            and block.identifier not in self.spent
+                            and block.identifier not in self.broken
+                            and sweep.overlaps(Box(block.x,block.y,block.w,block.h))):
+                        contacts.append((block, False))
+            hit = None
+            distance = abs(dy)
+            for wall, one_way in contacts:
+                if not (obj.x < wall.x + wall.w and obj.x + obj.w > wall.x):
+                    continue
+                if dy > 0 and start_y + obj.h <= wall.y + epsilon:
+                    gap = wall.y - (start_y + obj.h)
+                elif dy < 0 and not one_way and start_y >= wall.y + wall.h - epsilon:
+                    gap = start_y - (wall.y + wall.h)
+                else:
+                    continue
+                if -epsilon <= gap <= distance + epsilon and gap <= distance:
+                    distance, hit = max(0, gap), wall
+            obj.y = start_y + (distance if dy > 0 else -distance)
+            if hit is not None:
+                obj.vy = 0
+                if dy > 0:
+                    obj.grounded = True
+                elif obj is self.player and isinstance(hit, Thing) and hit.kind == 'MaryOBlock':
+                    self.bonk(hit)
         else:
-            # Check support, so next tick can accept a newly pressed jump.
-            under = Box(obj.x + 2, obj.y + obj.h, max(1,obj.w-4), 1.5)
-            obj.grounded = any(under.overlaps(wall) and under.y <= wall.y + 2 for wall, _ in self._colliders(under))
-        obj.x = clamp(obj.x, 0, max(0,self.room.width-obj.w))
+            # Probe only from above so a player passing *through* a one-way
+            # deck is never treated as standing on its underside.
+            under = Box(obj.x + 2, obj.y + obj.h, max(1,obj.w - 4), 1.5)
+            obj.grounded = any(under.overlaps(wall) and under.y <= wall.y + 2
+                               for wall, _ in self._colliders(under))
 
     def _stand_or_crouch(self, down_held: bool):
         """Change posture about the *feet*, never the top of the sprite.
@@ -610,10 +660,11 @@ class Game:
         p=self.player
         if p.cosmic or p.quasar > 0 or p.dead_time > 0:
             return
-        self.lives -= 1
-        p.dead_time = 1.1
+        self.lives = max(0, self.lives - 1)
+        p.dead_time = DEATH_DWELL
         p.vx = 0
-        p.vy = -320
+        p.vy = 0
+        p.anim_time = 0
         p.jump_hold_cancelled = True
         self.events.append(Event('die',p.x,p.y))
 
@@ -714,7 +765,10 @@ class Game:
                 e.x+=math.sin(e.age*1.8)*dt*42
                 e.y=e.anchor_y+math.sin(e.age*3)*14
                 if e.kind=='laden_swallow' and int(e.age*1.1)!=int((e.age-dt)*1.1):
-                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h,0,80,True,3.5,0,'coconut'))
+                    # Authored coconut: 30px/s initial drop, 760px/s^2 pull,
+                    # four seconds maximum, no floor bounce.
+                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h,0,30,
+                                             True,4.0,0,'coconut',760))
                 continue
             if e.kind == 'solid_snake' and e.phase == 'shell':
                 e.vx=0
@@ -725,12 +779,17 @@ class Game:
                 continue
             if e.kind == 'solid_snake' and e.phase == 'rolling':
                 e.vx=e.facing*300
+                e.kick_grace = max(0, e.kick_grace - dt)
             if e.kind == 'void_lizard':
                 e.vx=e.facing*55
                 if e.grounded and int(e.age*1.5)!=int((e.age-dt)*1.5):
                     e.vy=-400
                 if int(e.age/.95)!=int((e.age-dt)/.95):
-                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h*.35,e.facing*180,-115,True,3,0,'void_orb'))
+                    # The Void Lizard's bolt travels along the bridge: the
+                    # authored flight has *zero* gravity, unlike a spark.
+                    self.sparks.append(Spark(e.x+e.w/2,e.y+e.h*.35,
+                                             e.facing*170,0,True,3.5,0,
+                                             'void_orb',0))
             if e.kind == 'ai_slop': e.vx=e.facing*32
             if e.kind == 'solid_snake' and e.phase=='walk': e.vx=e.facing*46
             if e.kind == 'void_star': e.vx=e.facing*85
@@ -751,16 +810,28 @@ class Game:
         for s in self.sparks:
             if s.life<=0:continue
             s.life-=dt
+            old_y = s.y
             s.x+=s.vx*dt
-            s.vy=min(540,s.vy+900*dt)
+            s.vy=min(540,s.vy+s.gravity*dt)
             s.y+=s.vy*dt
             if s.y>self.room.height+60 or s.x<0 or s.x>self.room.width: s.life=0;continue
-            collisions = list(self._colliders(s.box))
+            box = s.box
+            # Include the swept vertical range so a fast falling projectile
+            # cannot cross a thin one-way deck between two physics frames.
+            sweep = Box(box.x, min(old_y, s.y) - box.h/2,
+                        box.w, box.h + abs(s.y-old_y))
+            collisions = list(self._colliders(sweep))
             for wall, one_way in collisions:
-                if not s.box.overlaps(wall):continue
-                if s.vy>0 and s.bounces>0 and s.y<wall.y+10:
-                    s.y=wall.y-10;s.vy=-300;s.bounces-=1
-                elif not one_way:
+                if not sweep.overlaps(wall):continue
+                # Floor-only bounce; one-way decks do not stop an ascending
+                # spark or bolt. Enemy bolts and coconuts never bounce.
+                on_top = (s.vy>0 and old_y + box.h/2 <= wall.y + 1e-6
+                          and s.y + box.h/2 >= wall.y)
+                if on_top and s.bounces > 0:
+                    s.y=wall.y-box.h/2
+                    s.vy=-300
+                    s.bounces-=1
+                elif not one_way or on_top:
                     s.life=0
                 break
             if s.enemy:
@@ -893,8 +964,13 @@ class Game:
             elif e.kind=='solid_snake' and e.phase=='shell':
                 e.phase='rolling'
                 e.facing=1 if p.foot[0]<e.box.cx else -1
+                # Kicking begins with Mary-O touching the shell: it must not
+                # damage the kicker for the first quarter-second (Rust rule).
+                e.kick_grace=.25
                 p.vx=-100*e.facing
                 self.events.append(Event('kick',e.x,e.y))
+            elif e.kind=='solid_snake' and e.phase=='rolling' and e.kick_grace>0:
+                continue
             else:self._hurt(e.x)
 
     def _hazard_tick(self):
@@ -991,15 +1067,24 @@ class Game:
         self.elapsed+=dt
         self.events=[]
         p=self.player
+        if self.game_over:
+            if cmd.restart:
+                self.restart_session()
+            return
         if cmd.restart:
             self.load_room(self.room.name, reset=True)
             return
         if p.dead_time>0:
             p.dead_time-=dt
-            p.vy+=CLASSIC.gravity*dt
-            p.y+=p.vy*dt
+            # Rust death interlude holds the body in place until the course
+            # replay. The authored death row still advances visually.
+            p.anim_time+=dt
             if p.dead_time<=0:
-                self.load_room(self.room.name,preserve_form=False,reset=True)
+                if self.lives == 0:
+                    self.game_over = True
+                    p.dead_time = 0
+                else:
+                    self.load_room(self.room.name,preserve_form=False,reset=True)
             return
         if self.pipe_state:
             self._pipe_step(dt)
@@ -1007,6 +1092,9 @@ class Game:
         if self._goal_tick(dt):
             return
         self.clock=max(0,self.clock-dt)
+        if self.clock == 0:
+            self.die()
+            return
         p.invulnerable=max(0,p.invulnerable-dt)
         p.quasar=max(0,p.quasar-dt)
         p.shot_timer=max(0,p.shot_timer-dt)
@@ -1035,7 +1123,7 @@ class Game:
         tuning=COSMIC if p.cosmic else CLASSIC
         self._stand_or_crouch(cmd.down)
         p.vx = horizontal(p.vx, clamp(cmd.move,-1,1), p.grounded, cmd.run,
-                          tuning, dt, crouch=p.crouched)
+                          tuning, dt, crouch=p.crouched, precision=cmd.precision)
         if cmd.move:
             p.direction = 1 if cmd.move > 0 else -1
         if cmd.jump and (p.grounded or p.air_jumps<tuning.air_jumps):
@@ -1086,10 +1174,15 @@ class Game:
                 and p.x >= right_exit):
             self.go_next()
             return
-        if (cmd.fire or cmd.run_pressed) and p.form in ('fire','cosmic') and p.shot_timer<=0:
+        live_sparks = sum(not shot.enemy and shot.life>0 for shot in self.sparks)
+        if ((cmd.fire or cmd.run_pressed) and p.form in ('fire','cosmic')
+                and p.shot_timer<=0 and live_sparks<2):
             p.shot_timer=.4
             p.shoot_time=.18
-            self.sparks.append(Spark(p.foot[0]+p.direction*18,p.y+min(p.h*.45,32),p.direction*300,-140))
+            # Rust spark muzzle: offset (0.5855, -0.0762) of body height,
+            # relative to its centre. Horizontal launch; gravity bends it.
+            self.sparks.append(Spark(p.foot[0] + p.direction*p.h*.5855,
+                                     p.y+p.h*(.5-.0762),p.direction*300,0))
             self.events.append(Event('shoot',p.x,p.y))
         self._enemy_tick(dt)
         self._spark_tick(dt)
@@ -1118,6 +1211,7 @@ class Game:
                     player=(round(self.player.x,2),round(self.player.y,2)),
                     velocity=(round(self.player.vx,2),round(self.player.vy,2)),
                     lives=self.lives,score=self.score,coins=self.coins,
+                    game_over=self.game_over,
                     enemies=sum(e.alive for e in self.enemies),
                     cleared=sorted(self.cleared),
                     visited=sorted(self.room_cache),

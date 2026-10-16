@@ -121,6 +121,7 @@ class Painter:
         self.fx=[]
         self.debug=False
         self.help=True
+        self.control_hint='ARROWS move   Z jump   X hold:run / press:spark   SHIFT slow   DOWN crouch'
         self.pose_lab=False
         self.lab_form='small'
         self.lab_clip='idle'
@@ -482,7 +483,7 @@ class Painter:
         self.letter(f'x{game.lives}',(897,12))
         if self.help:
             rect(self.view,(18,30,54),(8,self.h-38,self.w-16,30),radius=4)
-            self.letter('ARROWS move   Z jump   SHIFT run / spark   X spark   DOWN crouch   F5 next   F6 back   F2 poses',
+            self.letter(self.control_hint+'   F5/F6 rooms   F2 poses',
                         (19,self.h-31),WHITE,small=True)
         if game.flag_state == 'castle' and 5.8 < game.castle_timer < 9.8:
             rect(self.view,(25,29,53),(self.w/2-260,self.h-155,520,63),radius=6)
@@ -493,6 +494,11 @@ class Painter:
             self.letter('COURSE CLEAR!' if game.flag_state=='tally' else 'THE VOID BRIDGE FALLS',
                         (self.w/2,215),GOLD,big=True,center=True)
             self.letter('Next world is loading...', (self.w/2,279),WHITE,center=True)
+        if game.game_over:
+            rect(self.view,(18,23,43),(self.w/2-255,self.h/2-105,510,210),radius=9)
+            self.letter('GAME OVER',(self.w/2,self.h/2-33),GOLD,big=True,center=True)
+            self.letter('Press R to restart from World 1-1',
+                        (self.w/2,self.h/2+39),WHITE,center=True)
         if game.elapsed < 2 and game.tick_count<120:
             rect(self.view,(24,32,57),(self.w/2-215,150,430,128),radius=10)
             self.letter(game.room.title,(self.w/2,187),GOLD,big=True,center=True)

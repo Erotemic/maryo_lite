@@ -13,7 +13,8 @@ from .game import Command, Game, STEP
 def parse_args(argv=None):
     p=argparse.ArgumentParser(description='Mary-O Lite: a source-driven Python platformer')
     p.add_argument('--room',default='mary_o_1_1',choices=available_rooms(),help='start at a Mary-O room')
-    p.add_argument('--controls',choices=('arrows','wasd'),default='arrows')
+    p.add_argument('--controls',choices=('arrows','wasd','arrows-qwer','wasd-uipo'),
+                   default='arrows',help='Ambition keyboard layout (X runs on arrows; J on WASD)')
     p.add_argument('--pose-lab',action='store_true',help='start in the animation inspector')
     p.add_argument('--mute',action='store_true')
     p.add_argument('--size',default='1280x720',help='window size, e.g. 1280x720')
@@ -60,36 +61,84 @@ class Music:
 
 
 class Keyboard:
-    """An edge-triggered input adapter; no key repeats or sticky actions."""
+    """Ambition's four keyboard presets, reduced to Mary-O's supported verbs.
+
+    The `modifier` is X in the default Rust ArrowsZxc preset, J for WasdJkl,
+    E for ArrowsQwer, and P for WasdUipo. One key supplies BOTH the held run
+    state and the pressed spark edge. Shift is the general precision-walk
+    layer, not a run key. Keep the distinction here, not in the game rules.
+    """
+
+    PRESETS = {
+        # left, right, up, down, jump, modifier, utility
+        'arrows': ('LEFT', 'RIGHT', 'UP', 'DOWN', 'z', 'x', 'd'),
+        'wasd': ('a', 'd', 'w', 's', 'SPACE', 'j', 'u'),
+        'arrows-qwer': ('LEFT', 'RIGHT', 'UP', 'DOWN', 'q', 'e', 'g'),
+        'wasd-uipo': ('a', 'd', 'w', 's', 'u', 'p', 'k'),
+    }
+    HINTS = {
+        'arrows': 'ARROWS move   Z jump   X hold:run / press:spark   SHIFT slow   DOWN crouch',
+        'wasd': 'WASD move   SPACE jump   J hold:run / press:spark   SHIFT slow   S crouch',
+        'arrows-qwer': 'ARROWS move   Q jump   E hold:run / press:spark   SHIFT slow   DOWN crouch',
+        'wasd-uipo': 'WASD move   U jump   P hold:run / press:spark   SHIFT slow   S crouch',
+    }
+
     def __init__(self,pygame,preset='arrows'):
         self.pg=pygame
+        if preset not in self.PRESETS:
+            raise ValueError(f'Unknown control preset: {preset}')
         self.preset=preset
         self.prev=set()
+        # SDL may deliver a tap (KEYDOWN+KEYUP) on a render frame in which the
+        # fixed-step accumulator advances zero ticks. Save press edges until a
+        # simulation step consumes them, rather than dropping quick inputs.
+        self.pending_edges=set()
+
+    def note_keydown(self, key, *, repeat=False):
+        if repeat:
+            return
+        _left,_right,_up,_down,jump,modifier,cosmic=(
+            getattr(self.pg,'K_'+name) for name in self.PRESETS[self.preset]
+        )
+        for name, mapped in (('jump',jump),('run',modifier),
+                             ('cosmic',cosmic),('restart',self.pg.K_r)):
+            if key == mapped and name not in self.prev:
+                self.pending_edges.add(name)
 
     def command(self):
         k=self.pg.key.get_pressed()
         pg=self.pg
-        if self.preset=='wasd':
-            left,right,up,down,jump,fire=(pg.K_a,pg.K_d,pg.K_w,pg.K_s,pg.K_SPACE,pg.K_j)
-            cosmic=pg.K_l
-        else:
-            left,right,up,down,jump,fire=(pg.K_LEFT,pg.K_RIGHT,pg.K_UP,pg.K_DOWN,pg.K_z,pg.K_x)
-            cosmic=pg.K_d
-        buttons={'jump':jump,'fire':fire,'cosmic':cosmic,'up':up,'down':down,'restart':pg.K_r}
+        left,right,up,down,jump,modifier,cosmic=(
+            getattr(pg,'K_'+name) for name in self.PRESETS[self.preset]
+        )
+        buttons={'jump':jump,'run':modifier,'cosmic':cosmic,
+                 'up':up,'down':down,'restart':pg.K_r}
         held={name for name,key in buttons.items() if k[key]}
-        run=bool(k[pg.K_LSHIFT] or k[pg.K_RSHIFT])
-        if run:
-            held.add('run')
-        edges=held-self.prev
+        edges=(held-self.prev)|self.pending_edges
+        self.pending_edges.clear()
         self.prev=held
         direction=int(bool(k[right]))-int(bool(k[left]))
         return Command(move=direction,jump='jump' in edges,held_jump='jump' in held,
-                       fire='fire' in edges,utility='cosmic' in edges,
-                       run=run,run_pressed='run' in edges,
+                       utility='cosmic' in edges,
+                       run='run' in held,run_pressed='run' in edges,
+                       precision=bool(k[pg.K_LSHIFT] or k[pg.K_RSHIFT]),
                        up='up' in held,down='down' in held,
                        restart='restart' in edges)
 
-    def clear(self):self.prev.clear()
+    def clear(self, *, absorb_held=False):
+        self.pending_edges.clear()
+        self.prev.clear()
+        if absorb_held:
+            # On pause/pose-lab transitions, don't treat keys already held
+            # down as brand-new gameplay press edges on the first resumed tick.
+            pressed=self.pg.key.get_pressed()
+            _left,_right,_up,_down,jump,modifier,cosmic=(
+                getattr(self.pg,'K_'+name) for name in self.PRESETS[self.preset]
+            )
+            for name,key in (('jump',jump),('run',modifier),
+                             ('cosmic',cosmic),('restart',self.pg.K_r)):
+                if pressed[key]:
+                    self.prev.add(name)
 
 
 def parse_size(s):
@@ -116,12 +165,19 @@ def run_pygame(args):
     from .graphics import LOGICAL_SIZE, Painter
     pygame.init()
     screen=pygame.display.set_mode(parse_size(args.size),pygame.RESIZABLE)
-    pygame.display.set_caption('Mary-O Lite | Arrows move, Z jump, Shift run/spark | F6 back')
     # Convert-alpha surfaces need a display, so the first Painter comes after set_mode.
     painter=Painter()
     painter.pose_lab=args.pose_lab
     game=Game(args.room)
     keys=Keyboard(pygame,args.controls)
+    painter.control_hint=keys.HINTS[args.controls]
+    move_key, jump_key, run_key = (
+        ('WASD', 'SPACE', 'J' if args.controls == 'wasd' else 'P')
+        if args.controls.startswith('wasd')
+        else ('Arrows', 'Z' if args.controls == 'arrows' else 'Q',
+              'X' if args.controls == 'arrows' else 'E')
+    )
+    pygame.display.set_caption(f'Mary-O Lite | {move_key} move, {jump_key} jump, {run_key} run/spark')
     sounds=Music(pygame,args.mute)
     clock=pygame.time.Clock()
     running=True
@@ -137,12 +193,16 @@ def run_pygame(args):
             if e.type==pygame.QUIT:
                 running=False
             elif e.type==pygame.KEYDOWN:
+                if not painter.pose_lab and not paused:
+                    keys.note_keydown(e.key,repeat=bool(getattr(e,'repeat',False)))
                 if e.key==pygame.K_F1:painter.help=not painter.help
                 elif e.key==pygame.K_F2:
                     painter.pose_lab=not painter.pose_lab
-                    keys.clear();accumulator=0
+                    keys.clear(absorb_held=True);accumulator=0
                 elif e.key==pygame.K_F3:painter.debug=not painter.debug
-                elif e.key==pygame.K_ESCAPE:paused=not paused
+                elif e.key==pygame.K_ESCAPE:
+                    paused=not paused
+                    keys.clear(absorb_held=True)
                 elif painter.pose_lab:
                     forms=['small','tall','fire','cosmic']
                     if e.key in (pygame.K_UP,pygame.K_DOWN):

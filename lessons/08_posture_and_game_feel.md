@@ -11,7 +11,7 @@ when the height changes, and compare `p.foot` before and after. Open
 
 **Modify.** Change `CROUCH_SPEED` in `physics.py` from 90 to 60, then to
 140. Try running into a low tunnel versus entering from a complete stop.
-Play with run (Shift) pressed/released and see how velocity approaches a
+Play with run (X) pressed/released and see how velocity approaches a
 new speed rather than jumping to it. Use `F3` to display collision boxes.
 
 **Explain.** What would go wrong if crouch only changed the art, not the

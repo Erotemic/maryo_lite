@@ -36,6 +36,16 @@ def test_releasing_run_preserves_momentum_and_brakes_toward_walk():
     assert CLASSIC.max_run*.6<v<300
 
 
+def test_shift_layer_caps_axis_before_mary_o_walk_run_policy():
+    walk=0.0
+    run=0.0
+    for _ in range(180):
+        walk=horizontal(walk,1,True,False,CLASSIC,1/60,precision=True)
+        run=horizontal(run,1,True,True,CLASSIC,1/60,precision=True)
+    assert walk==pytest.approx(90.0)  # .5 axis * .6 Mary-O throttle
+    assert run==pytest.approx(150.0)  # .5 axis * full X-run throttle
+
+
 def test_crouch_has_a_slow_target_but_retains_incoming_speed():
     v=horizontal(300,1,True,True,CLASSIC,1/60,crouch=True)
     assert 90<v<300

@@ -7,7 +7,9 @@ change it, and see one predictable consequence. It is not a miniature ECS.
 
 At each 60 Hz step:
 
-1. `Keyboard.command()` translates held keys and new key presses into `Command`.
+1. `Keyboard.note_keydown()` retains very short button presses until the next
+   simulation step, and `Keyboard.command()` translates held keys and press
+   edges into `Command`. X supplies both a run *level* and a spark *edge*.
 2. `Game.step(command)` updates a plain `Player`, enemy lists, items,
    projectiles, room objects, goals, and a list of one-frame events.
 3. `Painter.frame(game, dt)` projects the world, interpolates body-part poses,
@@ -20,11 +22,15 @@ to examine the rules without displaying images.
 ## Gameplay data
 
 - `physics.py`: immutable classic and cosmic velocity values. Movement walks
-  by default, runs while Shift is held, and accelerates to (rather than
-  snapping to) a target speed. The jump launch has four running-speed bands;
-  releasing Jump ends the weak-ascent phase until the next jump.
-- `game.py`: `Player`, `Enemy`, `Item`, `Spark`, and a single `Game`. Solids are
-  axis-aligned boxes; movement checks X then Y. Tiles marked 2 are one-way.
+  by default, runs while X (or the preset's modifier) is held, and accelerates
+  toward a speed target. Shift caps the movement input axis at 0.5, as in the
+  Rust input adapter. Four launch bands affect jump speed; releasing Jump
+  ends weak-ascent gravity until the next jump.
+- `game.py`: `Player`, `Enemy`, `Item`, `Spark`, and a single `Game`. Movement
+  sweeps AABBs along X and then Y, resolves the first wall or floor crossed,
+  and bonks only the first ceiling block contacted. Tile value 2 is one-way.
+  Sparks and enemy bolts/coconuts have distinct gravity values; at most two
+  player sparks can be flying simultaneously.
 - `content.py`: reads the source LDtk JSON file at launch into `Level` and
   `Thing` objects. No Rust runtime, prefab backend, or procedural validation
   framework is necessary to open these rooms.
@@ -45,6 +51,10 @@ source-backed tuning and Lite-specific simplifications are detailed in
 The camera follows horizontally **in both directions**. `go_previous()` and
 `go_next()` support classroom shortcuts and normal edge travel; they do not
 change the fixed-step simulation's timing or collision rules.
+
+When Mary-O loses her last life, `Game.game_over` blocks input and course
+travel until `R` invokes `Game.restart_session()`. The body stays motionless
+through the 3.2-second death interlude while the death animation advances.
 
 ## Animations and transforms
 

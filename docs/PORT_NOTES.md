@@ -48,12 +48,14 @@ LDtk entity coverage and known remaining differences.
 
 ## More faithful movement
 
-The walk/run input policy is now walk-by-default with Shift-to-run, matching
-Ambition's movement glue. Tall, fire, and cosmic forms crouch to the exact
+The walk/run input policy is walk-by-default with **X-to-run** in Rust's
+default Arrow + Z/X/C preset. WASD uses J, and Shift is a precision-movement
+layer rather than run. The press edge of X/J also fires a spark when armed.
+Tall, fire, and cosmic forms crouch to the exact
 small-form collision height (32 px), keep that stance under low ceilings and
 across ledges, and can crawl through the same passages as small Mary-O.
-Jump-release state, footstep animation pacing, hidden-block collisions, enemy
-wall reversals, and moving-platform carry have additional regression tests.
+Jump-release state, footstep animation pacing, swept head/block contact, enemy
+wall reversals, projectile behavior, and moving-platform carry have regression tests.
 See [PHYSICS_FIDELITY.md](PHYSICS_FIDELITY.md).
 
 ## Remaining playtest work
