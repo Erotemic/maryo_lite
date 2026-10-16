@@ -1,0 +1,25 @@
+name: test
+on:
+  push:
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source asset tooling and tests
+        run: python -m pip install 'pytest>=8' 'Pillow>=10' 'CairoSVG>=2.7'
+      - name: Headless rules and rig tests
+        run: python -m pytest -q
+      - name: Start game without display
+        run: python main.py --headless --ticks 240
+      - name: Build binary art and music (must remain ignored)
+        run: |
+          python tools/build_assets.py
+          test -f assets/generated/parts/small_side/manifest.json
+          test -f assets/generated/robot/castle_robot.png
+          test -f assets/generated/audio/starlight.wav
+          test -z "$(git status --porcelain --untracked-files=all)"

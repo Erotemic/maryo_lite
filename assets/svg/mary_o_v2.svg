@@ -1,0 +1,3876 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="600mm"
+   height="964mm"
+   viewBox="0 0 600 964"
+   version="1.1"
+   id="svg1136"
+   sodipodi:docname="mary_o_v2.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1140" />
+  <sodipodi:namedview
+     id="namedview1138"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="4.0000001"
+     inkscape:cx="252.99999"
+     inkscape:cy="2651.8749"
+     inkscape:window-width="2560"
+     inkscape:window-height="1403"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="maryo_component_normal_side_head_face_details">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4210" />
+  </sodipodi:namedview>
+  <g
+     id="maryo_head_authoring"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Head Authoring"
+     data-authoring-role="editable-source"
+     transform="translate(-128.24231,133.61357)"
+     style="display:inline">
+    <g
+       id="maryo_authoring_tall_side_head"
+       inkscape:label="Editable Tall Side Head"
+       data-authoring-editable="true"
+       transform="translate(5.4219732,8.1935079)">
+      <g
+         id="maryo_component_normal_side_head"
+         inkscape:label="Core Head"
+         data-authoring-master="true"
+         data-authoring-editable="true"
+         transform="translate(82,521)"
+         style="display:inline">
+        <g
+           id="maryo_component_normal_side_head_rear_hair"
+           inkscape:label="Rear Hair"
+           transform="translate(68,21)"
+           color="#5e3624"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_side_head_rear_hair_shape_01"
+             inkscape:label="ponytail"
+             fill="currentColor"
+             stroke="#1c1613"
+             stroke-width="2"
+             d="m 29.989727,20.476375 -1.807173,3.131097 -2.249658,2.453425 -1.199218,0.922071 -10.561237,9.519628 4.468343,14.78944 5.945109,-7.683235 1.593192,-6.102442 2.346264,-8.986954 z"
+             stroke-linecap="square"
+             sodipodi:nodetypes="cccccccccc"
+             style="stroke-width:1;stroke-dasharray:none" />
+          <g
+             id="maryo_component_normal_side_head_ponytail_tie"
+             inkscape:label="Ponytail Tie"
+             transform="translate(-40.233802,-3.2834532)"
+             style="display:inline">
+            <path
+               id="maryo_component_normal_side_head_ponytail_tie_shape_01"
+               inkscape:label="Ponytail Tie Shape 1"
+               fill="#1c1613"
+               d="m 26,26.921585 h 4 V 31 h -4 z"
+               style="display:inline;stroke-width:1.16596"
+               transform="matrix(1.1914516,1.0751509,-0.34488914,0.35999121,44.112799,-9.7801201)" />
+            <path
+               id="maryo_component_normal_side_head_ponytail_tie_shape_02"
+               inkscape:label="Ponytail Tie Shape 2"
+               fill="#e778aa"
+               d="m 26.393065,28.006226 3.226452,-0.01258 -0.01258,2.000129 -3.226452,0.01258 z"
+               style="display:inline;stroke-width:1.27015"
+               transform="matrix(1.1914516,1.0751509,-0.34488914,0.35999121,44.112799,-9.7801201)" />
+          </g>
+        </g>
+        <g
+           id="maryo_component_normal_side_head_skin"
+           inkscape:label="Face"
+           transform="translate(68,21)"
+           color="#fbc294"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_side_head_skin_shape_01"
+             inkscape:label="Face Shape 1"
+             fill="currentColor"
+             stroke="#1c1613"
+             stroke-width="1"
+             d="m 30,28 h 22 v 8 l 2.058434,0.01843 0.01753,2.976445 L 52,39 51.858085,43.741277 47.684225,47.247683 36.09157,47.246907 33.392355,44.369436 30,47 Z"
+             stroke-linecap="square"
+             sodipodi:nodetypes="cccccccccccc" />
+          <g
+             id="maryo_component_normal_side_head_face_details"
+             inkscape:label="Face Details"
+             transform="translate(0.04096313)"
+             style="display:inline">
+            <path
+               id="maryo_component_normal_side_head_face_details_shape_01"
+               inkscape:label="Face Details Shape 1"
+               fill="#f49d92"
+               d="m 40.919066,37.151238 h 4.65452 v 3.103014 h -4.65452 z"
+               style="stroke-width:1.55151" />
+            <path
+               id="maryo_component_normal_side_head_face_details_shape_02"
+               inkscape:label="Face Details Shape 2"
+               d="m 48,42 h 2"
+               fill="none"
+               stroke="#b2595b"
+               stroke-width="1"
+               stroke-linecap="square" />
+            <g
+               id="maryo_component_normal_side_head_eye"
+               inkscape:label="Eye"
+               transform="matrix(1.0877522,0,0,1.0877522,-2.3417974,-3.1371419)"
+               style="display:inline">
+              <path
+                 id="maryo_component_normal_side_head_eye_shape_01"
+                 inkscape:label="eyebase"
+                 fill="#ffffff"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 d="m 42.987808,32.029505 h 3.474401 v 3.432704 h -3.474401 z"
+                 stroke-linecap="square"
+                 style="stroke-width:0.575582;stroke-dasharray:none" />
+              <path
+                 id="maryo_component_normal_side_head_eye_shape_02"
+                 inkscape:label="eyelash"
+                 d="m 46.498141,32.006793 0.780996,-0.439578"
+                 fill="none"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 stroke-linecap="square"
+                 sodipodi:nodetypes="cc"
+                 style="stroke-width:0.5;stroke-dasharray:none" />
+              <path
+                 id="path58"
+                 inkscape:label="pupil"
+                 fill="#1c1613"
+                 d="m 44.867624,32.253817 h 1.371424 v 2.520756 h -1.371424 z"
+                 style="display:inline;stroke-width:1.31473" />
+            </g>
+            <g
+               id="maryo_component_normal_side_head_nose_shadow"
+               inkscape:label="Nose Shadow"
+               transform="translate(-0.04096293)"
+               color="#dfa47c"
+               style="display:inline">
+              <path
+                 id="maryo_component_normal_side_head_nose_shadow_shape_01"
+                 inkscape:label="Nose Shadow Shape 1"
+                 fill="currentColor"
+                 d="m 51.508995,37.497494 1.386683,0.02136 -0.02199,1.054054 -1.347151,0.02325 z"
+                 sodipodi:nodetypes="ccccc" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="maryo_component_normal_side_head_foreground_hair"
+           inkscape:label="Foreground Hair"
+           transform="translate(68,21)"
+           color="#5e3624"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_side_head_foreground_hair_shape_02"
+             inkscape:label="Foreground Hair Shape 2"
+             fill="currentColor"
+             d="m 30.342332,25 h 23.63706 l 0.271961,4.920007 -23.909021,0.102616 z"
+             style="stroke-width:0.994656"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             id="maryo_component_normal_side_head_foreground_hair_shape_04"
+             inkscape:label="Foreground Hair Shape 4"
+             d="m 35.370881,30.287988 2.349381,-0.01304 -0.950193,0.904686 -3.737271,3.978164 0.05257,6.034539 2.093914,1.818809 -1.96047,1.427707 -0.06826,2.603471 -4.060402,3.277468 -0.356297,-4.746224 -3.328873,0.147857 0.669927,-3.405982 -2.077509,-4.728478 5.570101,-9.932092"
+             fill="none"
+             stroke="#1c1613"
+             stroke-width="1"
+             stroke-linecap="square"
+             sodipodi:nodetypes="cccccccccccccc"
+             style="fill:#5e3624;fill-opacity:1" />
+        </g>
+        <g
+           id="maryo_component_normal_side_head_hat_dome"
+           inkscape:label="Hat Dome"
+           transform="matrix(1.0722078,0,0,0.99279684,66.03754,21.13951)"
+           color="#bc305c"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_side_head_hat_dome_shape_01"
+             inkscape:label="Hat Dome Shape 1"
+             fill="currentColor"
+             stroke="#1c1613"
+             stroke-width="2"
+             d="m 28.626686,27.136969 -0.01039,-3.591936 1.798019,-4.244784 4.262963,-4.47303 5.329484,-1.06977 5.467467,1.190815 2.017871,1.898899 3.725626,4.453848 0.09194,5.759401 -4.294182,-0.01848 z"
+             stroke-linecap="square"
+             sodipodi:nodetypes="ccccccccccc" />
+          <path
+             id="maryo_component_normal_side_head_hat_trim_shape_02"
+             inkscape:label="Hat Trim Shape 2"
+             fill="currentColor"
+             d="m 29,24 h 22 v 4 H 29 Z"
+             style="display:inline;fill:#ff9bbd;fill-opacity:1"
+             transform="matrix(0.97639095,0,0,1.0043361,0.61925027,-0.06316581)" />
+        </g>
+      </g>
+      <g
+         id="maryo_primitive_big_side_hat_star"
+         inkscape:label="Hat Star"
+         data-authoring-master="true"
+         transform="translate(150,542)"
+         data-authoring-editable="true"
+         style="display:inline;stroke-width:0.5;stroke-dasharray:none">
+        <path
+           id="maryo_primitive_big_side_hat_star_shape_01"
+           inkscape:label="Powered Side Hat Star Shape 1"
+           fill="#ffd054"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 48.338025,17.360929 0.783487,2.022208 1.390899,0.157204 -0.65358,1.109341 0.760096,2.130254 -2.203896,-0.936554 -1.886759,1.238816 0.488044,-2.091865 -1.505986,-1.556719 1.913693,-0.07268 z"
+           stroke-linecap="square"
+           style="stroke-width:0.5;stroke-dasharray:none"
+           sodipodi:nodetypes="ccccccccccc" />
+      </g>
+      <g
+         id="maryo_primitive_side_ear_star"
+         inkscape:label="Ear Star"
+         data-authoring-master="true"
+         transform="translate(150,542)"
+         data-authoring-editable="true"
+         style="display:inline;fill:#ffd054;fill-opacity:1;stroke:none">
+        <path
+           id="maryo_primitive_side_ear_star_shape_01"
+           inkscape:label="Star Earring"
+           fill="currentColor"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 33.937351,35.669467 v 1 h 2 l -1,1 v 2 l -0.798887,-0.798887 -0.201113,-0.201113 -1,1 v -2 l -1,-1 h 1 z"
+           stroke-linecap="square"
+           style="fill:#ffd054;fill-opacity:1;stroke:none"
+           sodipodi:nodetypes="cccccccccccc" />
+      </g>
+      <g
+         id="maryo_primitive_big_side_ribbon"
+         inkscape:label="Tall Ribbon"
+         data-authoring-master="true"
+         data-authoring-editable="true"
+         transform="translate(156.9044,543.61588)"
+         style="display:inline">
+        <path
+           id="maryo_primitive_big_side_ribbon_shape_01"
+           inkscape:label="Big Side Ribbon Shape 1"
+           fill="#e778aa"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 29,27 -5,-3 -1,5 z"
+           stroke-linecap="square" />
+        <path
+           id="maryo_primitive_big_side_ribbon_shape_02"
+           inkscape:label="Big Side Ribbon Shape 2"
+           fill="#e778aa"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 29,27 -5,3 v 3 z"
+           stroke-linecap="square" />
+        <path
+           id="maryo_primitive_big_side_ribbon_shape_03"
+           inkscape:label="Big Side Ribbon Shape 3"
+           fill="#e778aa"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 29,28 -3,5 1,3 3,-2 z"
+           stroke-linecap="square" />
+      </g>
+    </g>
+    <g
+       id="maryo_authoring_fire_side_head"
+       inkscape:label="Editable Fire Side Head"
+       data-authoring-editable="true"
+       transform="translate(-121.49264,-35.385393)"
+       style="display:inline">
+      <use
+         id="maryo_fire_side_tall_head_clone"
+         inkscape:label="Tall Side Head Clone"
+         transform="translate(114.75282,-7.4428775)"
+         xlink:href="#maryo_authoring_tall_side_head"
+         href="#maryo_authoring_tall_side_head" />
+      <use
+         id="maryo_fire_side_hat_dome_color_01"
+         inkscape:label="Maryo Fire Side Hat Dome Color Overlay"
+         transform="matrix(1.0722078,0,0,0.99279684,268.2123303,542.8901404)"
+         xlink:href="#maryo_component_normal_side_head_hat_dome_shape_01"
+         color="#ec583a"
+         href="#maryo_component_normal_side_head_hat_dome_shape_01" />
+      <use
+         id="maryo_fire_side_hat_trim_color_02"
+         inkscape:label="Maryo Fire Side Hat Trim Color Overlay"
+         transform="matrix(1.0722078,0,0,0.99279684,268.21232,542.89014)"
+         xlink:href="#maryo_component_normal_side_head_hat_trim_shape_02"
+         color="#ffdb6c"
+         href="#maryo_component_normal_side_head_hat_trim_shape_02"
+         x="0"
+         y="0" />
+      <use
+         id="maryo_fire_side_hat_star_top_clone"
+         inkscape:label="Fire Side Top Hat Star Clone"
+         transform="matrix(1,0,0,1,120.1747903,0.7506304)"
+         xlink:href="#maryo_primitive_big_side_hat_star"
+         href="#maryo_primitive_big_side_hat_star" />
+      <use
+         id="maryo_fire_side_ear_star_top_clone"
+         inkscape:label="Fire Side Top Ear Star Clone"
+         transform="matrix(1,0,0,1,120.1747903,0.7506304)"
+         xlink:href="#maryo_primitive_side_ear_star"
+         href="#maryo_primitive_side_ear_star" />
+      <g
+         id="maryo_fire_side_ribbon_top_clone"
+         inkscape:label="Tall Ribbon"
+         data-authoring-master="true"
+         data-authoring-editable="true"
+         transform="translate(277.07919,544.36651)"
+         style="display:inline;fill:#ec583a;fill-opacity:1">
+        <path
+           id="path2930"
+           inkscape:label="Big Side Ribbon Shape 1"
+           fill="#e778aa"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 29,27 -5,-3 -1,5 z"
+           stroke-linecap="square"
+           style="fill:#fffaef;fill-opacity:1" />
+        <path
+           id="path2932"
+           inkscape:label="Big Side Ribbon Shape 2"
+           fill="#e778aa"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 29,27 -5,3 v 3 z"
+           stroke-linecap="square"
+           style="fill:#fffaef;fill-opacity:1" />
+        <path
+           id="path2934"
+           inkscape:label="Big Side Ribbon Shape 3"
+           fill="#e778aa"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 29,28 -3,5 1,3 3,-2 z"
+           stroke-linecap="square"
+           style="fill:#fffaef;fill-opacity:1" />
+      </g>
+      <g
+         id="maryo_primitive_fire_side_hat_wing"
+         inkscape:label="Hat Wing Geometry"
+         data-authoring-master="true"
+         data-authoring-editable="true"
+         transform="matrix(0.78740118,0,0,0.53787388,285.67769,556.04653)"
+         style="display:inline">
+        <path
+           id="maryo_primitive_fire_side_hat_wing_shape_01"
+           inkscape:label="Fire Side Hat Wing Shape 1"
+           fill="#ffc940"
+           stroke="#1c1613"
+           stroke-width="1.37649"
+           d="M 18.796519,10.479915 5.6388863,5.5458018 17.151815,13.769323 Z"
+           stroke-linecap="square"
+           style="stroke-width:0.76830162;stroke-dasharray:none" />
+        <path
+           id="maryo_primitive_fire_side_hat_wing_shape_02"
+           inkscape:label="Fire Side Hat Wing Shape 2"
+           fill="#fffaef"
+           stroke="#1c1613"
+           stroke-width="1.37649"
+           d="M 18.865397,12.665023 7.3524685,7.7309101 17.220693,15.954433 Z"
+           stroke-linecap="square"
+           style="stroke-width:0.76830162;stroke-dasharray:none" />
+        <path
+           id="maryo_primitive_fire_side_hat_wing_shape_03"
+           inkscape:label="Fire Side Hat Wing Shape 3"
+           fill="#ffc940"
+           stroke="#1c1613"
+           stroke-width="1.37649"
+           d="m 18.865397,15.954433 -8.223522,-4.934115 6.578818,8.223521 z"
+           stroke-linecap="square"
+           style="display:inline;stroke-width:0.76830162;stroke-dasharray:none" />
+      </g>
+    </g>
+    <path
+       id="maryo_component_normal_side_head_rear_hair_shape_01-7"
+       inkscape:label="ponytail"
+       fill="currentColor"
+       stroke="#1c1613"
+       stroke-width="2"
+       d="m 235.33211,574.22045 -2.73048,6.53875 -3.93754,-0.60244 -10.16003,16.23939 5.69133,7.96662 5.57896,-4.95627 6.15456,-16.99871 z"
+       stroke-linecap="square"
+       sodipodi:nodetypes="cccccccc"
+       style="display:inline;fill:#5e3624;fill-opacity:1;stroke-width:1;stroke-dasharray:none" />
+    <g
+       id="maryo_authoring_tall_front_head"
+       inkscape:label="Editable Tall Front Head"
+       data-authoring-editable="true"
+       transform="matrix(1.0719361,0,0,1.0018091,-268.27121,-74.524839)">
+      <g
+         id="maryo_component_normal_front_head"
+         inkscape:label="Core Head"
+         data-authoring-master="true"
+         data-authoring-editable="true"
+         transform="translate(113.19611,600.92834)"
+         style="display:inline">
+        <g
+           id="maryo_component_normal_front_head_skin"
+           inkscape:label="Face"
+           transform="matrix(1,0,0,1.109996,312,21.140103)"
+           color="#fbc294"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_front_head_skin_shape_01"
+             inkscape:label="Face Shape 1"
+             fill="currentColor"
+             d="m 31,27 h 19 l -0.179421,13.790406 -4.436076,3.04651 -9.734801,-0.0588 -4.533505,-2.936786 z"
+             style="display:inline;stroke:#1c1613;stroke-opacity:1"
+             transform="translate(-8.9583334e-6)"
+             sodipodi:nodetypes="ccccccc" />
+          <g
+             id="maryo_component_normal_front_head_face_linework"
+             inkscape:label="Face Linework"
+             transform="matrix(1,0,0,0.90090416,-2.0833335e-7,2.576485)"
+             style="display:inline">
+            <g
+               id="maryo_component_normal_front_head_nose_shadow"
+               inkscape:label="nose"
+               transform="matrix(1,0,0,1.0666515,-2.0833335e-7,-2.0995199)"
+               color="#dfa47c"
+               style="display:inline">
+              <path
+                 id="maryo_component_normal_front_head_nose_shadow_shape_01"
+                 inkscape:label="Nose Shadow Shape 1"
+                 fill="currentColor"
+                 d="m 41.694756,36.073937 -0.825442,0.05072 -0.0067,0.621508 0.840446,0.07727 z"
+                 sodipodi:nodetypes="ccccc"
+                 style="stroke-width:0.56062" />
+              <path
+                 id="maryo_component_normal_front_head_face_linework_shape_01"
+                 inkscape:label="nose"
+                 d="m 41.051268,34.285185 -0.0084,0.502298 1.506553,-0.0026 -0.01277,2.109701 -1.530243,0.03024 -0.0024,0.317635"
+                 fill="none"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 stroke-linecap="square"
+                 sodipodi:nodetypes="cccccc"
+                 style="stroke-width:0.560613;stroke-dasharray:none" />
+            </g>
+            <path
+               id="maryo_component_normal_front_head_face_linework_shape_02"
+               inkscape:label="mouth"
+               d="m 39.444981,40.557817 h 3.039436"
+               fill="none"
+               stroke="#b2595b"
+               stroke-width="0.871699"
+               stroke-linecap="square" />
+          </g>
+        </g>
+        <g
+           id="maryo_component_normal_front_head_forehead_hair"
+           inkscape:label="Forehead Hair"
+           transform="matrix(1.0060977,0,0,0.57979278,312.06595,35.418836)"
+           color="#5e3624"
+           style="stroke:none">
+          <path
+             style="display:inline;fill:#5e3624;fill-opacity:1;stroke:#1c1613;stroke-width:0.99973;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+             d="m 232.17454,570.95907 0.0333,0.57014 1.79955,2.72032 -0.0867,7.97204 -1.60369,1.60001 1.64521,1.5323 0.0372,2.76461 2.94414,3.14479 0.83413,-5.05169 3.00631,-0.0293 -2.33163,-4.0103 2.68552,-5.65415 -5.20377,-7.09494 -22.57469,-0.3327 -6.27219,8.09879 2.12261,5.94737 -1.6445,3.93518 3.55245,-0.059 0.61537,4.45901 3.43381,-3.305 0.0278,-3.10104 1.00589,-1.52033 -1.22556,-1.67376 0.004,-7.93611 1.22133,-2.4981 0.0196,-0.55596"
+             id="path4927"
+             sodipodi:nodetypes="cccccccccccccccccccccccccc"
+             transform="matrix(0.99393925,0,0,1.7247541,-182.93707,-955.51702)"
+             inkscape:label="hair-outline" />
+        </g>
+        <g
+           id="maryo_component_normal_front_head_eyes"
+           inkscape:label="Eyes"
+           transform="matrix(0.87513126,0,0,1.5260903,317.5158,5.9463639)"
+           style="display:inline">
+          <g
+             inkscape:groupmode="layer"
+             id="layer1"
+             inkscape:label="East Eye"
+             transform="matrix(1.0836295,0,0,0.78901151,-464.61351,-485.60769)"
+             style="display:inline">
+            <path
+               id="maryo_component_normal_front_head_eyes_shape_02"
+               inkscape:label="eye-base"
+               fill="#ffffff"
+               stroke="#1c1613"
+               stroke-width="1"
+               d="m 468.45405,655.77095 h 3.92055 v 3.03543 h -3.92055 z"
+               stroke-linecap="square"
+               style="display:inline;stroke-width:0.526769;stroke-dasharray:none" />
+            <path
+               id="maryo_component_normal_front_head_pupils_shape_02"
+               inkscape:label="pupil"
+               fill="#1c1613"
+               d="m 469.2677,656.00147 h 1.92602 v 2.19561 h -1.92602 z"
+               style="display:inline;stroke-width:2.05642" />
+            <path
+               id="path3849"
+               inkscape:label="eyelash"
+               d="m 472.40488,655.56917 0.34471,-0.21062"
+               fill="none"
+               stroke="#1c1613"
+               stroke-width="0.776382"
+               stroke-linecap="square"
+               style="display:inline;stroke-width:0.498263;stroke-dasharray:none"
+               sodipodi:nodetypes="cc" />
+          </g>
+          <use
+             x="0"
+             y="0"
+             xlink:href="#layer1"
+             id="use4200"
+             transform="matrix(-1,0,0,1,80.40989,0.01139722)"
+             href="#layer1" />
+        </g>
+        <g
+           id="maryo_component_normal_front_head_blush"
+           inkscape:label="Blush"
+           transform="matrix(0.79019576,0,0,0.45827208,319.54184,44.237216)"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_front_head_blush_shape_01"
+             inkscape:label="Blush Shape 1"
+             fill="#f49d92"
+             d="m 32.451201,33.096551 h 3.835504 v 7.237205 h -3.835504 z"
+             style="stroke-width:1.36036" />
+          <path
+             id="maryo_component_normal_front_head_blush_shape_02"
+             inkscape:label="Blush Shape 2"
+             fill="#f49d92"
+             d="m 47.539335,33.134832 h 3.603831 v 7.166739 h -3.603831 z"
+             style="stroke-width:1.31219" />
+        </g>
+        <g
+           id="maryo_component_normal_front_head_hat_dome"
+           inkscape:label="Hat"
+           transform="matrix(1.0655631,0,0,1.0323217,310.09338,23.662985)"
+           color="#bc305c"
+           style="display:inline">
+          <path
+             id="maryo_component_normal_front_head_hat_dome_shape_01"
+             inkscape:label="Hat Dome Shape 1"
+             fill="currentColor"
+             stroke="#1c1613"
+             stroke-width="1.80781"
+             d="m 29.921454,25.992038 0.139501,-5.501738 0.834022,-2.756355 3.73966,-4.123922 5.187551,-1.169593 5.636852,1.202864 3.715129,4.244522 0.871328,2.673469 0.06572,4.616104 -0.11032,0.708331 z"
+             stroke-linecap="square"
+             sodipodi:nodetypes="ccccccccccc" />
+          <g
+             id="maryo_component_normal_front_head_hat_trim"
+             inkscape:label="Hat Trim"
+             transform="matrix(0.8592808,0,0,1,5.3807766,-2.9583333e-6)"
+             color="#ff9bbd"
+             style="display:inline">
+            <path
+               id="maryo_component_normal_front_head_hat_trim_shape_02"
+               inkscape:label="Hat Trim Shape 2"
+               fill="currentColor"
+               d="m 28.407943,22.757844 23.564551,-0.04829 -0.03027,3.53073 -23.493571,-0.09768 z"
+               style="display:inline;stroke-width:0.992948"
+               sodipodi:nodetypes="ccccc" />
+          </g>
+        </g>
+      </g>
+      <use
+         x="0"
+         y="0"
+         xlink:href="#maryo_primitive_big_side_ribbon"
+         id="use5019"
+         transform="matrix(0.93289144,0,0,0.99819418,280.78121,82.065876)"
+         style="display:inline" />
+      <g
+         id="maryo_primitive_big_front_hat_star"
+         inkscape:label="Hat Star"
+         data-authoring-master="true"
+         transform="matrix(1.0655631,0,0,1.0323217,423.08054,624.66532)"
+         data-authoring-editable="true"
+         style="display:inline">
+        <path
+           id="maryo_primitive_big_front_hat_star_shape_01"
+           inkscape:label="Powered Front Hat Star Shape 1"
+           fill="#ffd054"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 40.138882,15.522552 1,2 h 2 l -1.345766,1.708694 0.345766,2.291306 -2,-1 -2,1 0.532405,-2.300248 -1.532405,-1.699752 h 2 z"
+           stroke-linecap="square"
+           style="stroke-width:0.5;stroke-dasharray:none"
+           sodipodi:nodetypes="ccccccccccc" />
+      </g>
+      <g
+         id="maryo_primitive_side_ear_star-5"
+         inkscape:label="earing star"
+         data-authoring-master="true"
+         transform="translate(424.52079,622.20713)"
+         data-authoring-editable="true"
+         style="display:inline;fill:#ffd054;fill-opacity:1;stroke:none">
+        <path
+           id="maryo_primitive_side_ear_star_shape_01-3"
+           inkscape:label="Side Ear Star Shape 1"
+           fill="currentColor"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 31.763226,36.083591 0.316705,1.405166 1.036632,0.05499 -0.649,0.8584 0.100822,1.439541 -0.287341,-0.151818 -0.201113,-0.201113 -1,1 v -2 l -1,-1 h 1 z"
+           stroke-linecap="square"
+           style="fill:#ffd054;fill-opacity:1;stroke:none"
+           sodipodi:nodetypes="cccccccccccc" />
+        <path
+           id="path6182"
+           inkscape:label="Side Ear Star Shape 1"
+           fill="currentColor"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 31.763226,36.083591 0.316705,1.405166 1.036632,0.05499 -0.649,0.8584 0.100822,1.439541 -0.287341,-0.151818 -0.201113,-0.201113 -1,1 v -2 l -1,-1 h 1 z"
+           stroke-linecap="square"
+           style="fill:#ffd054;fill-opacity:1;stroke:none"
+           sodipodi:nodetypes="cccccccccccc"
+           transform="matrix(-1,0,0,1,82.276435,-7.0833333e-6)" />
+      </g>
+      <use
+         x="0"
+         y="0"
+         xlink:href="#maryo_primitive_big_side_ribbon"
+         id="use5022"
+         transform="matrix(-0.93289144,0,0,0.99819418,649.69721,82.217394)"
+         style="display:inline" />
+    </g>
+    <g
+       transform="translate(-320.13273,-97.154682)"
+       id="maryo_authoring_fire_front_head"
+       inkscape:label="Editable Fire Front Head"
+       data-authoring-editable="true"
+       style="display:inline">
+      <use
+         id="maryo_fire_front_tall_head_clone"
+         inkscape:label="Tall Front Head Clone"
+         href="#maryo_authoring_tall_front_head"
+         xlink:href="#maryo_authoring_tall_front_head"
+         transform="translate(318.88502,49.520257)" />
+      <g
+         id="maryo_fire_front_hat_overlay_layer"
+         inkscape:label="Fire Front Hat Overlay Layer"
+         transform="matrix(1.0719361,0,0,1.0018091,171.9528,577.0109)">
+        <g
+           id="maryo_fire_front_overlay_maryo_component_normal_front_head_hat_dome"
+           inkscape:label="Fire Front Hat Dome Overlay"
+           transform="matrix(1.0655631,0,0,1.0323217,310.09338,23.662985)"
+           color="#ec583a"
+           style="display:inline">
+          <path
+             id="maryo_fire_front_overlay_maryo_component_normal_front_head_hat_dome_shape_01"
+             inkscape:label="Hat Dome Shape 1"
+             fill="currentColor"
+             stroke="#1c1613"
+             stroke-width="1.80781"
+             d="m 29.921454,25.992038 0.139501,-5.501738 0.834022,-2.756355 3.73966,-4.123922 5.187551,-1.169593 5.636852,1.202864 3.715129,4.244522 0.871328,2.673469 0.06572,4.616104 -0.11032,0.708331 z"
+             stroke-linecap="square"
+             sodipodi:nodetypes="ccccccccccc" />
+          <g
+             id="maryo_fire_front_overlay_maryo_component_normal_front_head_hat_trim"
+             inkscape:label="Fire Front Hat Trim Overlay"
+             transform="matrix(0.8592808,0,0,1,5.3807766,-2.9583333e-6)"
+             color="#ffdb6c"
+             style="display:inline">
+            <path
+               id="maryo_fire_front_overlay_maryo_component_normal_front_head_hat_trim_shape_02"
+               inkscape:label="Hat Trim Shape 2"
+               fill="currentColor"
+               d="m 28.407943,22.757844 23.564551,-0.04829 -0.03027,3.53073 -23.493571,-0.09768 z"
+               style="display:inline;stroke-width:0.992948"
+               sodipodi:nodetypes="ccccc" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="maryo_primitive_fire_front_extras"
+         inkscape:label="Fire Head Extras Geometry"
+         data-authoring-master="true"
+         data-authoring-editable="true"
+         transform="translate(515,633)" />
+      <g
+         id="maryo_fire_front_hat_top_details"
+         inkscape:label="Fire Front Hat Top Details"
+         transform="matrix(1.0719361,0,0,1.0018091,50.61381,-25.004582)">
+        <g
+           id="maryo_fire_front_top_maryo_primitive_big_front_hat_star"
+           inkscape:label="Fire Front Top Hat Star Clone"
+           data-authoring-master="true"
+           transform="matrix(1.0655631,0,0,1.0323217,423.08054,624.66532)"
+           data-authoring-editable="true"
+           style="display:inline">
+          <path
+             id="maryo_fire_front_top_maryo_primitive_big_front_hat_star_shape_01"
+             inkscape:label="Powered Front Hat Star Shape 1"
+             fill="#ffd054"
+             stroke="#1c1613"
+             stroke-width="1"
+             d="m 40.138882,15.522552 1,2 h 2 l -1.345766,1.708694 0.345766,2.291306 -2,-1 -2,1 0.532405,-2.300248 -1.532405,-1.699752 h 2 z"
+             stroke-linecap="square"
+             style="stroke-width:0.5;stroke-dasharray:none"
+             sodipodi:nodetypes="ccccccccccc" />
+        </g>
+        <g
+           id="maryo_fire_front_top_maryo_primitive_big_front_ribbons"
+           inkscape:label="Fire Front Top Ribbon Clone"
+           data-authoring-master="true"
+           data-authoring-editable="true"
+           transform="translate(426.47958,627.44007)"
+           style="display:inline;fill:#fffaef;fill-opacity:1">
+          <use
+             x="0"
+             y="0"
+             xlink:href="#maryo_fire_side_ribbon_top_clone"
+             id="use6534"
+             style="display:inline"
+             transform="matrix(0.93289144,0,0,0.99819418,-257.70223,-546.31737)" />
+          <use
+             x="0"
+             y="0"
+             xlink:href="#maryo_fire_side_ribbon_top_clone"
+             id="use6538"
+             style="display:inline"
+             transform="matrix(-0.93289144,0,0,0.99819418,335.36485,-545.81118)" />
+        </g>
+        <use
+           x="0"
+           y="0"
+           xlink:href="#maryo_primitive_fire_side_hat_wing"
+           id="use4462"
+           style="display:inline"
+           transform="matrix(0.93289144,0,0,0.99819418,175.49535,82.486819)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#maryo_primitive_fire_side_hat_wing"
+           id="use4465"
+           style="display:inline"
+           transform="matrix(-0.93289144,0,0,0.99819418,756.29692,82.669713)" />
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata714">Mary-O SVG authoring source. Only four visible head-authoring objects are provided: tall side/front as shared geometry authorities and fire side/front as derived linked heads with fire-only geometry nested in place. Final body artwork remains local to the six final views. Size guides: small 80x48; tall/fire 88x96; tall/fire collision/hurtbox width reference remains 80, matching small.</metadata>
+  <g
+     id="maryo_size_guides"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Size Guides"
+     data-authoring-role="guide">
+    <rect
+       id="maryo_guide_short_side_hurtbox"
+       x="25.25"
+       y="813"
+       width="28"
+       height="42"
+       fill="none"
+       stroke="#999999"
+       stroke-width="0.4"
+       stroke-dasharray="1, 2"
+       inkscape:label="Shared collision/hurtbox width 28 AU = 56 px" />
+    <rect
+       id="maryo_guide_short_front_hurtbox"
+       x="25.25"
+       y="921"
+       width="28"
+       height="42"
+       fill="none"
+       stroke="#999999"
+       stroke-width="0.4"
+       stroke-dasharray="1, 2"
+       inkscape:label="Shared collision/hurtbox width 28 AU = 56 px" />
+    <rect
+       id="maryo_guide_tall_side_hurtbox"
+       x="117.25"
+       y="772"
+       width="28"
+       height="84"
+       fill="none"
+       stroke="#999999"
+       stroke-width="0.4"
+       stroke-dasharray="1, 2"
+       inkscape:label="Shared collision/hurtbox width 28 AU = 56 px" />
+    <rect
+       id="maryo_guide_tall_front_hurtbox"
+       x="117.25"
+       y="880"
+       width="28"
+       height="84"
+       fill="none"
+       stroke="#999999"
+       stroke-width="0.4"
+       stroke-dasharray="1, 2"
+       inkscape:label="Shared collision/hurtbox width 28 AU = 56 px" />
+    <rect
+       id="maryo_guide_fire_side_hurtbox"
+       x="209.25"
+       y="771"
+       width="28"
+       height="84"
+       fill="none"
+       stroke="#999999"
+       stroke-width="0.4"
+       stroke-dasharray="1, 2"
+       inkscape:label="Shared collision/hurtbox width 28 AU = 56 px" />
+    <rect
+       id="maryo_guide_fire_front_hurtbox"
+       x="209.25"
+       y="879"
+       width="28"
+       height="84"
+       fill="none"
+       stroke="#999999"
+       stroke-width="0.4"
+       stroke-dasharray="1, 2"
+       inkscape:label="Shared collision/hurtbox width 28 AU = 56 px" />
+  </g>
+  <g
+     id="maryo_view_short_side"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Short Side"
+     data-rig-form="short"
+     data-rig-projection="side"
+     data-view-origin-x="0"
+     data-view-origin-y="760"
+     transform="matrix(1.0655828,0,0,1.0655828,-0.85983825,752.74886)"
+     data-authoring-role="final-view"
+     data-authoring-editable="false"
+     style="display:inline">
+    <g
+       id="maryo_short_side_far_leg"
+       inkscape:label="Far Leg"
+       data-rig-part="far_leg"
+       data-rig-bone="far_leg"
+       data-rig-z="20">
+      <g
+         id="maryo_short_side_far_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(9.7064,30.139)"
+           id="g727">
+          <g
+             inkscape:label="Primitive Short Side Far Leg"
+             transform="translate(-58,-218)"
+             id="g224">
+            <g
+               inkscape:label="Primitive Short Side Far Leg"
+               data-authoring-master="true"
+               transform="translate(48.2936,187.861)"
+               data-authoring-editable="true"
+               id="g222">
+              <g
+                 inkscape:label="Leg and Shoe"
+                 id="g220">
+                <path
+                   inkscape:label="leg"
+                   fill="#2687a0"
+                   d="m 35.195942,90.25113 h 2.944402 v 4.016216 h -2.944402 z"
+                   id="path212"
+                   style="stroke:#1c1613;stroke-width:1;stroke-dasharray:none;stroke-opacity:1" />
+                <path
+                   inkscape:label="Leg Shoe Rect 3"
+                   fill="#1c1613"
+                   d="m 33,93 h 7 v 3 h -7 z"
+                   id="path214" />
+                <path
+                   inkscape:label="Leg Shoe Rect 4"
+                   fill="#603d2a"
+                   d="m 34,94 h 5 v 1 h -5 z"
+                   id="path216" />
+                <path
+                   inkscape:label="Leg Shoe Line 1"
+                   d="m 36.44788,94.500069 h 2"
+                   fill="none"
+                   stroke="#8b5b37"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path218" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_side_near_leg"
+       inkscape:label="Near Leg"
+       data-rig-part="near_leg"
+       data-rig-bone="near_leg"
+       data-rig-z="40">
+      <g
+         id="maryo_short_side_near_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(2.9528556,0.04680779)">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(11.4298,30.139)"
+           id="g736">
+          <g
+             inkscape:label="Primitive Short Side Near Leg"
+             transform="translate(-58,-170)"
+             id="g246">
+            <g
+               inkscape:label="Primitive Short Side Near Leg"
+               data-authoring-master="true"
+               transform="translate(46.5702,139.861)"
+               data-authoring-editable="true"
+               id="g244">
+              <g
+                 inkscape:label="Leg and Shoe"
+                 id="g242"
+                 style="display:inline">
+                <path
+                   inkscape:label="Leg"
+                   fill="#1c1613"
+                   d="m 40,90 h 3 v 4 h -3 z"
+                   id="path232"
+                   style="fill:#2687a0;fill-opacity:1;stroke:#1c1613;stroke-opacity:1" />
+                <path
+                   inkscape:label="shoe-base"
+                   fill="#1c1613"
+                   d="M 38.061585,93 H 45 v 3 h -6.938415 z"
+                   id="path236"
+                   style="stroke-width:1.07536" />
+                <path
+                   inkscape:label="shoe-color"
+                   fill="#603d2a"
+                   d="m 39,94 h 5 v 1 h -5 z"
+                   id="path238" />
+                <path
+                   inkscape:label="shoe-shine"
+                   d="m 40.498584,94.512607 h 3"
+                   fill="none"
+                   stroke="#8b5b37"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path240" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_side_torso"
+       inkscape:label="Torso and Outfit"
+       data-rig-part="torso"
+       data-rig-bone="torso"
+       data-rig-z="50">
+      <g
+         id="maryo_short_side_torso_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(8.5,25.999)"
+           id="g745">
+          <g
+             inkscape:label="Primitive Short Side Torso"
+             transform="translate(-8,-162)"
+             id="g282">
+            <g
+               inkscape:label="Primitive Short Side Torso"
+               data-authoring-master="true"
+               transform="translate(-0.5,136.001)"
+               data-authoring-editable="true"
+               id="g280">
+              <g
+                 inkscape:label="Garment Geometry"
+                 id="g278">
+                <path
+                   inkscape:label="Torso Outfit Polygon 1"
+                   fill="#2687a0"
+                   stroke="#1c1613"
+                   stroke-width="2"
+                   d="m 36,82 h 10 l 3,8 H 32 Z"
+                   stroke-linecap="square"
+                   id="path262"
+                   transform="translate(0,-1.1875e-5)" />
+                <path
+                   inkscape:label="shirt"
+                   fill="#df534c"
+                   d="m 35.312694,79.447815 h 11.109051 v 4.589901 H 35.312694 Z"
+                   id="path260"
+                   style="stroke:#1c1613;stroke-width:0.80852;stroke-opacity:1" />
+                <path
+                   inkscape:label="Character Right Suspender Strap"
+                   d="m 38.70864,80.973051 v 2.734603"
+                   fill="none"
+                   stroke="#2687a0"
+                   stroke-width="2.54846"
+                   stroke-linecap="square"
+                   id="path264" />
+                <path
+                   inkscape:label="Character Left Suspender Strap"
+                   d="m 43.9039,80.973051 v 2.734603"
+                   fill="none"
+                   stroke="#2687a0"
+                   stroke-width="2.54846"
+                   stroke-linecap="square"
+                   id="path266" />
+                <path
+                   inkscape:label="belt"
+                   d="M 36,84 H 46"
+                   fill="none"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path268" />
+                <path
+                   inkscape:label="button-west"
+                   fill="#ffdc5b"
+                   d="m 38,84 h 1 v 1 h -1 z"
+                   id="path272" />
+                <path
+                   inkscape:label="button-east"
+                   fill="#ffdc5b"
+                   d="m 44,84 h 1 v 1 h -1 z"
+                   id="path276" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_side_near_arm"
+       inkscape:label="Near Arm"
+       data-rig-part="near_arm"
+       data-rig-bone="near_arm"
+       data-rig-z="70"
+       transform="translate(-0.26034657,-1.3656464)"
+       style="display:inline">
+      <g
+         id="maryo_short_side_near_arm_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(14.033,27.132)"
+           id="g763">
+          <g
+             inkscape:label="Primitive Short Side Near Arm"
+             transform="translate(-58,-94)"
+             id="g309">
+            <g
+               inkscape:label="Primitive Short Side Near Arm"
+               data-authoring-master="true"
+               transform="translate(43.967,66.868)"
+               data-authoring-editable="true"
+               id="g307">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="g305">
+                <path
+                   inkscape:label="Sleeve Glove Rect 2"
+                   fill="#df534c"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 46.5,81.5 h 2 v 7 h -2 z"
+                   stroke-linecap="square"
+                   id="path301" />
+                <path
+                   inkscape:label="Sleeve Glove Rect 4"
+                   fill="#fbc294"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 46.030672,88.463167 h 3 v 2 h -3 z"
+                   stroke-linecap="square"
+                   id="path303" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_side_far_arm"
+       inkscape:label="Far Arm"
+       data-rig-part="far_arm"
+       data-rig-bone="far_arm"
+       data-rig-z="10"
+       transform="translate(1.7805459,-1.6069534)"
+       style="display:inline">
+      <g
+         id="maryo_short_side_far_arm_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(0.98457057,1.8870789)">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(8.6957,26.3464)"
+           id="g718">
+          <g
+             inkscape:label="Primitive Short Side Far Arm"
+             transform="translate(-58,-130)"
+             id="g202">
+            <g
+               inkscape:label="Primitive Short Side Far Arm"
+               data-authoring-master="true"
+               transform="translate(49.3043,103.6536)"
+               data-authoring-editable="true"
+               id="g200">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="g198">
+                <path
+                   inkscape:label="arm"
+                   fill="#df534c"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 30.5,79.5 h 2 v 7 h -2 z"
+                   stroke-linecap="square"
+                   id="path194" />
+                <path
+                   inkscape:label="glove"
+                   fill="#fbc294"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 30.114191,86.446865 h 0.9165 2.0835 v 2 h -3 z"
+                   stroke-linecap="square"
+                   id="path196"
+                   sodipodi:nodetypes="cccccc" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_side_head"
+       inkscape:label="Head"
+       data-rig-part="head"
+       data-rig-bone="head"
+       data-rig-z="60"
+       style="display:inline"
+       transform="translate(0,-1.1875e-5)">
+      <g
+         inkscape:label="Head Source"
+         transform="translate(40,78)"
+         id="g294"
+         style="display:inline">
+        <g
+           transform="scale(0.72)"
+           id="g292">
+          <use
+             href="#maryo_component_normal_side_head"
+             xlink:href="#maryo_component_normal_side_head"
+             transform="translate(-190,-585)"
+             id="use290" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_side_rig_joints"
+       inkscape:label="Rig Joints"
+       inkscape:groupmode="layer"
+       style="display:inline">
+      <circle
+         id="maryo_short_side_far_leg_pivot"
+         inkscape:label="Far Leg Pivot"
+         data-rig-joint="far_leg"
+         cx="36.705315"
+         cy="90.332634"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_side_near_leg_pivot"
+         inkscape:label="Near Leg Pivot"
+         data-rig-joint="near_leg"
+         cx="44.350437"
+         cy="90.578461"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_side_torso_pivot"
+         inkscape:label="Torso and Outfit Pivot"
+         data-rig-joint="torso"
+         cx="40.77462"
+         cy="84.351845"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_side_near_arm_pivot"
+         inkscape:label="Near Arm Pivot"
+         data-rig-joint="near_arm"
+         cx="47.026981"
+         cy="80.569893"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_side_far_arm_pivot"
+         inkscape:label="Far Arm Pivot"
+         data-rig-joint="far_arm"
+         cx="34.063618"
+         cy="79.895699"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_side_head_pivot"
+         inkscape:label="Head Pivot"
+         data-rig-joint="head"
+         cx="40.326157"
+         cy="71.626839"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_side_far_handtip"
+         inkscape:label="Far Handtip"
+         data-rig-joint="far_handtip"
+         cx="34.199261"
+         cy="88.274055"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_short_side_far_toe"
+         inkscape:label="Far Toe"
+         data-rig-joint="far_toe"
+         cx="33.761032"
+         cy="94.467079"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_short_side_near_handtip"
+         inkscape:label="Near Handtip"
+         data-rig-joint="near_handtip"
+         cx="47.345577"
+         cy="88.380402"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_short_side_near_toe"
+         inkscape:label="Near Toe"
+         data-rig-joint="near_toe"
+         cx="47.450123"
+         cy="94.722412"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+    </g>
+  </g>
+  <g
+     id="maryo_view_short_front"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Short Front"
+     data-rig-form="short"
+     data-rig-projection="front"
+     data-view-origin-x="0"
+     data-view-origin-y="868"
+     transform="matrix(1.0316861,0,0,1.0316861,-3.4539589,863.75079)"
+     data-authoring-role="final-view"
+     data-authoring-editable="false">
+    <g
+       id="maryo_short_front_character_right_leg"
+       inkscape:label="Character Right Leg"
+       data-rig-part="character_right_leg"
+       data-rig-bone="character_right_leg"
+       data-rig-z="10"
+       transform="matrix(-0.92812428,-0.37227048,-0.37227048,0.92812428,104.25211,19.661424)">
+      <use
+         href="#maryo_short_side_far_leg_art"
+         xlink:href="#maryo_short_side_far_leg_art"
+         inkscape:label="Clone of Short Side Far Leg"
+         id="use318" />
+    </g>
+    <path
+       id="maryo_component_normal_side_head_rear_hair_shape_01-7-8"
+       inkscape:label="ponytail"
+       fill="currentColor"
+       stroke="#1c1613"
+       stroke-width="2.07256"
+       d="m 41.943928,62.319734 -11.887435,15.021077 4.778905,8.545201 6.091076,-4.311411 5.701171,-16.942441 z"
+       stroke-linecap="square"
+       sodipodi:nodetypes="cccccc"
+       style="display:inline;fill:#5e3624;fill-opacity:1;stroke-width:0.96928707;stroke-dasharray:none" />
+    <g
+       id="maryo_short_front_character_left_leg"
+       inkscape:label="Character Left Leg"
+       data-rig-part="character_left_leg"
+       data-rig-bone="character_left_leg"
+       data-rig-z="20"
+       transform="translate(2.6867441,-0.90209706)">
+      <g
+         id="maryo_short_front_character_left_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="rotate(-24.257354,42.207768,88.628736)">
+        <use
+           href="#maryo_short_side_near_leg_art"
+           xlink:href="#maryo_short_side_near_leg_art"
+           inkscape:label="Clone of Short Side Near Leg"
+           id="use325"
+           transform="translate(-2.9528556,-0.04680779)" />
+      </g>
+    </g>
+    <g
+       id="maryo_short_front_torso"
+       inkscape:label="Front Torso and Outfit"
+       data-rig-part="torso"
+       data-rig-bone="torso"
+       data-rig-z="40">
+      <use
+         href="#maryo_short_side_torso_art"
+         xlink:href="#maryo_short_side_torso_art"
+         inkscape:label="Clone of Short Side Torso"
+         id="use332" />
+    </g>
+    <g
+       id="maryo_short_front_foreground_garment"
+       inkscape:label="Foreground Garment"
+       data-rig-part="foreground_garment"
+       data-rig-bone="torso"
+       data-rig-z="60" />
+    <g
+       id="maryo_short_front_head"
+       inkscape:label="Front Head"
+       data-rig-part="head"
+       data-rig-bone="head"
+       data-rig-z="50"
+       transform="matrix(1.0016165,0,0,1.0054613,0.42154813,0.92087481)"
+       style="display:inline">
+      <use
+         href="#maryo_component_normal_front_head"
+         xlink:href="#maryo_component_normal_front_head"
+         transform="matrix(0.72000001,0,0,0.72000001,-294.94118,-403.74839)"
+         id="use339"
+         style="display:inline"
+         x="0"
+         y="0" />
+      <g
+         id="maryo_short_front_death_expression"
+         inkscape:label="Death Expression"
+         data-rig-part="death_expression"
+         data-rig-bone="head"
+         data-rig-z="65"
+         transform="matrix(0.9561705,0,0,0.95251413,2.3367816,3.3774918)"
+         style="display:inline">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(12.113054,23.033)"
+           id="g818">
+          <g
+             inkscape:label="Primitive Short Front Death Expression"
+             transform="translate(-17.986479,-296.02054)"
+             id="g373">
+            <g
+               inkscape:label="Primitive Short Front Death Expression"
+               data-authoring-master="true"
+               transform="translate(5.92,272.967)"
+               data-authoring-editable="true"
+               id="g371"
+               style="display:inline">
+              <g
+                 inkscape:label="Death X Eyes"
+                 id="g363"
+                 transform="translate(-0.29386338,1.9605328)">
+                <path
+                   inkscape:label="X Eyes Line 1"
+                   d="m 35.39665,66.189109 3,3"
+                   fill="none"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path355" />
+                <path
+                   inkscape:label="X Eyes Line 2"
+                   d="m 35.39665,69.189109 3,-3"
+                   fill="none"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path357" />
+                <path
+                   inkscape:label="X Eyes Line 3"
+                   d="m 41.596613,65.887024 4,3"
+                   fill="none"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path359" />
+                <path
+                   inkscape:label="X Eyes Line 4"
+                   d="m 41.596613,68.887024 4,-3"
+                   fill="none"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path361" />
+              </g>
+              <g
+                 inkscape:label="Death Open Mouth"
+                 id="g369"
+                 transform="matrix(1.6787551,0,0,1,-27.52412,-0.82784232)">
+                <path
+                   inkscape:label="Open Mouth Rect 2"
+                   fill="#381422"
+                   d="m 38.813385,75.538031 h 3 v 2.919907 h -3 z"
+                   id="path367"
+                   style="stroke-width:1.20829" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_short_front_character_left_arm"
+       inkscape:label="Character Left Arm"
+       data-rig-part="character_left_arm"
+       data-rig-bone="character_left_arm"
+       data-rig-z="80"
+       transform="rotate(-130.8549,46.580998,80.761582)"
+       style="display:inline">
+      <use
+         href="#maryo_short_side_near_arm_art"
+         xlink:href="#maryo_short_side_near_arm_art"
+         inkscape:label="Clone of Short Side Near Arm"
+         id="use388"
+         transform="translate(-1.516476,-1.2243556)"
+         style="display:inline" />
+    </g>
+    <g
+       id="maryo_short_front_character_right_arm"
+       inkscape:label="Character Right Arm"
+       data-rig-part="character_right_arm"
+       data-rig-bone="character_right_arm"
+       data-rig-z="70"
+       transform="rotate(135.80143,33.272087,80.871389)"
+       style="display:inline">
+      <use
+         href="#maryo_short_side_far_arm_art"
+         xlink:href="#maryo_short_side_far_arm_art"
+         inkscape:label="Clone of Short Side Far Arm"
+         id="use381"
+         transform="translate(-0.24714258,-2.6656428)"
+         style="display:inline" />
+    </g>
+    <g
+       id="maryo_short_front_rig_joints"
+       inkscape:label="Rig Joints"
+       inkscape:groupmode="layer"
+       style="display:inline">
+      <circle
+         id="maryo_short_front_character_right_leg_pivot"
+         inkscape:label="Character Right Leg Pivot"
+         data-rig-joint="character_right_leg"
+         cx="36.923599"
+         cy="89.69413"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_front_character_left_leg_pivot"
+         inkscape:label="Character Left Leg Pivot"
+         data-rig-joint="character_left_leg"
+         cx="45.168785"
+         cy="89.41925"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_front_torso_pivot"
+         inkscape:label="Front Torso and Outfit Pivot"
+         data-rig-joint="torso"
+         cx="40.50082"
+         cy="83.490593"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_front_head_pivot"
+         inkscape:label="Front Head Pivot"
+         data-rig-joint="head"
+         cx="40.486198"
+         cy="70.297699"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_front_character_left_arm_pivot"
+         inkscape:label="Character Left Arm Pivot"
+         data-rig-joint="character_left_arm"
+         cx="46.377987"
+         cy="81.769836"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_front_character_right_arm_pivot"
+         inkscape:label="Character Right Arm Pivot"
+         data-rig-joint="character_right_arm"
+         cx="36.048779"
+         cy="81.542366"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_short_front_character_left_toe"
+         inkscape:label="Character Left Toe"
+         data-rig-joint="character_left_toe"
+         cx="49.530151"
+         cy="92.074104"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_short_front_character_right_toe"
+         inkscape:label="Character Right Toe"
+         data-rig-joint="character_right_toe"
+         cx="32.14851"
+         cy="92.530548"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_short_side_far_handtip-3"
+         inkscape:label="Far Handtip"
+         data-rig-joint="character_right_handtip"
+         cx="29.619307"
+         cy="76.010658"
+         r="1.0328556"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.516428"
+         style="display:inline" />
+      <circle
+         id="maryo_short_side_near_handtip-6"
+         inkscape:label="Near Handtip"
+         data-rig-joint="character_left_handtip"
+         cx="52.867577"
+         cy="75.968948"
+         r="1.0328556"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.516428"
+         style="display:inline" />
+    </g>
+  </g>
+  <g
+     id="maryo_view_fire_front"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Fire Front"
+     data-rig-form="fire"
+     data-rig-projection="front"
+     data-view-origin-x="184"
+     data-view-origin-y="868"
+     transform="translate(185.98726,868.16276)"
+     data-authoring-role="final-view"
+     data-authoring-editable="false"
+     style="display:inline">
+    <g
+       id="maryo_fire_front_character_right_leg"
+       inkscape:label="Character Right Leg"
+       data-rig-part="character_right_leg"
+       data-rig-bone="character_right_leg"
+       data-rig-z="10"
+       transform="matrix(-0.85876141,-0.51237568,-0.51237568,0.85876141,100.84349,30.109946)">
+      <use
+         href="#maryo_fire_side_far_leg_art"
+         xlink:href="#maryo_fire_side_far_leg_art"
+         inkscape:label="Clone of Fire Side Far Leg"
+         id="use852" />
+    </g>
+    <g
+       id="maryo_fire_front_character_left_leg"
+       inkscape:label="Character Left Leg"
+       data-rig-part="character_left_leg"
+       data-rig-bone="character_left_leg"
+       data-rig-z="20"
+       transform="rotate(-35.573472,47.716903,75.761123)">
+      <use
+         href="#maryo_fire_side_near_leg_art"
+         xlink:href="#maryo_fire_side_near_leg_art"
+         inkscape:label="Clone of Fire Side Near Leg"
+         id="use859" />
+    </g>
+    <g
+       id="maryo_fire_front_back_wings"
+       inkscape:label="Back Wings"
+       data-rig-part="back_wings"
+       data-rig-bone="torso_back"
+       data-rig-z="30"
+       transform="translate(56.101776,-10.126517)">
+      <g
+         id="maryo_fire_front_back_wings_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(-0.75041009,-0.0845005)">
+        <use
+           href="#maryo_fire_side_back_wings_art"
+           xlink:href="#maryo_fire_side_back_wings_art"
+           inkscape:label="Clone of Fire Side Back Wings"
+           id="use866"
+           transform="translate(2.9334234,-0.11606257)" />
+      </g>
+    </g>
+    <g
+       id="maryo_fire_front_torso"
+       inkscape:label="Front Torso and Outfit"
+       data-rig-part="torso"
+       data-rig-bone="torso"
+       data-rig-z="40"
+       transform="translate(-2.431893,0.55772669)">
+      <g
+         id="maryo_fire_front_torso_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         style="display:inline">
+        <use
+           id="maryo_fire_front_torso_clone_from_side"
+           inkscape:label="Clone of Fire Side Torso"
+           href="#maryo_fire_side_torso"
+           xlink:href="#maryo_fire_side_torso" />
+      </g>
+    </g>
+    <g
+       id="maryo_fire_front_head"
+       inkscape:label="Front Head"
+       data-rig-part="head"
+       data-rig-bone="head"
+       data-rig-z="50"
+       transform="matrix(0.99944023,0,0,1.0266051,-4.37615,-1.2600582)">
+      <g
+         id="maryo_fire_front_head_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(-0.55451737,0.61589442)">
+        <g
+           inkscape:label="Head Source"
+           transform="translate(40,40)"
+           id="g883">
+          <use
+             href="#maryo_authoring_fire_front_head"
+             xlink:href="#maryo_authoring_fire_front_head"
+             transform="translate(-227.81569,-544.09484)"
+             id="use880" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_front_foreground_garment"
+       inkscape:label="Foreground Garment"
+       data-rig-part="foreground_garment"
+       data-rig-bone="torso"
+       data-rig-z="60"
+       transform="translate(-2.431893,0.55772669)" />
+    <g
+       id="maryo_fire_front_death_expression"
+       inkscape:label="Death Expression"
+       data-rig-part="death_expression"
+       data-rig-bone="head"
+       data-rig-z="65"
+       transform="translate(-2.293072,8.0967467)">
+      <g
+         inkscape:label="Clone Assembly"
+         transform="translate(12.08,8.7)"
+         id="g1110">
+        <g
+           inkscape:label="Primitive Fire Front Death Expression"
+           transform="translate(-202,-296)"
+           id="g913">
+          <g
+             inkscape:label="Primitive Fire Front Death Expression"
+             data-authoring-master="true"
+             transform="translate(189.92,287.3)"
+             data-authoring-editable="true"
+             id="g911">
+            <g
+               inkscape:label="Death X Eyes"
+               id="g903">
+              <path
+                 inkscape:label="X Eyes Line 1"
+                 d="m 34,23 3,3"
+                 fill="none"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 stroke-linecap="square"
+                 id="path895" />
+              <path
+                 inkscape:label="X Eyes Line 2"
+                 d="m 34,26 3,-3"
+                 fill="none"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 stroke-linecap="square"
+                 id="path897" />
+              <path
+                 inkscape:label="X Eyes Line 3"
+                 d="m 42,23 4,3"
+                 fill="none"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 stroke-linecap="square"
+                 id="path899" />
+              <path
+                 inkscape:label="X Eyes Line 4"
+                 d="m 42,26 4,-3"
+                 fill="none"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 stroke-linecap="square"
+                 id="path901" />
+            </g>
+            <g
+               inkscape:label="Death Open Mouth"
+               id="g909"
+               transform="matrix(1.20256,0,0,1,-8.5075187,0)">
+              <path
+                 inkscape:label="Open Mouth Rect 1"
+                 fill="#1c1613"
+                 d="m 38,31 h 4 v 4 h -4 z"
+                 id="path905"
+                 style="display:inline;fill:#381422;fill-opacity:1" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_front_character_right_arm"
+       inkscape:label="Character Right Arm"
+       data-rig-part="character_right_arm"
+       data-rig-bone="character_right_arm"
+       data-rig-z="70"
+       transform="matrix(-0.66218433,0.73770607,-0.87549617,-0.78586834,80.9517,68.839078)"
+       style="display:inline">
+      <g
+         id="maryo_fire_front_character_right_arm_common"
+         inkscape:label="Normalized Fire Front Right Arm Common Geometry">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(5.6,15.6)"
+           id="maryo_fire_front_right_norm_g846">
+          <g
+             inkscape:label="Primitive Tall Side Far Arm"
+             transform="translate(-150,-130)"
+             id="maryo_fire_front_right_norm_g408">
+            <g
+               inkscape:label="Primitive Tall Side Far Arm"
+               data-authoring-master="true"
+               transform="translate(123.84549,115.50533)"
+               data-authoring-editable="true"
+               id="maryo_fire_front_right_norm_g406">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="maryo_fire_front_right_norm_g404"
+                 transform="matrix(0.98728007,0,0,1.1316929,19.044277,-7.2304061)">
+                <path
+                   inkscape:label="arm"
+                   fill="#f27038"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 21.407976,50.393497 h 4 v 8 h -4 z"
+                   stroke-linecap="square"
+                   id="maryo_fire_front_right_norm_path398" />
+                <path
+                   inkscape:label="wrist"
+                   fill="#ffc940"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 20.834331,55.334868 h 5 v 2 h -5 z"
+                   stroke-linecap="square"
+                   id="maryo_fire_front_right_norm_path400" />
+                <path
+                   inkscape:label="glove"
+                   fill="#fffbf6"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 20.834331,57.334868 h 5 v 5 h -5 z"
+                   stroke-linecap="square"
+                   id="maryo_fire_front_right_norm_path402" />
+              </g>
+              <path
+                 inkscape:label="shoulder"
+                 fill="#fffaef"
+                 stroke="#1c1613"
+                 stroke-width="0.945588"
+                 d="m 37.55818,46.523402 a 4.5300865,3.552795 0 1 0 9.060172,0 4.5300865,3.552795 0 1 0 -9.060172,0 z"
+                 stroke-linecap="square"
+                 id="maryo_fire_front_right_norm_path396" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_front_character_left_arm"
+       inkscape:label="Character Left Arm"
+       data-rig-part="character_left_arm"
+       data-rig-bone="character_left_arm"
+       data-rig-z="80"
+       transform="rotate(-130.31673,51.054132,45.452398)"
+       style="display:inline">
+      <g
+         id="maryo_fire_front_character_left_arm_common"
+         inkscape:label="Normalized Fire Front Left Arm Common Geometry">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="matrix(1.1471834,0,0,1.1090023,8.1732123,11.4221)"
+           id="maryo_fire_front_left_norm_g900">
+          <g
+             inkscape:label="Primitive Tall Side Near Arm"
+             transform="translate(-150,-94)"
+             id="maryo_fire_front_left_norm_g547">
+            <g
+               inkscape:label="Primitive Tall Side Near Arm"
+               data-authoring-master="true"
+               transform="translate(133.8,78.7)"
+               data-authoring-editable="true"
+               id="maryo_fire_front_left_norm_g545">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="maryo_fire_front_left_norm_g543"
+                 transform="matrix(0.98271633,0,0,1.1954628,-0.55984452,-9.7617903)">
+                <path
+                   inkscape:label="arm"
+                   fill="#f27038"
+                   stroke="#1c1613"
+                   stroke-width="0.973469"
+                   d="m 53.479028,47.332141 h 3.041944 v 7.476665 h -3.041944 z"
+                   stroke-linecap="square"
+                   id="maryo_fire_front_left_norm_path537" />
+                <path
+                   inkscape:label="wrist"
+                   fill="#ffc940"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 52.533896,53.449381 h 5 v 2 h -5 z"
+                   stroke-linecap="square"
+                   id="maryo_fire_front_left_norm_path539" />
+                <path
+                   inkscape:label="glove"
+                   fill="#fffbf6"
+                   stroke="#1c1613"
+                   stroke-width="0.872952"
+                   d="m 53.206917,55.379657 h 4.086443 v 4.662069 h -4.086443 z"
+                   stroke-linecap="square"
+                   id="maryo_fire_front_left_norm_path541" />
+              </g>
+              <path
+                 inkscape:label="shoulder"
+                 fill="#fffaef"
+                 stroke="#1c1613"
+                 stroke-width="0.908821"
+                 d="m 49.607699,43.940542 a 3.9119884,3.8004248 0 1 0 7.823976,0 3.9119884,3.8004248 0 1 0 -7.823976,0 z"
+                 stroke-linecap="square"
+                 id="maryo_fire_front_left_norm_path15198" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_front_rig_joints"
+       inkscape:label="Rig Joints"
+       inkscape:groupmode="layer"
+       style="display:inline">
+      <circle
+         id="maryo_fire_front_character_right_leg_pivot"
+         inkscape:label="Character Right Leg Pivot"
+         data-rig-joint="character_right_leg"
+         cx="31.858995"
+         cy="78.628265"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_front_character_left_leg_pivot"
+         inkscape:label="Character Left Leg Pivot"
+         data-rig-joint="character_left_leg"
+         cx="44.8797"
+         cy="78.665062"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_front_torso_pivot"
+         inkscape:label="Front Torso and Outfit Pivot"
+         data-rig-joint="torso"
+         cx="37.227936"
+         cy="56.212341"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_front_head_pivot"
+         inkscape:label="Front Head Pivot"
+         data-rig-joint="head"
+         cx="36.450821"
+         cy="34.992947"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_front_character_right_arm_pivot"
+         inkscape:label="Character Right Arm Pivot"
+         data-rig-joint="character_right_arm"
+         cx="24.895983"
+         cy="47.601261"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_front_character_left_arm_pivot"
+         inkscape:label="Character Left Arm Pivot"
+         data-rig-joint="character_left_arm"
+         cx="49.504807"
+         cy="47.537689"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_front_character_left_handtip"
+         inkscape:label="Character Left Handtip"
+         data-rig-joint="character_left_handtip"
+         cx="64.721741"
+         cy="33.505814"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_fire_front_character_left_toe"
+         inkscape:label="Character Left Toe"
+         data-rig-joint="character_left_toe"
+         cx="58.6259"
+         cy="87.753944"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_fire_front_character_right_handtip"
+         inkscape:label="Character Right Handtip"
+         data-rig-joint="character_right_handtip"
+         cx="10.151527"
+         cy="33.315159"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_fire_front_character_right_toe"
+         inkscape:label="Character Right Toe"
+         data-rig-joint="character_right_toe"
+         cx="18.525246"
+         cy="88.454597"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+    </g>
+  </g>
+  <g
+     id="maryo_view_tall_front"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Tall Front"
+     data-rig-form="tall"
+     data-rig-projection="front"
+     data-view-origin-x="92"
+     data-view-origin-y="868"
+     transform="translate(92.000001,867.99999)"
+     data-authoring-role="final-view"
+     data-authoring-editable="false"
+     style="display:inline">
+    <g
+       id="maryo_tall_front_character_right_leg"
+       inkscape:label="Character Right Leg"
+       data-rig-part="character_right_leg"
+       data-rig-bone="character_right_leg"
+       data-rig-z="10"
+       transform="rotate(18.952362,27.939395,71.490437)">
+      <g
+         id="maryo_tall_front_character_right_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="matrix(-0.95679438,-0.29076537,-0.29076537,0.95679438,90.709595,13.869901)">
+        <use
+           href="#maryo_tall_side_far_leg_art"
+           xlink:href="#maryo_tall_side_far_leg_art"
+           inkscape:label="Clone of Tall Side Far Leg"
+           id="use556" />
+      </g>
+    </g>
+    <g
+       id="maryo_tall_front_character_left_leg"
+       inkscape:label="Character Left Leg"
+       data-rig-part="character_left_leg"
+       data-rig-bone="character_left_leg"
+       data-rig-z="20"
+       transform="rotate(-35.573472,47.716903,75.761123)">
+      <use
+         href="#maryo_tall_side_near_leg_art"
+         xlink:href="#maryo_tall_side_near_leg_art"
+         inkscape:label="Clone of Tall Side Near Leg"
+         id="use563" />
+    </g>
+    <g
+       id="maryo_tall_front_back_wings"
+       inkscape:label="Back Wings"
+       data-rig-part="back_wings"
+       data-rig-bone="torso_back"
+       data-rig-z="30"
+       style="display:none">
+      <use
+         href="#maryo_tall_side_back_wings_art"
+         xlink:href="#maryo_tall_side_back_wings_art"
+         inkscape:label="Clone of Tall Side Back Wings"
+         id="use570" />
+    </g>
+    <g
+       id="maryo_tall_front_torso"
+       inkscape:label="Front Torso and Outfit"
+       data-rig-part="torso"
+       data-rig-bone="torso"
+       data-rig-z="40"
+       transform="translate(-2.431893,0.55772669)">
+      <use
+         href="#maryo_tall_side_torso_art"
+         xlink:href="#maryo_tall_side_torso_art"
+         inkscape:label="Clone of Tall Side Torso"
+         id="use577" />
+    </g>
+    <g
+       id="maryo_tall_front_head"
+       inkscape:label="Front Head"
+       data-rig-part="head"
+       data-rig-bone="head"
+       data-rig-z="50"
+       style="display:inline"
+       transform="translate(-1.9550489,0.2482492)">
+      <g
+         id="maryo_tall_front_head_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(-0.55451737,0.61589442)">
+        <g
+           inkscape:label="Head Source"
+           transform="translate(40,40)"
+           id="g586">
+          <use
+             href="#maryo_authoring_tall_front_head"
+             xlink:href="#maryo_authoring_tall_front_head"
+             transform="translate(-229.0634,-591.72927)"
+             id="use584" />
+        </g>
+      </g>
+      <g
+         id="maryo_tall_front_death_expression"
+         inkscape:label="Death Expression"
+         data-rig-part="death_expression"
+         data-rig-bone="head"
+         data-rig-z="65"
+         style="display:inline"
+         transform="translate(-0.55451616,0.61589442)">
+        <g
+           inkscape:label="Death X Eyes"
+           id="g606"
+           style="display:inline"
+           transform="translate(1.2083333e-6,2.0833333e-5)">
+          <g
+             inkscape:groupmode="layer"
+             id="layer3"
+             inkscape:label="Death Eye East"
+             style="display:inline"
+             transform="matrix(0.71368605,0,0,1.0799278,15.637025,-2.3121169)">
+            <path
+               inkscape:label="X Eyes Line 3"
+               d="m 42,31 4,2"
+               fill="none"
+               stroke="#1c1613"
+               stroke-width="1"
+               stroke-linecap="square"
+               id="path602"
+               style="display:inline"
+               transform="translate(0,2.6458333e-5)" />
+            <path
+               inkscape:label="X Eyes Line 4"
+               d="m 42,33 4,-2"
+               fill="none"
+               stroke="#1c1613"
+               stroke-width="1"
+               stroke-linecap="square"
+               id="path604"
+               style="display:inline"
+               transform="translate(0,2.6458333e-5)" />
+          </g>
+          <g
+             inkscape:groupmode="layer"
+             id="layer4"
+             inkscape:label="Death Eye West"
+             style="display:inline"
+             transform="translate(2.1336653,0.07015054)">
+            <path
+               inkscape:label="X Eyes Line 1"
+               d="m 34.006684,31.006704 2.766452,2.210851"
+               fill="none"
+               stroke="#1c1613"
+               stroke-width="1.00964"
+               stroke-linecap="square"
+               id="path598"
+               style="display:inline" />
+            <path
+               inkscape:label="X Eyes Line 2"
+               d="m 34.020749,33.392293 2.681064,-2.371524"
+               fill="none"
+               stroke="#1c1613"
+               stroke-width="1.02942"
+               stroke-linecap="square"
+               id="path600"
+               style="display:inline" />
+          </g>
+        </g>
+        <g
+           inkscape:label="Death Open Mouth"
+           id="g612"
+           style="display:inline"
+           transform="matrix(1.655943,0,0,1.6624565,-24.040755,-25.650281)">
+          <path
+             inkscape:label="Open Mouth Rect 2"
+             fill="#381422"
+             d="m 38.521554,39.005114 h 3 v 1.973051 h -3 z"
+             id="path610"
+             style="stroke-width:1.40465" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_front_character_right_arm"
+       inkscape:label="Character Right Arm"
+       data-rig-part="character_right_arm"
+       data-rig-bone="character_right_arm"
+       data-rig-z="70"
+       transform="matrix(-0.66218433,0.73770607,-0.87549617,-0.78586834,83.068368,70.426579)">
+      <use
+         href="#maryo_tall_side_far_arm_art"
+         xlink:href="#maryo_tall_side_far_arm_art"
+         inkscape:label="Clone of Tall Side Far Arm"
+         id="use624" />
+    </g>
+    <g
+       id="maryo_tall_front_character_left_arm"
+       inkscape:label="Character Left Arm"
+       data-rig-part="character_left_arm"
+       data-rig-bone="character_left_arm"
+       data-rig-z="80"
+       transform="rotate(-130.31673,52.479928,45.756195)">
+      <use
+         href="#maryo_tall_side_near_arm_art"
+         xlink:href="#maryo_tall_side_near_arm_art"
+         inkscape:label="Clone of Tall Side Near Arm"
+         id="use631"
+         transform="translate(0.69243218,-3.2472279)" />
+    </g>
+    <g
+       id="maryo_tall_front_rig_joints"
+       inkscape:label="Rig Joints"
+       inkscape:groupmode="layer"
+       style="display:inline">
+      <circle
+         id="maryo_tall_front_character_right_leg_pivot"
+         inkscape:label="Character Right Leg Pivot"
+         data-rig-joint="character_right_leg"
+         cx="33.658199"
+         cy="79.16925"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_front_character_left_leg_pivot"
+         inkscape:label="Character Left Leg Pivot"
+         data-rig-joint="character_left_leg"
+         cx="45.80648"
+         cy="79.608337"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_front_torso_pivot"
+         inkscape:label="Front Torso and Outfit Pivot"
+         data-rig-joint="torso"
+         cx="40.254108"
+         cy="57.11137"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_front_head_pivot"
+         inkscape:label="Front Head Pivot"
+         data-rig-joint="head"
+         cx="38.044998"
+         cy="34.248199"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_front_character_right_arm_pivot"
+         inkscape:label="Character Right Arm Pivot"
+         data-rig-joint="character_right_arm"
+         cx="27.235598"
+         cy="49.230595"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_front_character_left_arm_pivot"
+         inkscape:label="Character Left Arm Pivot"
+         data-rig-joint="character_left_arm"
+         cx="51.596973"
+         cy="48.539192"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_front_character_left_handtip"
+         inkscape:label="Character Left Handtip"
+         data-rig-joint="character_left_handtip"
+         cx="66.312057"
+         cy="35.455666"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_tall_front_character_left_toe"
+         inkscape:label="Character Left Toe"
+         data-rig-joint="character_left_toe"
+         cx="57.749485"
+         cy="88.107803"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_tall_front_character_right_handtip"
+         inkscape:label="Character Right Handtip"
+         data-rig-joint="character_right_handtip"
+         cx="13.183692"
+         cy="35.759548"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_tall_front_character_right_toe"
+         inkscape:label="Character Right Toe"
+         data-rig-joint="character_right_toe"
+         cx="19.385939"
+         cy="89.465309"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+    </g>
+  </g>
+  <g
+     id="maryo_view_tall_side"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Tall Side"
+     data-rig-form="tall"
+     data-rig-projection="side"
+     data-view-origin-x="92"
+     data-view-origin-y="760"
+     transform="translate(88.62296,759.73667)"
+     data-authoring-role="final-view"
+     data-authoring-editable="false"
+     style="display:inline">
+    <g
+       id="maryo_tall_side_far_leg"
+       inkscape:label="Far Leg"
+       data-rig-part="far_leg"
+       data-rig-bone="far_leg"
+       data-rig-z="20"
+       transform="translate(2.7079258,1.825147)">
+      <g
+         id="maryo_tall_side_far_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(9.1,24)"
+           id="g855">
+          <g
+             inkscape:label="Primitive Tall Side Far Leg"
+             transform="translate(-150,-218)"
+             id="g434">
+            <g
+               inkscape:label="Primitive Tall Side Far Leg"
+               data-authoring-master="true"
+               transform="translate(140.9,194)"
+               data-authoring-editable="true"
+               id="g432">
+              <g
+                 inkscape:label="Leg and Shoe"
+                 id="g430">
+                <path
+                   inkscape:label="Leg Shoe Rect 1"
+                   fill="#1c1613"
+                   d="m 32,72 h 5 v 19 h -5 z"
+                   id="path416" />
+                <path
+                   inkscape:label="Leg Shoe Rect 2"
+                   fill="#115b75"
+                   d="m 33,73 h 3 v 17 h -3 z"
+                   id="path418" />
+                <path
+                   inkscape:label="Leg Shoe Rect 3"
+                   fill="#1c1613"
+                   d="m 31,87 h 7 v 3 h -7 z"
+                   id="path420" />
+                <path
+                   inkscape:label="Leg Shoe Rect 4"
+                   fill="#e584b4"
+                   d="m 32,87 h 6 v 3 h -6 z"
+                   id="path422" />
+                <path
+                   inkscape:label="Leg Shoe Rect 5"
+                   fill="#1c1613"
+                   d="m 30,89 h 10 v 5 H 30 Z"
+                   id="path424" />
+                <path
+                   inkscape:label="Leg Shoe Rect 6"
+                   fill="#603d2a"
+                   d="m 30,90 h 10 v 4 H 30 Z"
+                   id="path426" />
+                <path
+                   inkscape:label="Leg Shoe Line 1"
+                   d="m 36,91 h 4"
+                   fill="none"
+                   stroke="#fff4cd"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path428" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_near_leg"
+       inkscape:label="Near Leg"
+       data-rig-part="near_leg"
+       data-rig-bone="near_leg"
+       data-rig-z="40"
+       transform="translate(2.7079258,1.825147)">
+      <g
+         id="maryo_tall_side_near_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(12.1,24)"
+           id="g873">
+          <g
+             inkscape:label="Primitive Tall Side Near Leg"
+             transform="translate(-150,-170)"
+             id="g478">
+            <g
+               inkscape:label="Primitive Tall Side Near Leg"
+               data-authoring-master="true"
+               transform="translate(137.9,146)"
+               data-authoring-editable="true"
+               id="g476">
+              <g
+                 inkscape:label="Leg and Shoe"
+                 id="g474">
+                <path
+                   inkscape:label="Leg Shoe Rect 1"
+                   fill="#1c1613"
+                   d="m 41,72 h 5 v 19 h -5 z"
+                   id="path460" />
+                <path
+                   inkscape:label="Leg Shoe Rect 2"
+                   fill="#115b75"
+                   d="m 42,73 h 3 v 17 h -3 z"
+                   id="path462" />
+                <path
+                   inkscape:label="Leg Shoe Rect 3"
+                   fill="#1c1613"
+                   d="m 40,87 h 7 v 3 h -7 z"
+                   id="path464" />
+                <path
+                   inkscape:label="Leg Shoe Rect 4"
+                   fill="#e584b4"
+                   d="m 41,87 h 6 v 3 h -6 z"
+                   id="path466" />
+                <path
+                   inkscape:label="Leg Shoe Rect 5"
+                   fill="#1c1613"
+                   d="m 39,89 h 10 v 5 H 39 Z"
+                   id="path468" />
+                <path
+                   inkscape:label="Leg Shoe Rect 6"
+                   fill="#603d2a"
+                   d="m 39,90 h 10 v 4 H 39 Z"
+                   id="path470" />
+                <path
+                   inkscape:label="Leg Shoe Line 1"
+                   d="m 45,91 h 4"
+                   fill="none"
+                   stroke="#fff4cd"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path472" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_back_wings"
+       inkscape:label="Back Wings"
+       data-rig-part="back_wings"
+       data-rig-bone="torso_back"
+       data-rig-z="30"
+       style="display:none"
+       transform="matrix(1.3141046,0,0,1.6402151,-11.052318,-38.100522)">
+      <g
+         id="maryo_tall_side_back_wings_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(7,14.5)"
+           id="g864">
+          <g
+             inkscape:label="Primitive Tall Side Back Wings"
+             transform="translate(-102,-226)"
+             id="g452">
+            <g
+               inkscape:label="Primitive Tall Side Back Wings"
+               data-authoring-master="true"
+               transform="translate(95,211.5)"
+               data-authoring-editable="true"
+               id="g450">
+              <g
+                 inkscape:label="Primary Back Wing"
+                 id="g448">
+                <path
+                   inkscape:label="Primary Back Wing Polygon 1"
+                   fill="#e584b4"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 30,54 -10,-4 9,6 z"
+                   stroke-linecap="square"
+                   id="path442" />
+                <path
+                   inkscape:label="Primary Back Wing Polygon 2"
+                   fill="#fffaef"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 30,56 -9,-3 8,6 z"
+                   stroke-linecap="square"
+                   id="path444" />
+                <path
+                   inkscape:label="Primary Back Wing Polygon 3"
+                   fill="#e584b4"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 30,59 -7,-4 6,6 z"
+                   stroke-linecap="square"
+                   id="path446" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_torso"
+       inkscape:label="Torso and Outfit"
+       data-rig-part="torso"
+       data-rig-bone="torso"
+       data-rig-z="50"
+       transform="translate(0,-0.05487765)"
+       style="display:inline">
+      <g
+         id="maryo_tall_side_torso_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(7,14.5)"
+           id="g882">
+          <g
+             inkscape:label="Primitive Tall Side Torso"
+             transform="translate(-100,-161.94411)"
+             id="g518">
+            <g
+               inkscape:label="Primitive Tall Side Torso"
+               data-authoring-master="true"
+               transform="translate(93,147.5)"
+               data-authoring-editable="true"
+               id="g516">
+              <g
+                 inkscape:label="Garment Geometry"
+                 id="g514">
+                <path
+                   inkscape:label="apron"
+                   fill="#df534c"
+                   d="m 30.254801,48.941103 1.879669,-2.516626 19.899327,0.09698 1.865528,2.371204 -0.03763,12.142236 -23.66244,-0.09283 z"
+                   id="path488"
+                   sodipodi:nodetypes="ccccccc"
+                   style="stroke:#1c1613;stroke-opacity:1" />
+                <path
+                   inkscape:label="Torso Outfit Polygon 1"
+                   fill="#2687a0"
+                   stroke="#1c1613"
+                   stroke-width="2"
+                   d="m 35.469598,50.759754 6.942645,-0.772108 6.647272,1.067827 2.45153,5.044449 2.278806,6.271692 -23.309131,-0.570121 z"
+                   stroke-linecap="square"
+                   id="path490"
+                   sodipodi:nodetypes="ccccccc" />
+                <path
+                   inkscape:label="Skirt"
+                   fill="#2687a0"
+                   stroke="#1c1613"
+                   stroke-width="2"
+                   d="M 30.37568,61.244872 54,61 58,78 H 26 Z"
+                   stroke-linecap="square"
+                   id="path496"
+                   style="display:inline"
+                   sodipodi:nodetypes="ccccc" />
+                <path
+                   inkscape:label="Skirt Hemline"
+                   d="M 28,76 H 56"
+                   fill="none"
+                   stroke="#ffc940"
+                   stroke-width="2"
+                   stroke-linecap="square"
+                   id="path498" />
+                <path
+                   inkscape:label="shirt-star"
+                   fill="#ffdc5b"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 42.494747,51.621547 1,3 h 3 l -2,2 1,3 -3,-2 -3,2 1,-3 -2,-2 h 3 z"
+                   stroke-linecap="square"
+                   id="path508" />
+              </g>
+            </g>
+            <path
+               inkscape:label="strap"
+               d="m 142.81851,193.35517 0.0877,4.51649 -3.03765,-0.11213 -0.0943,-4.39301 z"
+               fill="none"
+               stroke="#115b75"
+               stroke-width="5.41219"
+               stroke-linecap="square"
+               id="path14879-6"
+               style="display:inline;fill:#115b75;fill-opacity:1;stroke:none;stroke-opacity:1"
+               sodipodi:nodetypes="ccccc" />
+            <g
+               inkscape:groupmode="layer"
+               id="layer2"
+               inkscape:label="suspender-east">
+              <path
+                 inkscape:label="button"
+                 fill="#ffdc5b"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 d="m 143.07521,200.55433 -0.0128,-2.87145 -3.18528,0.0153 0.0291,2.80057 z"
+                 stroke-linecap="square"
+                 id="path504"
+                 style="display:inline;stroke:none"
+                 sodipodi:nodetypes="ccccc" />
+              <path
+                 inkscape:label="button-shine"
+                 fill="#fff4cd"
+                 d="m 141.86555,199.18824 a 0.5,0.5 0 1 0 1,0 0.5,0.5 0 1 0 -1,0 z"
+                 id="path506"
+                 style="display:inline" />
+            </g>
+            <g
+               inkscape:groupmode="layer"
+               id="g14885"
+               inkscape:label="suspender-west"
+               transform="translate(-12.540802)">
+              <path
+                 inkscape:label="strap"
+                 d="m 142.97763,193.52344 0.0877,4.51649 -3.03765,-0.11213 -0.0943,-4.39301 z"
+                 fill="none"
+                 stroke="#115b75"
+                 stroke-width="5.41219"
+                 stroke-linecap="square"
+                 id="path14879"
+                 style="display:inline;fill:#115b75;fill-opacity:1;stroke:none;stroke-opacity:1"
+                 sodipodi:nodetypes="ccccc" />
+              <path
+                 inkscape:label="button"
+                 fill="#ffdc5b"
+                 stroke="#1c1613"
+                 stroke-width="1"
+                 d="m 143.07521,200.55433 -0.0128,-2.87145 -3.18528,0.0153 0.0291,2.80057 z"
+                 stroke-linecap="square"
+                 id="path14881"
+                 style="display:inline;stroke:none"
+                 sodipodi:nodetypes="ccccc" />
+              <path
+                 inkscape:label="button-shine"
+                 fill="#fff4cd"
+                 d="m 141.86555,199.18824 a 0.5,0.5 0 1 0 1,0 0.5,0.5 0 1 0 -1,0 z"
+                 id="path14883"
+                 style="display:inline" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_far_arm"
+       inkscape:label="Far Arm"
+       data-rig-part="far_arm"
+       data-rig-bone="far_arm"
+       data-rig-z="10"
+       transform="matrix(0.99065837,0,0,1.1862998,8.0281918,-6.7568421)"
+       style="display:inline">
+      <g
+         id="maryo_tall_side_far_arm_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(5.6,15.6)"
+           id="g846">
+          <g
+             inkscape:label="Primitive Tall Side Far Arm"
+             transform="translate(-150,-130)"
+             id="g408">
+            <g
+               inkscape:label="Primitive Tall Side Far Arm"
+               data-authoring-master="true"
+               transform="translate(123.84549,115.50533)"
+               data-authoring-editable="true"
+               id="g406">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="g404"
+                 transform="matrix(0.98728007,0,0,1.1316929,19.044277,-7.2304061)">
+                <path
+                   inkscape:label="arm"
+                   fill="#df534c"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 21.407976,50.393497 h 4 v 8 h -4 z"
+                   stroke-linecap="square"
+                   id="path398" />
+                <path
+                   inkscape:label="wrist"
+                   fill="#bc305c"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 20.834331,55.334868 h 5 v 2 h -5 z"
+                   stroke-linecap="square"
+                   id="path400" />
+                <path
+                   inkscape:label="glove"
+                   fill="#f8f5ef"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 20.834331,57.334868 h 5 v 5 h -5 z"
+                   stroke-linecap="square"
+                   id="path402" />
+              </g>
+              <path
+                 inkscape:label="shoulder"
+                 fill="#e778aa"
+                 stroke="#1c1613"
+                 stroke-width="0.945588"
+                 d="m 37.55818,46.523402 a 4.5300865,3.552795 0 1 0 9.060172,0 4.5300865,3.552795 0 1 0 -9.060172,0 z"
+                 stroke-linecap="square"
+                 id="path396" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_near_arm"
+       inkscape:label="Near Arm"
+       data-rig-part="near_arm"
+       data-rig-bone="near_arm"
+       data-rig-z="70"
+       transform="translate(4.6009009,2.5248439)"
+       style="display:inline">
+      <g
+         id="maryo_tall_side_near_arm_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(-0.69243218,3.2472279)">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="matrix(1.1471834,0,0,1.1090023,8.1732123,11.4221)"
+           id="g900">
+          <g
+             inkscape:label="Primitive Tall Side Near Arm"
+             transform="translate(-150,-94)"
+             id="g547">
+            <g
+               inkscape:label="Primitive Tall Side Near Arm"
+               data-authoring-master="true"
+               transform="translate(133.8,78.7)"
+               data-authoring-editable="true"
+               id="g545">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="g543"
+                 transform="matrix(0.98271633,0,0,1.1954628,-0.55984452,-9.7617903)">
+                <path
+                   inkscape:label="arm"
+                   fill="#df534c"
+                   stroke="#1c1613"
+                   stroke-width="0.973469"
+                   d="m 53.479028,47.332141 h 3.041944 v 7.476665 h -3.041944 z"
+                   stroke-linecap="square"
+                   id="path537" />
+                <path
+                   inkscape:label="wrist"
+                   fill="#bc305c"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 52.533896,53.449381 h 5 v 2 h -5 z"
+                   stroke-linecap="square"
+                   id="path539" />
+                <path
+                   inkscape:label="glove"
+                   fill="#f8f5ef"
+                   stroke="#1c1613"
+                   stroke-width="0.872952"
+                   d="m 53.206917,55.379657 h 4.086443 v 4.662069 h -4.086443 z"
+                   stroke-linecap="square"
+                   id="path541" />
+              </g>
+              <path
+                 inkscape:label="shoulder"
+                 fill="#e778aa"
+                 stroke="#1c1613"
+                 stroke-width="0.908821"
+                 d="m 49.607699,43.940542 a 3.9119884,3.8004248 0 1 0 7.823976,0 3.9119884,3.8004248 0 1 0 -7.823976,0 z"
+                 stroke-linecap="square"
+                 id="path15198" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_head"
+       inkscape:label="Head"
+       data-rig-part="head"
+       data-rig-bone="head"
+       data-rig-z="60"
+       transform="translate(1.4049058,-0.47788161)"
+       style="display:inline">
+      <g
+         inkscape:label="Head Source"
+         transform="translate(40,43)"
+         id="g528">
+        <use
+           href="#maryo_authoring_tall_side_head"
+           xlink:href="#maryo_authoring_tall_side_head"
+           transform="translate(-195.42197,-593.19351)"
+           id="use526" />
+      </g>
+    </g>
+    <g
+       id="maryo_tall_side_rig_joints"
+       inkscape:label="Rig Joints"
+       inkscape:groupmode="layer"
+       style="display:inline">
+      <circle
+         id="maryo_tall_side_far_leg_pivot"
+         inkscape:label="Far Leg Pivot"
+         data-rig-joint="far_leg"
+         cx="37.299194"
+         cy="79.192711"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_side_near_leg_pivot"
+         inkscape:label="Near Leg Pivot"
+         data-rig-joint="near_leg"
+         cx="46.333092"
+         cy="79.339363"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_side_torso_pivot"
+         inkscape:label="Torso and Outfit Pivot"
+         data-rig-joint="torso"
+         cx="42.39407"
+         cy="55.621132"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_side_far_arm_pivot"
+         inkscape:label="Far Arm Pivot"
+         data-rig-joint="far_arm"
+         cx="29.319056"
+         cy="49.96759"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_side_near_arm_pivot"
+         inkscape:label="Near Arm Pivot"
+         data-rig-joint="near_arm"
+         cx="54.976322"
+         cy="49.433811"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_side_head_pivot"
+         inkscape:label="Head Pivot"
+         data-rig-joint="head"
+         cx="41.4049"
+         cy="35.522099"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_tall_side_far_handtip"
+         inkscape:label="Far Handtip"
+         data-rig-joint="far_handtip"
+         cx="29.50382"
+         cy="69.596451"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_tall_side_far_toe"
+         inkscape:label="Far Toe"
+         data-rig-joint="far_toe"
+         cx="41.192692"
+         cy="93.807854"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_tall_side_near_handtip"
+         inkscape:label="Near Handtip"
+         data-rig-joint="near_handtip"
+         cx="55.60133"
+         cy="68.885559"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_tall_side_near_toe"
+         inkscape:label="Near Toe"
+         data-rig-joint="near_toe"
+         cx="51.220104"
+         cy="93.365929"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+    </g>
+  </g>
+  <g
+     id="maryo_view_fire_side"
+     inkscape:groupmode="layer"
+     inkscape:label="Mary-O - Fire Side"
+     data-rig-form="fire"
+     data-rig-projection="side"
+     data-view-origin-x="184"
+     data-view-origin-y="760"
+     transform="translate(184.5777,760.27122)"
+     data-authoring-role="final-view"
+     data-authoring-editable="false"
+     style="display:inline;opacity:1">
+    <g
+       id="maryo_fire_side_far_leg"
+       inkscape:label="Far Leg"
+       data-rig-part="far_leg"
+       data-rig-bone="far_leg"
+       data-rig-z="20"
+       transform="translate(-0.32920178,1.3628329)">
+      <g
+         id="maryo_fire_side_far_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(9.1447,24)"
+           id="g1001">
+          <g
+             inkscape:label="Primitive Fire Side Far Leg"
+             transform="translate(-242,-218)"
+             id="g679">
+            <g
+               inkscape:label="Primitive Fire Side Far Leg"
+               data-authoring-master="true"
+               transform="translate(232.8553,194)"
+               data-authoring-editable="true"
+               id="g677">
+              <g
+                 inkscape:label="Leg and Shoe"
+                 id="g675">
+                <path
+                   inkscape:label="Leg Shoe Rect 1"
+                   fill="#1c1613"
+                   d="m 32,65 h 5 v 26 h -5 z"
+                   id="path661" />
+                <path
+                   inkscape:label="Leg Shoe Rect 2"
+                   fill="#f6f2e8"
+                   d="m 33,66 h 3 v 24 h -3 z"
+                   id="path663" />
+                <path
+                   inkscape:label="Leg Shoe Rect 3"
+                   fill="#1c1613"
+                   d="m 31,87 h 7 v 3 h -7 z"
+                   id="path665" />
+                <path
+                   inkscape:label="Leg Shoe Rect 4"
+                   fill="#ffc940"
+                   d="m 32,87 h 6 v 3 h -6 z"
+                   id="path667" />
+                <path
+                   inkscape:label="Leg Shoe Rect 5"
+                   fill="#1c1613"
+                   d="m 30,89 h 11 v 5 H 30 Z"
+                   id="path669" />
+                <path
+                   inkscape:label="Leg Shoe Rect 6"
+                   fill="#67412b"
+                   d="m 30,90 h 10 v 4 H 30 Z"
+                   id="path671" />
+                <path
+                   inkscape:label="Leg Shoe Line 1"
+                   d="m 36,91 h 4"
+                   fill="none"
+                   stroke="#fff4cd"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path673" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_back_wings"
+       inkscape:label="Back Wings"
+       data-rig-part="back_wings"
+       data-rig-bone="torso_back"
+       data-rig-z="30"
+       transform="translate(60.496153,-9.7614306)"
+       style="display:inline">
+      <g
+         id="maryo_fire_side_back_wings_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(-4.1887125,0.39667274)">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(9.60716,22.71982)"
+           id="g1010">
+          <g
+             inkscape:label="Primitive Fire Side Back Wings"
+             transform="translate(-194,-226)"
+             id="g741">
+            <g
+               inkscape:label="Primitive Fire Side Back Wings"
+               data-authoring-master="true"
+               transform="translate(187,211.5)"
+               data-authoring-editable="true"
+               id="g739">
+              <g
+                 inkscape:label="Primary Back Wing"
+                 id="g711">
+                <path
+                   inkscape:label="Primary Back Wing Polygon 5"
+                   fill="#ff7426"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="M 29,54 17,64 26,61 22,70 32,60 Z"
+                   stroke-linecap="square"
+                   id="path695"
+                   style="display:none" />
+                <path
+                   inkscape:label="Primary Back Wing Polygon 6"
+                   fill="#ffc940"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 29,45 4,2 -2,4 -4,-3 z"
+                   stroke-linecap="square"
+                   id="path697"
+                   style="display:none" />
+                <path
+                   inkscape:label="Primary Back Wing Polygon 7"
+                   fill="#fffaef"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 30,46 2,2 -1,2 -2,-2 z"
+                   stroke-linecap="square"
+                   id="path699"
+                   style="display:none" />
+                <path
+                   inkscape:label="Primary Back Wing Polygon 12"
+                   fill="#fff4cd"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 16,40 1,1 h 1 l -1,1 v 2 l -1,-1 -1,1 v -2 l -1,-1 h 1 z"
+                   stroke-linecap="square"
+                   id="path709"
+                   style="display:none" />
+                <g
+                   inkscape:groupmode="layer"
+                   id="layer6"
+                   inkscape:label="EastWing-Slant"
+                   style="display:none"
+                   transform="translate(-96.791017,4.9491047)">
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 8"
+                     fill="#ffc940"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 32,47 45,42 33,50 Z"
+                     stroke-linecap="square"
+                     id="path701"
+                     style="display:inline"
+                     transform="translate(58.914599,-1.1449315)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 9"
+                     fill="#fffaef"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="m 32,50 10,-6 -9,8 z"
+                     stroke-linecap="square"
+                     id="path703"
+                     style="display:inline"
+                     transform="translate(58.914599,-1.1449315)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 10"
+                     fill="#ff7426"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="m 32,52 8,-5 -7,8 z"
+                     stroke-linecap="square"
+                     id="path705"
+                     style="display:inline;fill:#ffc940;fill-opacity:1"
+                     transform="translate(58.914599,-1.1449315)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 11"
+                     fill="#fffaef"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="m 32,55 6,-6 -5,9 z"
+                     stroke-linecap="square"
+                     id="path707"
+                     style="display:inline"
+                     transform="translate(58.914599,-1.1449315)" />
+                </g>
+                <g
+                   inkscape:groupmode="layer"
+                   id="g1926"
+                   inkscape:label="East Wing"
+                   style="display:inline"
+                   transform="matrix(-1,0,0,1,20.313723,1.4037059)">
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 1"
+                     fill="#ffc940"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,47 10,40 28,49 Z"
+                     stroke-linecap="square"
+                     id="path1918"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 2"
+                     fill="#fffaef"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,50 13,43 28,52 Z"
+                     stroke-linecap="square"
+                     id="path1920"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 3"
+                     fill="#ffc940"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,52 16,46 28,55 Z"
+                     stroke-linecap="square"
+                     id="path1922"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 4"
+                     fill="#fffaef"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,55 18,49 28,58 Z"
+                     stroke-linecap="square"
+                     id="path1924"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                </g>
+                <g
+                   inkscape:groupmode="layer"
+                   id="layer7"
+                   inkscape:label="West Wing"
+                   style="display:inline"
+                   transform="translate(-60.283278,1.1507191)">
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 1"
+                     fill="#ffc940"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,47 10,40 28,49 Z"
+                     stroke-linecap="square"
+                     id="path687"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 2"
+                     fill="#fffaef"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,50 13,43 28,52 Z"
+                     stroke-linecap="square"
+                     id="path689"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 3"
+                     fill="#ffc940"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,52 16,46 28,55 Z"
+                     stroke-linecap="square"
+                     id="path691"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                  <path
+                     inkscape:label="Primary Back Wing Polygon 4"
+                     fill="#fffaef"
+                     stroke="#1c1613"
+                     stroke-width="1"
+                     d="M 31,55 18,49 28,58 Z"
+                     stroke-linecap="square"
+                     id="path693"
+                     style="display:inline"
+                     transform="translate(-1.0000001e-6,1.2235e-5)" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_near_leg"
+       inkscape:label="Near Leg"
+       data-rig-part="near_leg"
+       data-rig-bone="near_leg"
+       data-rig-z="40"
+       transform="translate(0.01611825,1.3508511)">
+      <g
+         id="maryo_fire_side_near_leg_art"
+         inkscape:label="Artwork"
+         data-rig-art="true">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(12.2085,24)"
+           id="g1019">
+          <g
+             inkscape:label="Primitive Fire Side Near Leg"
+             transform="translate(-242,-170)"
+             id="g768">
+            <g
+               inkscape:label="Primitive Fire Side Near Leg"
+               data-authoring-master="true"
+               transform="translate(229.7915,146)"
+               data-authoring-editable="true"
+               id="g766">
+              <g
+                 inkscape:label="Leg and Shoe"
+                 id="g764">
+                <path
+                   inkscape:label="Leg Shoe Rect 1"
+                   fill="#1c1613"
+                   d="m 41,65 h 6 v 26 h -6 z"
+                   id="path749" />
+                <path
+                   inkscape:label="Leg Shoe Rect 2"
+                   fill="#f6f2e8"
+                   d="m 42,66 h 4 v 24 h -4 z"
+                   id="path751" />
+                <path
+                   inkscape:label="Leg Shoe Rect 3"
+                   fill="#1c1613"
+                   d="m 40,87 h 7 v 3 h -7 z"
+                   id="path753" />
+                <path
+                   inkscape:label="Leg Shoe Rect 4"
+                   fill="#ffc940"
+                   d="m 41,87 h 6 v 3 h -6 z"
+                   id="path755" />
+                <path
+                   inkscape:label="Leg Shoe Rect 5"
+                   fill="#1c1613"
+                   d="m 39,89 h 11 v 5 H 39 Z"
+                   id="path757" />
+                <path
+                   inkscape:label="Leg Shoe Rect 6"
+                   fill="#67412b"
+                   d="m 40,90 h 9 v 4 h -9 z"
+                   id="path759" />
+                <path
+                   inkscape:label="Leg Shoe Line 1"
+                   d="m 45,91 h 4"
+                   fill="none"
+                   stroke="#fff4cd"
+                   stroke-width="1"
+                   stroke-linecap="square"
+                   id="path761" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_torso"
+       inkscape:label="Torso and Outfit"
+       data-rig-part="torso"
+       data-rig-bone="torso"
+       data-rig-z="50"
+       style="display:inline">
+      <g
+         inkscape:label="Garment Geometry"
+         id="g808"
+         data-rig-art="true"
+         transform="translate(-3.0736601,6.7104066)">
+        <path
+           inkscape:label="shirt"
+           fill="#f27038"
+           d="m 29.33233,45.8599 19.968828,0.167068 1.552181,1.739953 -0.105116,12.497199 -23.435544,0.572587 0.03791,-12.497559 z"
+           id="path778"
+           style="display:inline;opacity:1;stroke:#1c1613;stroke-width:0.978328;stroke-opacity:1"
+           sodipodi:nodetypes="ccccccc"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="shirt-apron"
+           fill="#f6f2e8"
+           stroke="#1c1613"
+           stroke-width="2"
+           d="m 30.784153,41.679736 22.463561,-0.0071 -0.06978,12.540408 -22.276139,0.214207 z"
+           stroke-linecap="square"
+           id="path780"
+           transform="translate(-2.3333337e-7)"
+           sodipodi:nodetypes="ccccc"
+           style="display:inline;opacity:1" />
+        <path
+           inkscape:label="suspender strap"
+           d="M 32.410003,45.961752 V 49.01875"
+           fill="none"
+           stroke="#d97e1c"
+           stroke-width="1.34098"
+           stroke-linecap="square"
+           id="path782"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="suspender strap"
+           d="m 46.448943,45.947777 v 3.04879"
+           fill="none"
+           stroke="#d97e1c"
+           stroke-width="1.33918"
+           stroke-linecap="square"
+           id="path784"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="skirt"
+           fill="#fffaef"
+           stroke="#1c1613"
+           stroke-width="2"
+           d="m 30.550622,53.987331 23.076593,-0.09573 4.508178,16.874262 -31.843187,-0.176672 z"
+           stroke-linecap="square"
+           id="path786"
+           sodipodi:nodetypes="ccccc"
+           style="display:inline;opacity:1" />
+        <path
+           inkscape:label="hem-line"
+           d="M 25.055984,75.463647 H 53.306362"
+           fill="none"
+           stroke="#ff7426"
+           stroke-width="1.90924"
+           stroke-linecap="square"
+           id="path788"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="skirt-line"
+           d="M 38.019358,55.462147 36,68"
+           fill="none"
+           stroke="#d97e1c"
+           stroke-width="1"
+           stroke-linecap="square"
+           id="path790"
+           transform="translate(-2.3333337e-7)"
+           sodipodi:nodetypes="cc"
+           style="display:inline;opacity:1" />
+        <path
+           inkscape:label="skirt-line"
+           d="m 44.071159,62.2133 1.750814,12.54313"
+           fill="none"
+           stroke="#d97e1c"
+           stroke-width="1"
+           stroke-linecap="square"
+           id="path792"
+           sodipodi:nodetypes="cc"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="shirt-star"
+           fill="#ffbe4b"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 39.660337,50.300725 1,3 h 4 l -3,2 1,4 -3,-2 -3,2 1,-4 -3,-2 h 4 z"
+           stroke-linecap="square"
+           id="path794"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="button"
+           fill="#ffdc5b"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 47.195496,50.204225 -0.0128,-2.87145 -3.18528,0.0153 0.0291,2.80057 z"
+           stroke-linecap="square"
+           id="path504-3"
+           style="display:inline;opacity:1;stroke:none"
+           sodipodi:nodetypes="ccccc"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="button-shine"
+           fill="#fff4cd"
+           d="m 45.985836,48.838135 a 0.5,0.5 0 1 0 1,0 0.5,0.5 0 1 0 -1,0 z"
+           id="path506-6"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="button"
+           fill="#ffdc5b"
+           stroke="#1c1613"
+           stroke-width="1"
+           d="m 34.654696,50.204225 -0.0128,-2.87145 -3.18528,0.0153 0.0291,2.80057 z"
+           stroke-linecap="square"
+           id="path14881-7"
+           style="display:inline;opacity:1;stroke:none"
+           sodipodi:nodetypes="ccccc"
+           transform="translate(3.0736591,-6.7104141)" />
+        <path
+           inkscape:label="button-shine"
+           fill="#fff4cd"
+           d="m 33.445036,48.838135 a 0.5,0.5 0 1 0 1,0 0.5,0.5 0 1 0 -1,0 z"
+           id="path14883-5"
+           style="display:inline;opacity:1"
+           transform="translate(3.0736591,-6.7104141)" />
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_far_arm"
+       inkscape:label="Far Arm"
+       data-rig-part="far_arm"
+       data-rig-bone="far_arm"
+       data-rig-z="10"
+       transform="translate(-22.653747,15.253242)"
+       style="display:inline">
+      <g
+         id="maryo_fire_side_far_arm_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(-25.235114,-5.5074739)">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(5.5702,15.6)"
+           id="g992">
+          <g
+             inkscape:label="Primitive Fire Side Far Arm"
+             transform="translate(-191.21342,-129.34824)"
+             id="g653">
+            <g
+               inkscape:label="Primitive Fire Side Far Arm"
+               data-authoring-master="true"
+               transform="translate(236.4298,114.4)"
+               data-authoring-editable="true"
+               id="g651">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="g649">
+                <path
+                   inkscape:label="arm"
+                   fill="#f27038"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 21.5,42.5 h 4 v 8 h -4 z"
+                   stroke-linecap="square"
+                   id="path643" />
+                <path
+                   inkscape:label="wrist"
+                   fill="#ffc940"
+                   stroke="#1c1613"
+                   stroke-width="1.08358"
+                   d="m 21.059512,50.088928 h 4.916418 v 2.388218 h -4.916418 z"
+                   stroke-linecap="square"
+                   id="path645" />
+                <path
+                   inkscape:label="glove"
+                   fill="#fffbf6"
+                   stroke="#1c1613"
+                   stroke-width="1.13121"
+                   d="m 21.083326,53.584542 h 4.86879 v 5.25649 h -4.86879 z"
+                   stroke-linecap="square"
+                   id="path647" />
+                <path
+                   inkscape:label="sleeve"
+                   fill="#fffaef"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 18.933284,38.766152 a 4.5,4.5 0 1 0 9,0 4.5,4.5 0 1 0 -9,0 z"
+                   stroke-linecap="square"
+                   id="path639" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_near_arm"
+       inkscape:label="Near Arm"
+       data-rig-part="near_arm"
+       data-rig-bone="near_arm"
+       data-rig-z="70"
+       transform="translate(-42.935198,6.9584728)"
+       style="display:inline">
+      <g
+         id="maryo_fire_side_near_arm_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         transform="translate(39.20437,-0.19331201)"
+         style="display:inline">
+        <g
+           inkscape:label="Clone Assembly"
+           transform="translate(16.4,15.3)"
+           id="g1046">
+          <g
+             inkscape:label="Primitive Fire Side Near Arm"
+             transform="translate(-242,-94)"
+             id="g843">
+            <g
+               inkscape:label="Primitive Fire Side Near Arm"
+               data-authoring-master="true"
+               transform="translate(225.6,78.7)"
+               data-authoring-editable="true"
+               id="g841">
+              <g
+                 inkscape:label="Sleeve and Glove"
+                 id="g839">
+                <path
+                   inkscape:label="wrist"
+                   fill="#ffc940"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 53.464408,53.098102 h 5 v 2 h -5 z"
+                   stroke-linecap="square"
+                   id="path835" />
+                <path
+                   inkscape:label="glove"
+                   fill="#fffbf6"
+                   stroke="#1c1613"
+                   stroke-width="1.08384"
+                   d="m 53.52436,56.102462 h 5.03209 v 5.602604 h -5.03209 z"
+                   stroke-linecap="square"
+                   id="path837" />
+                <path
+                   inkscape:label="arm"
+                   fill="#f27038"
+                   stroke="#1c1613"
+                   stroke-width="0.966721"
+                   d="m 53.848236,45.663264 h 4.033278 v 7.414713 h -4.033278 z"
+                   stroke-linecap="square"
+                   id="path833" />
+                <path
+                   inkscape:label="shoulder"
+                   fill="#fffaef"
+                   stroke="#1c1613"
+                   stroke-width="1"
+                   d="m 51.308346,41.648807 a 4.5,4.5 0 1 0 9,0 4.5,4.5 0 1 0 -9,0 z"
+                   stroke-linecap="square"
+                   id="path829" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_head"
+       inkscape:label="Head"
+       data-rig-part="head"
+       data-rig-bone="head"
+       data-rig-z="60"
+       transform="translate(-2.6440082,6.1947949)"
+       style="display:inline">
+      <g
+         id="maryo_fire_side_head_art"
+         inkscape:label="Artwork"
+         data-rig-art="true"
+         style="display:inline">
+        <g
+           inkscape:label="Head Source"
+           transform="translate(40,35)"
+           id="g822">
+          <use
+             href="#maryo_authoring_fire_side_head"
+             xlink:href="#maryo_authoring_fire_side_head"
+             transform="translate(-188.50736,-549.61461)"
+             id="use820" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="maryo_fire_side_rig_joints"
+       inkscape:label="Rig Joints"
+       inkscape:groupmode="layer"
+       style="display:inline">
+      <circle
+         id="maryo_fire_side_far_leg_pivot"
+         inkscape:label="Far Leg Pivot"
+         data-rig-joint="far_leg"
+         cx="34.727531"
+         cy="76.312065"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_side_near_leg_pivot"
+         inkscape:label="Near Leg Pivot"
+         data-rig-joint="near_leg"
+         cx="44.708569"
+         cy="76.493309"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7"
+         r="1.35" />
+      <circle
+         id="maryo_fire_side_torso_pivot"
+         inkscape:label="Torso and Outfit Pivot"
+         data-rig-joint="torso"
+         cx="39.342384"
+         cy="58.935902"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_side_far_arm_pivot"
+         inkscape:label="Far Arm Pivot"
+         data-rig-joint="far_arm"
+         cx="25.883728"
+         cy="48.892807"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_side_near_arm_pivot"
+         inkscape:label="Near Arm Pivot"
+         data-rig-joint="near_arm"
+         cx="51.906612"
+         cy="48.449963"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_side_head_pivot"
+         inkscape:label="Head Pivot"
+         data-rig-joint="head"
+         cx="38.721687"
+         cy="34.583485"
+         r="1.35"
+         fill="#ff3bd4"
+         fill-opacity="0.3"
+         stroke="#43133d"
+         stroke-width="0.7" />
+      <circle
+         id="maryo_fire_side_far_handtip"
+         inkscape:label="Far Handtip"
+         data-rig-joint="far_handtip"
+         cx="26.492857"
+         cy="69.573418"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_fire_side_far_toe"
+         inkscape:label="Far Toe"
+         data-rig-joint="far_toe"
+         cx="49.282349"
+         cy="93.245125"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_fire_side_near_handtip"
+         inkscape:label="Near Handtip"
+         data-rig-joint="near_handtip"
+         cx="52.605511"
+         cy="68.718674"
+         r="1"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5" />
+      <circle
+         id="maryo_fire_side_near_toe"
+         inkscape:label="Near Toe"
+         data-rig-joint="near_toe"
+         cx="38.869114"
+         cy="93.270271"
+         fill="#3bd4ff"
+         fill-opacity="0.3"
+         stroke="#13343d"
+         stroke-width="0.5"
+         r="1" />
+    </g>
+  </g>
+  <!-- BEGIN AMBITION SVG RIG v1 -->
+  <metadata id="ambition-rig-metadata" data-ambition-schema="ambition-svg-rig-v1" data-ambition-role="character-rig" data-rig-coordinate-space="root-svg-user-space" data-rig-rest-authority="markers">
+    <g id="ambition-rig-view-short_side" data-rig-view-def="short_side" data-rig-source-layer="maryo_view_short_side" data-rig-source-label="Mary-O - Short Side" data-rig-root="maryo_short_side_torso_pivot" data-rig-projection="side" data-rig-profile="rigid-biped-v1" data-rig-pose-authority="geometry-only" data-rig-part-order="attribute" data-rig-source-map-quality="authored-markers">
+      <g id="ambition-rig-short_side-bone-far_arm" data-rig-bone-def="far_arm" data-rig-parent="torso" data-rig-origin="maryo_short_side_far_arm_pivot" data-rig-tip="maryo_short_side_far_handtip" />
+      <g id="ambition-rig-short_side-bone-far_leg" data-rig-bone-def="far_leg" data-rig-parent="torso" data-rig-origin="maryo_short_side_far_leg_pivot" data-rig-tip="maryo_short_side_far_toe" />
+      <g id="ambition-rig-short_side-bone-head" data-rig-bone-def="head" data-rig-parent="torso" data-rig-origin="maryo_short_side_head_pivot" />
+      <g id="ambition-rig-short_side-bone-near_arm" data-rig-bone-def="near_arm" data-rig-parent="torso" data-rig-origin="maryo_short_side_near_arm_pivot" data-rig-tip="maryo_short_side_near_handtip" />
+      <g id="ambition-rig-short_side-bone-near_leg" data-rig-bone-def="near_leg" data-rig-parent="torso" data-rig-origin="maryo_short_side_near_leg_pivot" data-rig-tip="maryo_short_side_near_toe" />
+      <g id="ambition-rig-short_side-bone-torso" data-rig-bone-def="torso" data-rig-origin="maryo_short_side_torso_pivot" />
+      <g id="ambition-rig-short_side-part-far_leg" data-rig-part-def="far_leg" data-rig-bone="far_leg" data-rig-z="20" data-rig-pivot="maryo_short_side_far_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_side_far_leg" />
+      <g id="ambition-rig-short_side-part-near_leg" data-rig-part-def="near_leg" data-rig-bone="near_leg" data-rig-z="40" data-rig-pivot="maryo_short_side_near_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_side_near_leg" />
+      <g id="ambition-rig-short_side-part-torso" data-rig-part-def="torso" data-rig-bone="torso" data-rig-z="50" data-rig-pivot="maryo_short_side_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_side_torso" />
+      <g id="ambition-rig-short_side-part-near_arm" data-rig-part-def="near_arm" data-rig-bone="near_arm" data-rig-z="70" data-rig-pivot="maryo_short_side_near_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_side_near_arm" />
+      <g id="ambition-rig-short_side-part-far_arm" data-rig-part-def="far_arm" data-rig-bone="far_arm" data-rig-z="10" data-rig-pivot="maryo_short_side_far_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_side_far_arm" />
+      <g id="ambition-rig-short_side-part-head" data-rig-part-def="head" data-rig-bone="head" data-rig-z="60" data-rig-pivot="maryo_short_side_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_side_head" />
+    </g>
+    <g id="ambition-rig-view-short_front" data-rig-view-def="short_front" data-rig-source-layer="maryo_view_short_front" data-rig-source-label="Mary-O - Short Front" data-rig-root="maryo_short_front_torso_pivot" data-rig-projection="front" data-rig-profile="rigid-biped-v1" data-rig-pose-authority="geometry-only" data-rig-part-order="attribute" data-rig-source-map-quality="authored-markers">
+      <g id="ambition-rig-short_front-bone-character_left_arm" data-rig-bone-def="character_left_arm" data-rig-parent="torso" data-rig-origin="maryo_short_front_character_left_arm_pivot" data-rig-tip="maryo_short_side_near_handtip-6" />
+      <g id="ambition-rig-short_front-bone-character_left_leg" data-rig-bone-def="character_left_leg" data-rig-parent="torso" data-rig-origin="maryo_short_front_character_left_leg_pivot" data-rig-tip="maryo_short_front_character_left_toe" />
+      <g id="ambition-rig-short_front-bone-character_right_arm" data-rig-bone-def="character_right_arm" data-rig-parent="torso" data-rig-origin="maryo_short_front_character_right_arm_pivot" data-rig-tip="maryo_short_side_far_handtip-3" />
+      <g id="ambition-rig-short_front-bone-character_right_leg" data-rig-bone-def="character_right_leg" data-rig-parent="torso" data-rig-origin="maryo_short_front_character_right_leg_pivot" data-rig-tip="maryo_short_front_character_right_toe" />
+      <g id="ambition-rig-short_front-bone-head" data-rig-bone-def="head" data-rig-parent="torso" data-rig-origin="maryo_short_front_head_pivot" />
+      <g id="ambition-rig-short_front-bone-torso" data-rig-bone-def="torso" data-rig-origin="maryo_short_front_torso_pivot" />
+      <g id="ambition-rig-short_front-part-character_right_leg" data-rig-part-def="character_right_leg" data-rig-bone="character_right_leg" data-rig-z="10" data-rig-pivot="maryo_short_front_character_right_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_character_right_leg" />
+      <g id="ambition-rig-short_front-part-character_left_leg" data-rig-part-def="character_left_leg" data-rig-bone="character_left_leg" data-rig-z="20" data-rig-pivot="maryo_short_front_character_left_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_character_left_leg" />
+      <g id="ambition-rig-short_front-part-torso" data-rig-part-def="torso" data-rig-bone="torso" data-rig-z="40" data-rig-pivot="maryo_short_front_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_torso" />
+      <g id="ambition-rig-short_front-part-foreground_garment" data-rig-part-def="foreground_garment" data-rig-bone="torso" data-rig-z="60" data-rig-pivot="maryo_short_front_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_foreground_garment" />
+      <g id="ambition-rig-short_front-part-head" data-rig-part-def="head" data-rig-bone="head" data-rig-z="50" data-rig-pivot="maryo_short_front_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_head" />
+      <g id="ambition-rig-short_front-part-death_expression" data-rig-part-def="death_expression" data-rig-bone="head" data-rig-z="65" data-rig-pivot="maryo_short_front_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_death_expression" />
+      <g id="ambition-rig-short_front-part-character_left_arm" data-rig-part-def="character_left_arm" data-rig-bone="character_left_arm" data-rig-z="80" data-rig-pivot="maryo_short_front_character_left_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_character_left_arm" />
+      <g id="ambition-rig-short_front-part-character_right_arm" data-rig-part-def="character_right_arm" data-rig-bone="character_right_arm" data-rig-z="70" data-rig-pivot="maryo_short_front_character_right_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_short_front_character_right_arm" />
+    </g>
+    <g id="ambition-rig-view-fire_front" data-rig-view-def="fire_front" data-rig-source-layer="maryo_view_fire_front" data-rig-source-label="Mary-O - Fire Front" data-rig-root="maryo_fire_front_torso_pivot" data-rig-projection="front" data-rig-profile="rigid-biped-v1" data-rig-pose-authority="geometry-only" data-rig-part-order="attribute" data-rig-source-map-quality="authored-markers">
+      <g id="ambition-rig-fire_front-bone-character_left_arm" data-rig-bone-def="character_left_arm" data-rig-parent="torso" data-rig-origin="maryo_fire_front_character_left_arm_pivot" data-rig-tip="maryo_fire_front_character_left_handtip" />
+      <g id="ambition-rig-fire_front-bone-character_left_leg" data-rig-bone-def="character_left_leg" data-rig-parent="torso" data-rig-origin="maryo_fire_front_character_left_leg_pivot" data-rig-tip="maryo_fire_front_character_left_toe" />
+      <g id="ambition-rig-fire_front-bone-character_right_arm" data-rig-bone-def="character_right_arm" data-rig-parent="torso" data-rig-origin="maryo_fire_front_character_right_arm_pivot" data-rig-tip="maryo_fire_front_character_right_handtip" />
+      <g id="ambition-rig-fire_front-bone-character_right_leg" data-rig-bone-def="character_right_leg" data-rig-parent="torso" data-rig-origin="maryo_fire_front_character_right_leg_pivot" data-rig-tip="maryo_fire_front_character_right_toe" />
+      <g id="ambition-rig-fire_front-bone-head" data-rig-bone-def="head" data-rig-parent="torso" data-rig-origin="maryo_fire_front_head_pivot" />
+      <g id="ambition-rig-fire_front-bone-torso" data-rig-bone-def="torso" data-rig-origin="maryo_fire_front_torso_pivot" />
+      <g id="ambition-rig-fire_front-bone-torso_back" data-rig-bone-def="torso_back" data-rig-parent="torso" />
+      <g id="ambition-rig-fire_front-part-character_right_leg" data-rig-part-def="character_right_leg" data-rig-bone="character_right_leg" data-rig-z="10" data-rig-pivot="maryo_fire_front_character_right_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_character_right_leg" />
+      <g id="ambition-rig-fire_front-part-character_left_leg" data-rig-part-def="character_left_leg" data-rig-bone="character_left_leg" data-rig-z="20" data-rig-pivot="maryo_fire_front_character_left_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_character_left_leg" />
+      <g id="ambition-rig-fire_front-part-back_wings" data-rig-part-def="back_wings" data-rig-bone="torso_back" data-rig-z="30" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_back_wings" />
+      <g id="ambition-rig-fire_front-part-torso" data-rig-part-def="torso" data-rig-bone="torso" data-rig-z="40" data-rig-pivot="maryo_fire_front_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_torso" />
+      <g id="ambition-rig-fire_front-part-head" data-rig-part-def="head" data-rig-bone="head" data-rig-z="50" data-rig-pivot="maryo_fire_front_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_head" />
+      <g id="ambition-rig-fire_front-part-foreground_garment" data-rig-part-def="foreground_garment" data-rig-bone="torso" data-rig-z="60" data-rig-pivot="maryo_fire_front_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_foreground_garment" />
+      <g id="ambition-rig-fire_front-part-death_expression" data-rig-part-def="death_expression" data-rig-bone="head" data-rig-z="65" data-rig-pivot="maryo_fire_front_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_death_expression" />
+      <g id="ambition-rig-fire_front-part-character_right_arm" data-rig-part-def="character_right_arm" data-rig-bone="character_right_arm" data-rig-z="70" data-rig-pivot="maryo_fire_front_character_right_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_character_right_arm" />
+      <g id="ambition-rig-fire_front-part-character_left_arm" data-rig-part-def="character_left_arm" data-rig-bone="character_left_arm" data-rig-z="80" data-rig-pivot="maryo_fire_front_character_left_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_front_character_left_arm" />
+    </g>
+    <g id="ambition-rig-view-tall_front" data-rig-view-def="tall_front" data-rig-source-layer="maryo_view_tall_front" data-rig-source-label="Mary-O - Tall Front" data-rig-root="maryo_tall_front_torso_pivot" data-rig-projection="front" data-rig-profile="rigid-biped-v1" data-rig-pose-authority="geometry-only" data-rig-part-order="attribute" data-rig-source-map-quality="authored-markers">
+      <g id="ambition-rig-tall_front-bone-character_left_arm" data-rig-bone-def="character_left_arm" data-rig-parent="torso" data-rig-origin="maryo_tall_front_character_left_arm_pivot" data-rig-tip="maryo_tall_front_character_left_handtip" />
+      <g id="ambition-rig-tall_front-bone-character_left_leg" data-rig-bone-def="character_left_leg" data-rig-parent="torso" data-rig-origin="maryo_tall_front_character_left_leg_pivot" data-rig-tip="maryo_tall_front_character_left_toe" />
+      <g id="ambition-rig-tall_front-bone-character_right_arm" data-rig-bone-def="character_right_arm" data-rig-parent="torso" data-rig-origin="maryo_tall_front_character_right_arm_pivot" data-rig-tip="maryo_tall_front_character_right_handtip" />
+      <g id="ambition-rig-tall_front-bone-character_right_leg" data-rig-bone-def="character_right_leg" data-rig-parent="torso" data-rig-origin="maryo_tall_front_character_right_leg_pivot" data-rig-tip="maryo_tall_front_character_right_toe" />
+      <g id="ambition-rig-tall_front-bone-head" data-rig-bone-def="head" data-rig-parent="torso" data-rig-origin="maryo_tall_front_head_pivot" />
+      <g id="ambition-rig-tall_front-bone-torso" data-rig-bone-def="torso" data-rig-origin="maryo_tall_front_torso_pivot" />
+      <g id="ambition-rig-tall_front-bone-torso_back" data-rig-bone-def="torso_back" data-rig-parent="torso" />
+      <g id="ambition-rig-tall_front-part-character_right_leg" data-rig-part-def="character_right_leg" data-rig-bone="character_right_leg" data-rig-z="10" data-rig-pivot="maryo_tall_front_character_right_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_character_right_leg" />
+      <g id="ambition-rig-tall_front-part-character_left_leg" data-rig-part-def="character_left_leg" data-rig-bone="character_left_leg" data-rig-z="20" data-rig-pivot="maryo_tall_front_character_left_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_character_left_leg" />
+      <g id="ambition-rig-tall_front-part-back_wings" data-rig-part-def="back_wings" data-rig-bone="torso_back" data-rig-z="30" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_back_wings" />
+      <g id="ambition-rig-tall_front-part-torso" data-rig-part-def="torso" data-rig-bone="torso" data-rig-z="40" data-rig-pivot="maryo_tall_front_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_torso" />
+      <g id="ambition-rig-tall_front-part-head" data-rig-part-def="head" data-rig-bone="head" data-rig-z="50" data-rig-pivot="maryo_tall_front_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_head" />
+      <g id="ambition-rig-tall_front-part-death_expression" data-rig-part-def="death_expression" data-rig-bone="head" data-rig-z="65" data-rig-pivot="maryo_tall_front_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_death_expression" />
+      <g id="ambition-rig-tall_front-part-character_right_arm" data-rig-part-def="character_right_arm" data-rig-bone="character_right_arm" data-rig-z="70" data-rig-pivot="maryo_tall_front_character_right_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_character_right_arm" />
+      <g id="ambition-rig-tall_front-part-character_left_arm" data-rig-part-def="character_left_arm" data-rig-bone="character_left_arm" data-rig-z="80" data-rig-pivot="maryo_tall_front_character_left_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_front_character_left_arm" />
+    </g>
+    <g id="ambition-rig-view-tall_side" data-rig-view-def="tall_side" data-rig-source-layer="maryo_view_tall_side" data-rig-source-label="Mary-O - Tall Side" data-rig-root="maryo_tall_side_torso_pivot" data-rig-projection="side" data-rig-profile="rigid-biped-v1" data-rig-pose-authority="geometry-only" data-rig-part-order="attribute" data-rig-source-map-quality="authored-markers">
+      <g id="ambition-rig-tall_side-bone-far_arm" data-rig-bone-def="far_arm" data-rig-parent="torso" data-rig-origin="maryo_tall_side_far_arm_pivot" data-rig-tip="maryo_tall_side_far_handtip" />
+      <g id="ambition-rig-tall_side-bone-far_leg" data-rig-bone-def="far_leg" data-rig-parent="torso" data-rig-origin="maryo_tall_side_far_leg_pivot" data-rig-tip="maryo_tall_side_far_toe" />
+      <g id="ambition-rig-tall_side-bone-head" data-rig-bone-def="head" data-rig-parent="torso" data-rig-origin="maryo_tall_side_head_pivot" />
+      <g id="ambition-rig-tall_side-bone-near_arm" data-rig-bone-def="near_arm" data-rig-parent="torso" data-rig-origin="maryo_tall_side_near_arm_pivot" data-rig-tip="maryo_tall_side_near_handtip" />
+      <g id="ambition-rig-tall_side-bone-near_leg" data-rig-bone-def="near_leg" data-rig-parent="torso" data-rig-origin="maryo_tall_side_near_leg_pivot" data-rig-tip="maryo_tall_side_near_toe" />
+      <g id="ambition-rig-tall_side-bone-torso" data-rig-bone-def="torso" data-rig-origin="maryo_tall_side_torso_pivot" />
+      <g id="ambition-rig-tall_side-bone-torso_back" data-rig-bone-def="torso_back" data-rig-parent="torso" />
+      <g id="ambition-rig-tall_side-part-far_leg" data-rig-part-def="far_leg" data-rig-bone="far_leg" data-rig-z="20" data-rig-pivot="maryo_tall_side_far_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_far_leg" />
+      <g id="ambition-rig-tall_side-part-near_leg" data-rig-part-def="near_leg" data-rig-bone="near_leg" data-rig-z="40" data-rig-pivot="maryo_tall_side_near_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_near_leg" />
+      <g id="ambition-rig-tall_side-part-back_wings" data-rig-part-def="back_wings" data-rig-bone="torso_back" data-rig-z="30" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_back_wings" />
+      <g id="ambition-rig-tall_side-part-torso" data-rig-part-def="torso" data-rig-bone="torso" data-rig-z="50" data-rig-pivot="maryo_tall_side_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_torso" />
+      <g id="ambition-rig-tall_side-part-far_arm" data-rig-part-def="far_arm" data-rig-bone="far_arm" data-rig-z="10" data-rig-pivot="maryo_tall_side_far_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_far_arm" />
+      <g id="ambition-rig-tall_side-part-near_arm" data-rig-part-def="near_arm" data-rig-bone="near_arm" data-rig-z="70" data-rig-pivot="maryo_tall_side_near_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_near_arm" />
+      <g id="ambition-rig-tall_side-part-head" data-rig-part-def="head" data-rig-bone="head" data-rig-z="60" data-rig-pivot="maryo_tall_side_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_tall_side_head" />
+    </g>
+    <g id="ambition-rig-view-fire_side" data-rig-view-def="fire_side" data-rig-source-layer="maryo_view_fire_side" data-rig-source-label="Mary-O - Fire Side" data-rig-root="maryo_fire_side_torso_pivot" data-rig-projection="side" data-rig-profile="rigid-biped-v1" data-rig-pose-authority="geometry-only" data-rig-part-order="attribute" data-rig-source-map-quality="authored-markers">
+      <g id="ambition-rig-fire_side-bone-far_arm" data-rig-bone-def="far_arm" data-rig-parent="torso" data-rig-origin="maryo_fire_side_far_arm_pivot" data-rig-tip="maryo_fire_side_far_handtip" />
+      <g id="ambition-rig-fire_side-bone-far_leg" data-rig-bone-def="far_leg" data-rig-parent="torso" data-rig-origin="maryo_fire_side_far_leg_pivot" data-rig-tip="maryo_fire_side_far_toe" />
+      <g id="ambition-rig-fire_side-bone-head" data-rig-bone-def="head" data-rig-parent="torso" data-rig-origin="maryo_fire_side_head_pivot" />
+      <g id="ambition-rig-fire_side-bone-near_arm" data-rig-bone-def="near_arm" data-rig-parent="torso" data-rig-origin="maryo_fire_side_near_arm_pivot" data-rig-tip="maryo_fire_side_near_handtip" />
+      <g id="ambition-rig-fire_side-bone-near_leg" data-rig-bone-def="near_leg" data-rig-parent="torso" data-rig-origin="maryo_fire_side_near_leg_pivot" data-rig-tip="maryo_fire_side_near_toe" />
+      <g id="ambition-rig-fire_side-bone-torso" data-rig-bone-def="torso" data-rig-origin="maryo_fire_side_torso_pivot" />
+      <g id="ambition-rig-fire_side-bone-torso_back" data-rig-bone-def="torso_back" data-rig-parent="torso" />
+      <g id="ambition-rig-fire_side-part-far_leg" data-rig-part-def="far_leg" data-rig-bone="far_leg" data-rig-z="20" data-rig-pivot="maryo_fire_side_far_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_far_leg" />
+      <g id="ambition-rig-fire_side-part-back_wings" data-rig-part-def="back_wings" data-rig-bone="torso_back" data-rig-z="30" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_back_wings" />
+      <g id="ambition-rig-fire_side-part-near_leg" data-rig-part-def="near_leg" data-rig-bone="near_leg" data-rig-z="40" data-rig-pivot="maryo_fire_side_near_leg_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_near_leg" />
+      <g id="ambition-rig-fire_side-part-torso" data-rig-part-def="torso" data-rig-bone="torso" data-rig-z="50" data-rig-pivot="maryo_fire_side_torso_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_torso" />
+      <g id="ambition-rig-fire_side-part-far_arm" data-rig-part-def="far_arm" data-rig-bone="far_arm" data-rig-z="10" data-rig-pivot="maryo_fire_side_far_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_far_arm" />
+      <g id="ambition-rig-fire_side-part-near_arm" data-rig-part-def="near_arm" data-rig-bone="near_arm" data-rig-z="70" data-rig-pivot="maryo_fire_side_near_arm_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_near_arm" />
+      <g id="ambition-rig-fire_side-part-head" data-rig-part-def="head" data-rig-bone="head" data-rig-z="60" data-rig-pivot="maryo_fire_side_head_pivot" data-rig-bind-angle="0" data-rig-elements="maryo_fire_side_head" />
+    </g>
+  </metadata>
+  <!-- END AMBITION SVG RIG v1 -->
+</svg>

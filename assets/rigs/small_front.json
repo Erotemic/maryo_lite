@@ -1,0 +1,153 @@
+{
+  "frame": {
+    "width": 80,
+    "height": 96,
+    "center_x": 40,
+    "ground_y": 95
+  },
+  "view": "Mary-O - Short Front",
+  "svg_source": {
+    "filename": "mary_o_v2.svg",
+    "ref_dpi": 25.4,
+    "scale": 1.0
+  },
+  "parts": [
+    {
+      "name": "character_right_leg",
+      "bone": "character_right_leg",
+      "z": 0.0,
+      "include": [
+        "use318"
+      ],
+      "pivot": [
+        34.64,
+        956.287
+      ]
+    },
+    {
+      "name": "character_left_leg",
+      "bone": "character_left_leg",
+      "z": 3.0,
+      "include": [
+        "maryo_short_front_character_left_leg_art"
+      ],
+      "pivot": [
+        43.146,
+        956.003
+      ]
+    },
+    {
+      "name": "torso",
+      "bone": "torso",
+      "z": 6.0,
+      "include": [
+        "use332"
+      ],
+      "pivot": [
+        38.33,
+        949.887
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "z": 9.0,
+      "include": [
+        "use339"
+      ],
+      "pivot": [
+        38.315,
+        936.276
+      ]
+    },
+    {
+      "name": "death_expression",
+      "bone": "head",
+      "z": 11.0,
+      "include": [
+        "g818"
+      ],
+      "pivot": [
+        38.315,
+        936.276
+      ]
+    },
+    {
+      "name": "character_left_arm",
+      "bone": "character_left_arm",
+      "z": 22.0,
+      "include": [
+        "use388"
+      ],
+      "pivot": [
+        44.394,
+        948.112
+      ]
+    },
+    {
+      "name": "character_right_arm",
+      "bone": "character_right_arm",
+      "z": 24.0,
+      "include": [
+        "use381"
+      ],
+      "pivot": [
+        33.737,
+        947.877
+      ]
+    }
+  ],
+  "clips": {
+    "death": {
+      "frames": [
+        {
+          "character_right_leg": [
+            34.6396,
+            75.687,
+            0.0,
+            1.0,
+            0
+          ],
+          "character_left_leg": [
+            43.146,
+            75.4034,
+            0.0,
+            1.0,
+            0
+          ],
+          "torso": [
+            38.3302,
+            69.2869,
+            0.0,
+            1.0,
+            0
+          ],
+          "head": [
+            38.3151,
+            55.6759,
+            0.0,
+            1.0,
+            0
+          ],
+          "character_left_arm": [
+            44.3936,
+            67.5116,
+            0.0,
+            1.0,
+            0
+          ],
+          "character_right_arm": [
+            33.7371,
+            67.2769,
+            0.0,
+            1.0,
+            0
+          ]
+        }
+      ],
+      "ms": 120,
+      "loop": false
+    }
+  },
+  "source": "Ambition Mary-O v2 SVG part rig and authored animation sampling"
+}

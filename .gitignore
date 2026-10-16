@@ -1,0 +1,31 @@
+# All binary art and audio are generated from tracked SVG, LDtk, and Python.
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.ico
+*.wav
+*.ogg
+*.mp3
+*.flac
+*.mp4
+*.ttf
+*.otf
+*.pyc
+*.pyo
+*.bin
+*.cache
+
+# Project-local generated assets and environments.
+assets/generated/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+.DS_Store

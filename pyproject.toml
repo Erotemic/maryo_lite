@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mary-o-lite"
+version = "0.1.0"
+description = "A source-driven, teaching-friendly Python platformer based on Ambition's Mary-O"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pygame-ce>=2.5,<3", "Pillow>=10", "CairoSVG>=2.7"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+mary-o-lite = "mary_o_lite.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

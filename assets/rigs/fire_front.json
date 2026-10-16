@@ -1,0 +1,172 @@
+{
+  "frame": {
+    "width": 80,
+    "height": 96,
+    "center_x": 40,
+    "ground_y": 95
+  },
+  "view": "Mary-O - Fire Front",
+  "svg_source": {
+    "filename": "mary_o_v2.svg",
+    "ref_dpi": 25.4,
+    "scale": 1.0
+  },
+  "parts": [
+    {
+      "name": "character_right_leg",
+      "bone": "character_right_leg",
+      "z": 0.0,
+      "include": [
+        "use852"
+      ],
+      "pivot": [
+        217.846,
+        946.791
+      ]
+    },
+    {
+      "name": "character_left_leg",
+      "bone": "character_left_leg",
+      "z": 2.0,
+      "include": [
+        "use859"
+      ],
+      "pivot": [
+        230.867,
+        946.828
+      ]
+    },
+    {
+      "name": "back_wings",
+      "bone": "torso_back",
+      "z": 4.0,
+      "include": [
+        "maryo_fire_front_back_wings_art"
+      ],
+      "pivot": [
+        223.215,
+        924.375
+      ]
+    },
+    {
+      "name": "torso",
+      "bone": "torso",
+      "z": 7.0,
+      "include": [
+        "maryo_fire_front_torso_art"
+      ],
+      "pivot": [
+        223.215,
+        924.375
+      ]
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "z": 10.0,
+      "include": [
+        "maryo_fire_front_head_art"
+      ],
+      "pivot": [
+        222.438,
+        903.156
+      ]
+    },
+    {
+      "name": "death_expression",
+      "bone": "head",
+      "z": 15.0,
+      "include": [
+        "g1110"
+      ],
+      "pivot": [
+        222.438,
+        903.156
+      ]
+    },
+    {
+      "name": "character_right_arm",
+      "bone": "character_right_arm",
+      "z": 26.0,
+      "include": [
+        "maryo_fire_front_character_right_arm_common"
+      ],
+      "pivot": [
+        210.883,
+        915.764
+      ]
+    },
+    {
+      "name": "character_left_arm",
+      "bone": "character_left_arm",
+      "z": 36.0,
+      "include": [
+        "maryo_fire_front_character_left_arm_common"
+      ],
+      "pivot": [
+        235.492,
+        915.7
+      ]
+    }
+  ],
+  "clips": {
+    "death": {
+      "frames": [
+        {
+          "character_right_leg": [
+            33.8463,
+            65.591,
+            0.0,
+            1.0,
+            0
+          ],
+          "character_left_leg": [
+            46.867,
+            65.6278,
+            0.0,
+            1.0,
+            0
+          ],
+          "torso_back": [
+            39.2152,
+            43.1751,
+            0.0,
+            1.0,
+            0
+          ],
+          "torso": [
+            39.2152,
+            43.1751,
+            0.0,
+            1.0,
+            0
+          ],
+          "head": [
+            38.4381,
+            21.9557,
+            0.0,
+            1.0,
+            0
+          ],
+          "character_right_arm": [
+            26.8832,
+            34.564,
+            0.0,
+            1.0,
+            0
+          ],
+          "character_left_arm": [
+            51.4921,
+            34.5004,
+            0.0,
+            1.0,
+            0
+          ]
+        }
+      ],
+      "ms": 120,
+      "loop": false
+    }
+  },
+  "source": "Ambition Mary-O v2 SVG part rig and authored animation sampling"
+}
