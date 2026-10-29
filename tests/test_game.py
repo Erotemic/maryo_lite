@@ -169,3 +169,73 @@ def test_eight_room_progression_has_no_dead_end():
         visited.append(name)
         name=rooms[name].next_room
     assert len(set(visited))==8 and name=='mary_o_1_1'
+
+
+def test_descent_pipe_vault_has_floor_and_collectible_coins():
+    g = Game('mary_o_1_1')
+    entrance = next(pipe for pipe in g.pipes if pipe.fields.get('link') == 'descent'
+                    and pipe.fields.get('role') == 'Entrance')
+    p = g.player
+    p.x, p.y, p.grounded = entrance.cx - p.w / 2, entrance.y - p.h, True
+    g.step(Command(down=True))
+    assert g.pipe_state == 'enter'
+    for _ in range(120):
+        g.step()
+    assert g.pipe_state == ''
+    assert p.dead_time == 0 and g.lives == 3
+    assert p.grounded and p.foot[1] == 704
+    assert g.room.terrain(55, 44) == 1
+    for _ in range(35):
+        g.step(Command(move=1))
+    assert g.coins > 0
+    assert p.dead_time == 0 and p.grounded
+
+
+def test_tall_maryo_emerges_above_vault_floor():
+    g = Game('mary_o_1_1')
+    entrance = next(pipe for pipe in g.pipes if pipe.fields.get('link') == 'descent'
+                    and pipe.fields.get('role') == 'Entrance')
+    p = g.player
+    p.form = 'tall'
+    p.h = TALL_H
+    p.x, p.y, p.grounded = entrance.cx - p.w / 2, entrance.y - p.h, True
+    g.step(Command(down=True))
+    assert g.pipe_state == 'enter'
+    for _ in range(120):
+        g.step()
+    assert p.dead_time == 0 and g.lives == 3
+    assert p.grounded and p.foot[1] == 704
+    assert p.form == 'tall'
+
+
+def test_vault_entrance_to_return_pipe_can_be_traversed():
+    g = Game('mary_o_1_1')
+    entrance = next(pipe for pipe in g.pipes if pipe.fields.get('link') == 'descent'
+                    and pipe.fields.get('role') == 'Entrance')
+    exit_pipe = next(pipe for pipe in g.pipes if pipe.fields.get('link') == 'ascent'
+                     and pipe.fields.get('role') == 'Entrance')
+    p = g.player
+    p.x, p.y, p.grounded = entrance.cx - p.w / 2, entrance.y - p.h, True
+    g.step(Command(down=True))
+    for _ in range(120):
+        g.step()
+    # Walk to the return pipe on the underground vault floor.
+    for _ in range(200):
+        if p.foot[0] >= exit_pipe.cx - 5:
+            break
+        g.step(Command(move=1))
+    else:
+        assert False, 'Could not reach the return pipe'
+    assert p.grounded and p.dead_time == 0
+    # Jump into the downward-facing mouth, then hold Up to enter it.
+    g.step(Command(jump=True, held_jump=True, up=True))
+    for _ in range(40):
+        g.step(Command(up=True, held_jump=True))
+        if g.pipe_state:
+            break
+    assert g.pipe_state == 'enter'
+    for _ in range(70):
+        g.step()
+    assert g.pipe_state == ''
+    assert p.foot[1] < exit_pipe.y
+    assert p.dead_time == 0

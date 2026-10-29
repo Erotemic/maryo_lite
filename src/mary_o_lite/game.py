@@ -717,7 +717,10 @@ class Game:
                     p = self.player
                 elif dest is not None:
                     p.x=dest.cx-p.w/2
-                    p.y=dest.y-p.h+10 if dest.fields.get('mouth')=='Up' else dest.bottom-10
+                    # Keep feet at the same height for all forms. Otherwise
+                    # tall Mary-O can emerge below a receiving floor.
+                    p.y=(dest.y-p.h+10 if dest.fields.get('mouth')=='Up'
+                         else dest.bottom+SMALL_H-10-p.h)
                 p.vx=p.vy=0
                 p.grounded=False
                 self.pipe_state='exit'
